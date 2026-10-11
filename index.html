@@ -9,13 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        /* ========== RESET & GLOBAL ========== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Cairo', sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
 
         body {
             background: linear-gradient(145deg, #f8fbf4 0%, #eef5e7 100%);
@@ -25,7 +19,6 @@
             transition: background 0.3s, color 0.3s;
         }
 
-        /* ========== DARK MODE ========== */
         body.dark-mode {
             background: linear-gradient(145deg, #1a2a1a 0%, #0d1a0d 100%);
             color: #e8f0e8;
@@ -45,50 +38,38 @@
 
         body.dark-mode .logo-text { color: #e8f0e8; }
         body.dark-mode .nav-links a { color: #c8dcc8; }
-
         body.dark-mode .stat-card {
             background: rgba(30, 50, 30, 0.4);
             border: 1px solid rgba(100, 150, 100, 0.15);
         }
-
         body.dark-mode .stat-card .number { color: #e8f0e8; }
         body.dark-mode .stat-card .label { color: #a0c0a0; }
-
         body.dark-mode .student-table th {
             color: #c8dcc8;
             border-bottom: 2px solid rgba(100, 150, 100, 0.2);
         }
-
         body.dark-mode .student-table td {
             border-bottom: 1px solid rgba(100, 150, 100, 0.1);
         }
-
         body.dark-mode .student-table tr:hover td {
             background: rgba(100, 150, 100, 0.08);
         }
-
         body.dark-mode .student-name-link { color: #c8dcc8; }
         body.dark-mode .session-item { background: rgba(30, 50, 30, 0.4); }
         body.dark-mode .session-item:hover { background: rgba(30, 50, 30, 0.7); }
         body.dark-mode .session-info .date { color: #e8f0e8; }
-        body.dark-mode .session-info .detail { color: #a0c0a0; }
-
         body.dark-mode .datetime-bar {
             background: rgba(30, 50, 30, 0.4);
             border: 1px solid rgba(100, 150, 100, 0.15);
         }
-
         body.dark-mode .datetime-bar span { color: #c8dcc8; }
-
         body.dark-mode .modal-box {
             background: rgba(30, 50, 30, 0.9);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(100, 150, 100, 0.2);
             color: #e8f0e8;
         }
-
         body.dark-mode .modal-box label { color: #c8dcc8; }
-
         body.dark-mode .modal-box input,
         body.dark-mode .modal-box select,
         body.dark-mode .modal-box textarea {
@@ -96,85 +77,68 @@
             border: 1px solid rgba(100, 150, 100, 0.2);
             color: #e8f0e8;
         }
-
         body.dark-mode .modal-box input:focus,
         body.dark-mode .modal-box select:focus,
         body.dark-mode .modal-box textarea:focus {
             border-color: #b48b4b;
             background: rgba(30, 50, 30, 0.8);
         }
-
         body.dark-mode .footer {
             border-top: 1px solid rgba(100, 150, 100, 0.15);
             color: #a0c0a0;
         }
-
         body.dark-mode .section-title { color: #e8f0e8; }
-
         body.dark-mode .search-box input {
             background: rgba(20, 40, 20, 0.6);
             border: 1px solid rgba(100, 150, 100, 0.2);
             color: #e8f0e8;
         }
-
         body.dark-mode .search-box input:focus {
             border-color: #b48b4b;
             background: rgba(30, 50, 30, 0.8);
         }
-
         body.dark-mode .btn {
             background: rgba(30, 50, 30, 0.6);
             border: 1px solid rgba(100, 150, 100, 0.2);
             color: #c8dcc8;
         }
-
         body.dark-mode .btn-primary {
             background: #b48b4b;
             border-color: #b48b4b;
             color: #1a2a1a;
         }
-
         body.dark-mode .btn-success {
             background: #5f8a5f;
             border-color: #5f8a5f;
             color: #fff;
         }
-
         body.dark-mode .btn-danger {
             background: rgba(200, 80, 80, 0.2);
             border-color: #c55;
             color: #f88;
         }
-
         body.dark-mode .btn-gold {
             background: #b48b4b;
             border-color: #b48b4b;
             color: #1a2a1a;
         }
-
-        body.dark-mode .badge { background: rgba(180, 139, 75, 0.2); }
-
         body.dark-mode .previous-box {
             background: rgba(180, 139, 75, 0.1) !important;
             border-color: #b48b4b !important;
         }
-
         body.dark-mode .previous-box-review {
             background: rgba(95, 138, 95, 0.1) !important;
             border-color: #5f8a5f !important;
         }
-
         body.dark-mode .previous-box .label,
         body.dark-mode .previous-box-review .label {
             color: #c8dcc8 !important;
         }
-
         body.dark-mode .previous-box .content,
         body.dark-mode .previous-box-review .content {
             color: #e8f0e8 !important;
         }
 
-        /* ========== GLASSMORPHISM CARD ========== */
         .glass {
             background: rgba(255, 255, 255, 0.45);
             backdrop-filter: blur(14px);
@@ -188,10 +152,8 @@
 
         .glass:hover { box-shadow: 0 30px 50px rgba(0, 40, 0, 0.10); }
 
-        /* ========== LAYOUT ========== */
         .app-container { max-width: 1440px; margin: 0 auto; }
 
-        /* ========== HEADER / NAV ========== */
         .header {
             display: flex;
             flex-wrap: wrap;
@@ -204,21 +166,6 @@
             border-radius: 60px;
             border: 1px solid rgba(255, 215, 140, 0.4);
             box-shadow: 0 10px 28px rgba(0, 20, 0, 0.04);
-        }
-
-        .logo-area { display: flex; align-items: center; gap: 14px; }
-
-        .logo-icon {
-            width: 54px;
-            height: 54px;
-            background: linear-gradient(145deg, #d4b17c, #b8915a);
-            border-radius: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            color: #fff8ed;
-            box-shadow: 0 8px 16px rgba(150, 110, 50, 0.2);
         }
 
         .logo-text {
@@ -284,7 +231,6 @@
 
         .dark-toggle:hover { background: rgba(180, 139, 75, 0.15); }
 
-        /* ========== DASHBOARD STATS ========== */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -302,25 +248,10 @@
             transition: 0.2s;
         }
 
-        .stat-card i {
-            font-size: 28px;
-            color: #b48b4b;
-            margin-bottom: 6px;
-        }
+        .stat-card i { font-size: 28px; color: #b48b4b; margin-bottom: 6px; }
+        .stat-card .number { font-size: 32px; font-weight: 800; color: #1a3a1a; }
+        .stat-card .label { font-size: 15px; color: #3d5a3d; font-weight: 600; }
 
-        .stat-card .number {
-            font-size: 32px;
-            font-weight: 800;
-            color: #1a3a1a;
-        }
-
-        .stat-card .label {
-            font-size: 15px;
-            color: #3d5a3d;
-            font-weight: 600;
-        }
-
-        /* ========== TABLES / STUDENTS ========== */
         .section-title {
             font-size: 22px;
             font-weight: 700;
@@ -452,15 +383,6 @@
 
         .actions-cell { display: flex; gap: 8px; flex-wrap: wrap; }
 
-        .badge {
-            background: rgba(180, 139, 75, 0.15);
-            padding: 4px 14px;
-            border-radius: 40px;
-            font-size: 13px;
-            font-weight: 600;
-        }
-
-        /* ========== STUDENT PAGE (SESSIONS) ========== */
         .session-item {
             background: rgba(255, 255, 255, 0.4);
             backdrop-filter: blur(4px);
@@ -488,12 +410,10 @@
 
         .session-info .date { font-weight: 700; color: #1a3a1a; }
         .session-info .day { color: #b48b4b; font-weight: 600; }
-        .session-info .detail { color: #2d4a2d; }
         .session-info i { color: #b48b4b; width: 20px; }
 
         .session-actions { display: flex; gap: 8px; }
 
-        /* ========== STUDENT INFO CARD ========== */
         .student-info-card {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -515,11 +435,54 @@
         .student-info-card .info-item i { color: #b48b4b; font-size: 20px; }
         .student-info-card .info-item .value { color: #1a3a1a; font-weight: 700; }
 
-        /* ========== STARS RATING ========== */
+        /* بطاقة تفاصيل الطالب */
+        .student-details-card {
+            margin-bottom: 24px;
+            padding: 22px 26px;
+            background: linear-gradient(145deg, rgba(212, 175, 55, 0.08), rgba(180, 139, 75, 0.04));
+            border: 2px solid rgba(212, 175, 55, 0.35);
+            border-radius: 24px;
+            box-shadow: 0 8px 24px rgba(0, 20, 0, 0.05);
+        }
+
+        .student-details-card .details-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+            padding-bottom: 12px;
+            border-bottom: 2px dashed rgba(180, 139, 75, 0.3);
+            font-family: 'Marhey', sans-serif;
+            font-size: 20px;
+            font-weight: 800;
+            color: #8a6a1a;
+        }
+
+        .student-details-card .details-header i {
+            color: #d4af37;
+            font-size: 22px;
+        }
+
+        .student-details-card .details-content {
+            font-size: 17px;
+            line-height: 1.9;
+            color: #2d4a2d;
+            font-weight: 500;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        body.dark-mode .student-details-card {
+            background: linear-gradient(145deg, rgba(212, 175, 55, 0.12), rgba(180, 139, 75, 0.05));
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+
+        body.dark-mode .student-details-card .details-header { color: #f5e6a8; }
+        body.dark-mode .student-details-card .details-content { color: #e8f0e8; }
+
         .stars { color: #d4b17c; letter-spacing: 2px; }
         .stars-empty { color: #ddd; }
 
-        /* ========== CHART CONTAINER ========== */
         .chart-container {
             margin: 20px 0;
             padding: 20px;
@@ -529,7 +492,6 @@
             max-height: 300px;
         }
 
-        /* ========== TOAST NOTIFICATIONS ========== */
         .toast-container {
             position: fixed;
             top: 20px;
@@ -567,7 +529,6 @@
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* ========== MODAL (FORM) ========== */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -585,11 +546,11 @@
         .modal-overlay.show { display: flex; }
 
         .modal-box {
-            background: rgba(255, 255, 245, 0.85);
+            background: rgba(255, 255, 245, 0.95);
             backdrop-filter: blur(20px);
             border-radius: 48px;
             padding: 32px 36px;
-            max-width: 540px;
+            max-width: 640px;
             width: 95%;
             box-shadow: 0 40px 80px rgba(0, 20, 0, 0.2);
             border: 1px solid rgba(255, 215, 140, 0.4);
@@ -626,7 +587,7 @@
             padding: 12px 16px;
             border-radius: 30px;
             border: 1px solid rgba(180, 139, 75, 0.25);
-            background: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.8);
             font-size: 15px;
             outline: none;
             transition: 0.2s;
@@ -639,7 +600,7 @@
         .modal-box select:focus,
         .modal-box textarea:focus {
             border-color: #b48b4b;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
         }
 
         .modal-actions {
@@ -649,7 +610,47 @@
             flex-wrap: wrap;
         }
 
-        /* ========== PREVIOUS SESSION BOXES ========== */
+        .template-hints {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin: 10px 0;
+            padding: 10px;
+            background: rgba(180, 139, 75, 0.08);
+            border-radius: 16px;
+            border: 1px dashed rgba(180, 139, 75, 0.4);
+        }
+
+        .template-hints .tpl-btn {
+            padding: 6px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(180, 139, 75, 0.3);
+            background: rgba(255, 255, 255, 0.7);
+            color: #1a3a1a;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .template-hints .tpl-btn:hover {
+            background: #d4b17c;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .template-hints .tpl-label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #8a6a1a;
+            width: 100%;
+            margin-bottom: 4px;
+        }
+
         .previous-box {
             background: rgba(180, 139, 75, 0.08);
             border-right: 4px solid #b48b4b;
@@ -686,7 +687,6 @@
             font-size: 16px;
         }
 
-        /* ========== FOOTER ========== */
         .footer {
             margin-top: 50px;
             text-align: center;
@@ -699,7 +699,6 @@
 
         .footer i { color: #b48b4b; }
 
-        /* ========== RESPONSIVE ========== */
         @media (max-width: 700px) {
             .header { flex-direction: column; align-items: stretch; gap: 14px; }
             .nav-links { justify-content: center; }
@@ -715,7 +714,6 @@
             .student-info-card { grid-template-columns: 1fr; }
         }
 
-        /* ========== PAGE VISIBILITY ========== */
         .page { display: none; animation: fadePage 0.3s ease; }
         .page.active { display: block; }
 
@@ -724,7 +722,6 @@
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* ========== DATETIME BAR ========== */
         .datetime-bar {
             display: flex;
             flex-wrap: wrap;
@@ -741,13 +738,11 @@
         .datetime-bar span { font-weight: 600; color: #1a3a1a; }
         .datetime-bar i { color: #b48b4b; margin-left: 8px; }
 
-        /* ========== SCROLLBAR ========== */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.05); border-radius: 10px; }
         ::-webkit-scrollbar-thumb { background: #d4b17c; border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: #b8915a; }
 
-        /* ========== LESSONS PAGE ========== */
         .lessons-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -795,7 +790,6 @@
             font-size: 12px;
             font-weight: 700;
             width: fit-content;
-            box-shadow: 0 4px 10px rgba(180, 139, 75, 0.25);
         }
 
         .lesson-card h3 {
@@ -862,12 +856,10 @@
             border-radius: 40px;
             font-size: 11px;
             font-weight: 700;
-            box-shadow: 0 4px 10px rgba(180, 139, 75, 0.3);
         }
 
         body.dark-mode .lesson-card.builtin {
             background: linear-gradient(145deg, rgba(80, 60, 20, 0.5), rgba(60, 45, 15, 0.4));
-            border-color: rgba(212, 175, 55, 0.5);
         }
 
         .lesson-empty {
@@ -892,7 +884,6 @@
             border-radius: 50px;
             border: 1px solid rgba(180, 139, 75, 0.3);
             background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(4px);
             font-size: 15px;
             outline: none;
             cursor: pointer;
@@ -901,7 +892,6 @@
 
         body.dark-mode .lesson-card {
             background: linear-gradient(145deg, rgba(30, 50, 30, 0.6), rgba(20, 40, 20, 0.4));
-            border-color: rgba(100, 150, 100, 0.2);
         }
 
         body.dark-mode .lesson-card h3 { color: #e8f0e8; }
@@ -909,13 +899,9 @@
 
         body.dark-mode .search-box-select {
             background: rgba(20, 40, 20, 0.6);
-            border-color: rgba(100, 150, 100, 0.2);
             color: #e8f0e8;
         }
 
-        body.dark-mode .lesson-empty { color: #7a9a7a; }
-
-        /* ========== MONTH FILTER BAR ========== */
         .sessions-summary {
             display: flex;
             flex-wrap: wrap;
@@ -949,14 +935,8 @@
             text-align: center;
         }
 
-        body.dark-mode .sessions-summary {
-            background: rgba(180, 139, 75, 0.1);
-            border-color: rgba(180, 139, 75, 0.3);
-        }
-
         body.dark-mode .sessions-summary .summary-item { color: #e8f0e8; }
 
-        /* ========== DRAFT INDICATOR ========== */
         .draft-indicator {
             display: none;
             align-items: center;
@@ -972,14 +952,7 @@
         }
 
         .draft-indicator.show { display: inline-flex; }
-        .draft-indicator i { animation: pulse 1.5s infinite; }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.4; }
-        }
-
-        /* ========== FILTER INPUTS ========== */
         .filter-input {
             flex: 0 1 200px;
             padding: 14px 20px;
@@ -991,19 +964,13 @@
             font-family: 'Cairo', sans-serif;
         }
 
-        .filter-input:focus {
-            border-color: #b48b4b;
-            background: rgba(255, 255, 255, 0.85);
-        }
-
         body.dark-mode .filter-input {
             background: rgba(20, 40, 20, 0.6);
-            border-color: rgba(100, 150, 100, 0.2);
             color: #e8f0e8;
         }
 
         /* ============================================================
-           PRESENTATION MODE - POWERPOINT STYLE
+           PRESENTATION MODE
            ============================================================ */
         .presentation-overlay {
             display: none;
@@ -1023,7 +990,7 @@
             width: 100%; height: 100%;
             display: none;
             flex-direction: column;
-            padding: 70px 90px;
+            padding: 60px 80px;
             overflow-y: auto;
             animation: slideEnter 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
@@ -1064,14 +1031,8 @@
             pointer-events: none;
             z-index: 0;
             letter-spacing: 8px;
-            text-shadow: 0 0 40px rgba(212, 175, 55, 0.1);
         }
 
-        .presentation-slide[data-theme="2"]::before {
-            color: rgba(255, 215, 140, 0.05);
-        }
-
-        /* ===== BRAND WITH DECORATED LOGO ===== */
         .presentation-brand {
             position: absolute;
             top: 24px;
@@ -1085,7 +1046,6 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(212, 175, 55, 0.3);
             border-radius: 50px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
         }
 
         .presentation-brand .brand-logo {
@@ -1097,18 +1057,6 @@
             justify-content: center;
             font-size: 24px;
             color: #1a2a1a;
-            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .presentation-brand .brand-logo::after {
-            content: '✿';
-            position: absolute;
-            font-size: 10px;
-            color: rgba(255, 255, 255, 0.5);
-            top: 4px;
-            right: 6px;
         }
 
         .presentation-brand .brand-text {
@@ -1125,15 +1073,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             letter-spacing: 1px;
-            position: relative;
-        }
-
-        .presentation-brand .brand-name::before {
-            content: '❁';
-            color: #d4af37;
-            font-size: 14px;
-            margin-left: 6px;
-            -webkit-text-fill-color: #d4af37;
         }
 
         .presentation-brand .brand-sub {
@@ -1169,8 +1108,6 @@
             font-weight: 700;
             width: fit-content;
             margin-bottom: 24px;
-            letter-spacing: 1px;
-            backdrop-filter: blur(6px);
         }
 
         .presentation-title {
@@ -1183,7 +1120,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             letter-spacing: 1px;
-            text-shadow: 0 4px 30px rgba(212, 175, 55, 0.2);
         }
 
         .presentation-divider {
@@ -1198,168 +1134,122 @@
             font-size: 24px;
             line-height: 2.1;
             color: rgba(255, 255, 255, 0.95);
-            font-weight: 400;
-            white-space: pre-wrap;
-            max-height: 60vh;
+            max-height: 65vh;
             overflow-y: auto;
-            padding: 30px 34px;
-            background: rgba(0, 0, 0, 0.18);
-            border-radius: 28px;
+            padding: 24px 28px;
+            background: rgba(0, 0, 0, 0.15);
+            border-radius: 24px;
             border-right: 5px solid #d4af37;
-            backdrop-filter: blur(8px);
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(6px);
         }
 
         .presentation-body::-webkit-scrollbar { width: 6px; }
         .presentation-body::-webkit-scrollbar-thumb { background: #d4af37; border-radius: 6px; }
 
-        /* Smart Markdown Rendering - ENHANCED */
         .md-h1 {
             font-family: 'Marhey', sans-serif;
-            font-size: 44px;
+            font-size: 42px;
             font-weight: 800;
             color: #f5e6a8;
-            margin: 24px 0 28px;
-            line-height: 1.3;
+            margin: 20px 0 24px;
             border-bottom: 3px solid rgba(212, 175, 55, 0.4);
-            padding-bottom: 14px;
-            text-shadow: 0 2px 12px rgba(212, 175, 55, 0.3);
+            padding-bottom: 12px;
             animation: fadeInUp 0.5s ease;
         }
 
         .md-h2 {
             font-family: 'Marhey', sans-serif;
-            font-size: 34px;
+            font-size: 32px;
             font-weight: 700;
             color: #ffffff;
-            margin: 26px 0 18px;
-            line-height: 1.3;
+            margin: 22px 0 16px;
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 12px;
             animation: fadeInUp 0.5s ease;
         }
 
         .md-h2::before {
             content: '';
-            display: inline-block;
             width: 7px;
-            height: 34px;
+            height: 32px;
             background: linear-gradient(180deg, #d4af37, #b48b4b);
             border-radius: 7px;
             box-shadow: 0 0 14px rgba(212, 175, 55, 0.5);
         }
 
         .md-h3 {
-            font-size: 26px;
+            font-size: 25px;
             font-weight: 700;
             color: #f5e6a8;
-            margin: 20px 0 14px;
+            margin: 18px 0 12px;
             display: flex;
             align-items: center;
             gap: 10px;
-            animation: fadeInUp 0.5s ease;
         }
 
         .md-h3::before {
             content: '❋';
             color: #d4af37;
-            font-size: 18px;
+            font-size: 17px;
         }
 
         .md-bullet {
             display: flex;
             align-items: flex-start;
-            gap: 16px;
-            margin: 14px 0;
-            font-size: 23px;
-            line-height: 1.9;
-            padding: 12px 20px;
+            gap: 14px;
+            margin: 12px 0;
+            font-size: 22px;
+            line-height: 1.85;
+            padding: 10px 18px;
             background: rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
+            border-radius: 14px;
             border-right: 4px solid rgba(212, 175, 55, 0.35);
             animation: fadeInRight 0.4s ease;
-            transition: all 0.25s ease;
-        }
-
-        .md-bullet:hover {
-            background: rgba(255, 255, 255, 0.09);
-            transform: translateX(-4px);
         }
 
         .md-bullet .bullet-icon {
             color: #d4af37;
-            font-size: 26px;
+            font-size: 24px;
             flex-shrink: 0;
             margin-top: 2px;
-            filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.5));
         }
 
-        .md-bullet.check {
-            background: rgba(107, 207, 107, 0.08);
-            border-right-color: #6bcf6b;
-        }
-        .md-bullet.check .bullet-icon { color: #6bcf6b; filter: drop-shadow(0 0 6px rgba(107, 207, 107, 0.5)); }
-
-        .md-bullet.cross {
-            background: rgba(255, 107, 107, 0.08);
-            border-right-color: #ff6b6b;
-        }
+        .md-bullet.check { background: rgba(107, 207, 107, 0.08); border-right-color: #6bcf6b; }
+        .md-bullet.check .bullet-icon { color: #6bcf6b; }
+        .md-bullet.cross { background: rgba(255, 107, 107, 0.08); border-right-color: #ff6b6b; }
         .md-bullet.cross .bullet-icon { color: #ff6b6b; }
-
-        .md-bullet.star {
-            background: rgba(255, 215, 0, 0.08);
-            border-right-color: #ffd700;
-        }
+        .md-bullet.star { background: rgba(255, 215, 0, 0.08); border-right-color: #ffd700; }
         .md-bullet.star .bullet-icon { color: #ffd700; }
-
-        .md-bullet.warn {
-            background: rgba(255, 165, 0, 0.12);
-            border-right-color: #ffa500;
-        }
-        .md-bullet.warn .bullet-icon { color: #ffa500; animation: pulseWarn 2s infinite; }
-
-        @keyframes pulseWarn {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.15); }
-        }
-
-        .md-bullet.idea {
-            background: rgba(255, 235, 59, 0.1);
-            border-right-color: #ffeb3b;
-        }
+        .md-bullet.warn { background: rgba(255, 165, 0, 0.12); border-right-color: #ffa500; }
+        .md-bullet.warn .bullet-icon { color: #ffa500; }
+        .md-bullet.idea { background: rgba(255, 235, 59, 0.1); border-right-color: #ffeb3b; }
         .md-bullet.idea .bullet-icon { color: #ffeb3b; }
-
         .md-bullet.quran {
             background: linear-gradient(135deg, rgba(212, 175, 55, 0.18), rgba(180, 139, 75, 0.08));
             border-right-color: #d4af37;
             border: 2px solid rgba(212, 175, 55, 0.4);
             border-right-width: 5px;
-            font-size: 24px;
-            padding: 14px 22px;
+            font-size: 23px;
+            padding: 12px 20px;
         }
-        .md-bullet.quran .bullet-icon { color: #d4af37; font-size: 30px; }
-
-        .md-bullet.note {
-            background: rgba(100, 150, 255, 0.1);
-            border-right-color: #6496ff;
-        }
+        .md-bullet.quran .bullet-icon { color: #d4af37; font-size: 28px; }
+        .md-bullet.note { background: rgba(100, 150, 255, 0.1); border-right-color: #6496ff; }
         .md-bullet.note .bullet-icon { color: #6496ff; }
 
         .md-numbered {
             display: flex;
             align-items: flex-start;
-            gap: 16px;
-            margin: 14px 0;
-            font-size: 23px;
-            line-height: 1.9;
-            animation: fadeInRight 0.4s ease;
+            gap: 14px;
+            margin: 12px 0;
+            font-size: 22px;
+            line-height: 1.85;
         }
 
         .md-numbered .num-badge {
             flex-shrink: 0;
-            width: 38px;
-            height: 38px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             background: linear-gradient(135deg, #d4af37, #b48b4b);
             color: #fff;
@@ -1367,29 +1257,20 @@
             align-items: center;
             justify-content: center;
             font-weight: 800;
-            font-size: 17px;
-            box-shadow: 0 4px 14px rgba(212, 175, 55, 0.45);
+            font-size: 16px;
             margin-top: 3px;
-            animation: pulseBadge 2.5s infinite;
-        }
-
-        @keyframes pulseBadge {
-            0%, 100% { box-shadow: 0 4px 14px rgba(212, 175, 55, 0.45); }
-            50% { box-shadow: 0 4px 22px rgba(212, 175, 55, 0.75); }
         }
 
         .md-quote {
-            margin: 24px 0;
-            padding: 22px 30px;
+            margin: 22px 0;
+            padding: 20px 28px;
             background: linear-gradient(135deg, rgba(212, 175, 55, 0.14), rgba(180, 139, 75, 0.06));
             border-right: 6px solid #d4af37;
-            border-radius: 18px;
+            border-radius: 16px;
             font-style: italic;
-            font-size: 24px;
+            font-size: 23px;
             color: #f5e6a8;
             position: relative;
-            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
-            animation: fadeInUp 0.5s ease;
         }
 
         .md-quote::before {
@@ -1397,90 +1278,27 @@
             position: absolute;
             top: -12px;
             right: 20px;
-            font-size: 54px;
+            font-size: 50px;
             color: #d4af37;
             opacity: 0.7;
             font-style: normal;
-            text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
         }
 
         .md-text {
-            font-size: 23px;
-            line-height: 2;
+            font-size: 22px;
+            line-height: 1.95;
             color: rgba(255, 255, 255, 0.92);
-            margin: 14px 0;
-            animation: fadeInUp 0.4s ease;
+            margin: 12px 0;
         }
 
-        .md-bold {
-            color: #f5e6a8;
-            font-weight: 700;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
-        }
+        .md-bold { color: #f5e6a8; font-weight: 700; }
 
         .md-hr {
             border: none;
             height: 2px;
             background: linear-gradient(90deg, transparent, #d4af37, transparent);
-            margin: 28px 0;
+            margin: 24px 0;
         }
-
-        /* ===== DECORATED LETTERS ===== */
-        .deco-letter {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 54px;
-            height: 54px;
-            border-radius: 50%;
-            font-family: 'Marhey', sans-serif;
-            font-size: 30px;
-            font-weight: 800;
-            color: #fff;
-            margin: 0 4px;
-            vertical-align: middle;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-            position: relative;
-            animation: floatLetter 3s ease-in-out infinite;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .deco-letter::before {
-            content: '';
-            position: absolute;
-            inset: -4px;
-            border-radius: 50%;
-            border: 2px dashed rgba(255, 255, 255, 0.25);
-            animation: rotateSlow 8s linear infinite;
-        }
-
-        .deco-letter::after {
-            content: '✿';
-            position: absolute;
-            top: -8px;
-            right: -4px;
-            font-size: 12px;
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        @keyframes floatLetter {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-4px) rotate(2deg); }
-        }
-
-        @keyframes rotateSlow {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .deco-letter.c1 { background: linear-gradient(135deg, #d4af37, #b48b4b); }
-        .deco-letter.c2 { background: linear-gradient(135deg, #6bcf6b, #3d8a3d); }
-        .deco-letter.c3 { background: linear-gradient(135deg, #6496ff, #3d5fbf); }
-        .deco-letter.c4 { background: linear-gradient(135deg, #ff6b6b, #c53d3d); }
-        .deco-letter.c5 { background: linear-gradient(135deg, #c86bff, #8a3dbf); }
-        .deco-letter.c6 { background: linear-gradient(135deg, #ff9a3d, #c56b1a); }
-        .deco-letter.c7 { background: linear-gradient(135deg, #3dc8c8, #1a8a8a); }
-        .deco-letter.c8 { background: linear-gradient(135deg, #ff6bb5, #c53d80); }
 
         @keyframes fadeInUp {
             0% { opacity: 0; transform: translateY(15px); }
@@ -1504,54 +1322,16 @@
         }
 
         .presentation-slide.cover .presentation-title {
-            font-size: 86px;
+            font-size: 82px;
             margin-bottom: 20px;
-            animation: titleGlow 3s ease-in-out infinite;
-        }
-
-        @keyframes titleGlow {
-            0%, 100% { text-shadow: 0 4px 30px rgba(212, 175, 55, 0.3); }
-            50% { text-shadow: 0 4px 50px rgba(212, 175, 55, 0.7); }
-        }
-
-        .presentation-slide.cover .presentation-category {
-            margin-bottom: 30px;
         }
 
         .presentation-cover-icon {
-            font-size: 96px;
+            font-size: 90px;
             color: #d4af37;
             margin-bottom: 30px;
             text-shadow: 0 0 50px rgba(212, 175, 55, 0.7);
             animation: float 3s ease-in-out infinite;
-            position: relative;
-        }
-
-        .presentation-cover-icon::before,
-        .presentation-cover-icon::after {
-            content: '✦';
-            position: absolute;
-            font-size: 24px;
-            color: #f5e6a8;
-            opacity: 0.7;
-            animation: sparkle 2s ease-in-out infinite;
-        }
-
-        .presentation-cover-icon::before {
-            top: -10px;
-            right: -30px;
-            animation-delay: 0.5s;
-        }
-
-        .presentation-cover-icon::after {
-            bottom: -10px;
-            left: -30px;
-            animation-delay: 1s;
-        }
-
-        @keyframes sparkle {
-            0%, 100% { opacity: 0.3; transform: scale(0.8); }
-            50% { opacity: 1; transform: scale(1.2); }
         }
 
         @keyframes float {
@@ -1565,7 +1345,6 @@
             margin-top: 20px;
             font-weight: 300;
             letter-spacing: 2px;
-            animation: fadeInUp 1s ease 0.5s both;
         }
 
         .presentation-slide.end {
@@ -1593,7 +1372,6 @@
             border: 1px solid rgba(212, 175, 55, 0.3);
             border-radius: 60px;
             z-index: 100;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
         }
 
         .presentation-controls button {
@@ -1615,7 +1393,6 @@
             background: #d4af37;
             color: #1a2a1a;
             transform: scale(1.1);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
         }
 
         .presentation-controls .page-indicator {
@@ -1624,7 +1401,6 @@
             font-size: 16px;
             min-width: 70px;
             text-align: center;
-            letter-spacing: 1px;
         }
 
         .presentation-controls .divider-ctrl {
@@ -1650,7 +1426,6 @@
             justify-content: center;
             font-size: 20px;
             transition: 0.2s;
-            backdrop-filter: blur(10px);
         }
 
         .presentation-close:hover {
@@ -1667,7 +1442,6 @@
             background: linear-gradient(90deg, #d4af37, #f5e6a8);
             transition: width 0.5s ease;
             z-index: 100;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
         }
 
         .presentation-slide-badge {
@@ -1678,59 +1452,281 @@
             font-size: 13px;
             font-weight: 600;
             letter-spacing: 2px;
-            z-index: 10;
         }
+
+        /* PDF-STYLE TEMPLATES */
+        .pdf-title-box {
+            background: linear-gradient(135deg, #4a5fa5 0%, #2c3e7a 100%);
+            color: #fff;
+            font-family: 'Marhey', sans-serif;
+            font-size: 34px;
+            font-weight: 800;
+            text-align: center;
+            padding: 18px 40px;
+            border-radius: 16px;
+            margin: 20px auto 26px;
+            box-shadow: 0 8px 24px rgba(44, 62, 122, 0.4);
+            max-width: 95%;
+            letter-spacing: 1px;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .pdf-letter-box {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #5b9bd5, #3a7bbf);
+            color: #fff;
+            font-family: 'Marhey', sans-serif;
+            font-size: 38px;
+            font-weight: 800;
+            border-radius: 12px;
+            margin: 8px;
+            box-shadow: 0 6px 16px rgba(58, 123, 191, 0.4);
+            border: 3px solid #2c5f8f;
+            vertical-align: middle;
+        }
+
+        .pdf-letter-box.red { background: linear-gradient(135deg, #e74c3c, #c0392b); border-color: #a5281a; }
+        .pdf-letter-box.green { background: linear-gradient(135deg, #27ae60, #1e8449); border-color: #145a32; }
+        .pdf-letter-box.yellow { background: linear-gradient(135deg, #f39c12, #d68910); border-color: #b9770e; }
+        .pdf-letter-box.purple { background: linear-gradient(135deg, #8e44ad, #6c3483); border-color: #4a235a; }
+
+        .pdf-box {
+            padding: 16px 22px;
+            border-radius: 14px;
+            margin: 14px 0;
+            font-size: 22px;
+            line-height: 1.8;
+            font-weight: 600;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+            border-right: 6px solid;
+            animation: fadeInRight 0.4s ease;
+        }
+
+        .pdf-box-red {
+            background: linear-gradient(135deg, rgba(231, 76, 60, 0.18), rgba(192, 57, 43, 0.1));
+            border-right-color: #e74c3c;
+            color: #ffab91;
+        }
+        .pdf-box-green {
+            background: linear-gradient(135deg, rgba(39, 174, 96, 0.18), rgba(30, 132, 73, 0.1));
+            border-right-color: #27ae60;
+            color: #a5d6a7;
+        }
+        .pdf-box-yellow {
+            background: linear-gradient(135deg, rgba(243, 156, 18, 0.18), rgba(214, 137, 16, 0.1));
+            border-right-color: #f39c12;
+            color: #ffe082;
+        }
+        .pdf-box-blue {
+            background: linear-gradient(135deg, rgba(91, 155, 213, 0.18), rgba(58, 123, 191, 0.1));
+            border-right-color: #5b9bd5;
+            color: #90caf9;
+        }
+
+        .pdf-table-wrap {
+            margin: 18px 0;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .pdf-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 19px;
+        }
+
+        .pdf-table th {
+            background: linear-gradient(135deg, #4a5fa5, #2c3e7a);
+            color: #fff;
+            font-family: 'Marhey', sans-serif;
+            font-weight: 700;
+            padding: 12px 14px;
+            text-align: center;
+            border: 2px solid #2c3e7a;
+            font-size: 20px;
+        }
+
+        .pdf-table td {
+            padding: 10px 14px;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            text-align: center;
+            background: rgba(255, 255, 255, 0.04);
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 500;
+        }
+
+        .pdf-table tr:nth-child(even) td {
+            background: rgba(91, 155, 213, 0.08);
+        }
+
+        .pdf-tree {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin: 20px 0;
+            padding: 18px;
+            background: rgba(0, 0, 0, 0.15);
+            border-radius: 20px;
+            border: 2px dashed rgba(212, 175, 55, 0.3);
+        }
+
+        .pdf-tree-item {
+            background: linear-gradient(135deg, #4a5fa5, #2c3e7a);
+            color: #fff;
+            padding: 16px 14px;
+            border-radius: 14px;
+            text-align: center;
+            font-family: 'Marhey', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            box-shadow: 0 6px 18px rgba(44, 62, 122, 0.4);
+            transition: transform 0.2s ease;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .pdf-tree-item:hover { transform: translateY(-4px) scale(1.03); }
+
+        .pdf-tree-item .tree-title {
+            display: block;
+            font-size: 24px;
+            margin-bottom: 6px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 6px;
+        }
+
+        .pdf-tree-item .tree-content {
+            font-family: 'Cairo', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.6;
+            margin-top: 6px;
+        }
+
+        .pdf-tree-item.red { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+        .pdf-tree-item.green { background: linear-gradient(135deg, #27ae60, #1e8449); }
+        .pdf-tree-item.yellow { background: linear-gradient(135deg, #f39c12, #d68910); }
+        .pdf-tree-item.blue { background: linear-gradient(135deg, #5b9bd5, #3a7bbf); }
+        .pdf-tree-item.purple { background: linear-gradient(135deg, #8e44ad, #6c3483); }
+
+        .pdf-arrow {
+            text-align: center;
+            font-size: 38px;
+            color: #d4af37;
+            margin: 14px 0;
+            animation: bounceArrow 1.5s ease-in-out infinite;
+        }
+
+        @keyframes bounceArrow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(8px); }
+        }
+
+        .pdf-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+            border: 2px solid rgba(212, 175, 55, 0.4);
+            border-radius: 18px;
+            padding: 18px 22px;
+            margin: 16px 0;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .pdf-card .card-label {
+            display: inline-block;
+            background: linear-gradient(135deg, #d4af37, #b48b4b);
+            color: #1a2a1a;
+            font-family: 'Marhey', sans-serif;
+            font-weight: 800;
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-size: 17px;
+            margin-bottom: 10px;
+        }
+
+        .pdf-card .card-content {
+            font-size: 21px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .pdf-quran-example {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(180, 139, 75, 0.1));
+            border: 2px solid rgba(212, 175, 55, 0.5);
+            border-radius: 16px;
+            padding: 16px 22px;
+            margin: 14px 0;
+            text-align: center;
+            font-size: 26px;
+            font-family: 'Marhey', sans-serif;
+            color: #f5e6a8;
+            line-height: 1.8;
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.2);
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .deco-letter {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-family: 'Marhey', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            color: #fff;
+            margin: 0 4px;
+            vertical-align: middle;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: floatLetter 3s ease-in-out infinite;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        @keyframes floatLetter {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-4px) rotate(2deg); }
+        }
+
+        .deco-letter.c1 { background: linear-gradient(135deg, #d4af37, #b48b4b); }
+        .deco-letter.c2 { background: linear-gradient(135deg, #6bcf6b, #3d8a3d); }
+        .deco-letter.c3 { background: linear-gradient(135deg, #6496ff, #3d5fbf); }
+        .deco-letter.c4 { background: linear-gradient(135deg, #ff6b6b, #c53d3d); }
+        .deco-letter.c5 { background: linear-gradient(135deg, #c86bff, #8a3dbf); }
+        .deco-letter.c6 { background: linear-gradient(135deg, #ff9a3d, #c56b1a); }
+        .deco-letter.c7 { background: linear-gradient(135deg, #3dc8c8, #1a8a8a); }
+        .deco-letter.c8 { background: linear-gradient(135deg, #ff6bb5, #c53d80); }
 
         @media (max-width: 900px) {
-            .presentation-slide { padding: 50px 35px; }
-            .presentation-title { font-size: 44px; }
-            .presentation-slide.cover .presentation-title { font-size: 54px; }
-            .presentation-body { font-size: 19px; padding: 20px 22px; }
-            .md-h1 { font-size: 32px; }
-            .md-h2 { font-size: 26px; }
-            .md-h3 { font-size: 21px; }
-            .md-bullet, .md-numbered, .md-text, .md-quote { font-size: 18px; }
-            .presentation-slide::before { font-size: 80px; }
-            .presentation-brand { top: 16px; right: 16px; padding: 8px 16px; }
-            .presentation-brand .brand-name { font-size: 16px; }
-            .presentation-close { top: 16px; left: 16px; }
-            .presentation-cover-icon { font-size: 64px; }
-            .deco-letter { width: 44px; height: 44px; font-size: 24px; }
-        }
-
-        @media (max-width: 600px) {
-            .presentation-slide { padding: 35px 22px; }
-            .presentation-title { font-size: 34px; }
-            .presentation-slide.cover .presentation-title { font-size: 40px; }
-            .presentation-body { font-size: 17px; }
-            .md-h1 { font-size: 26px; }
-            .md-h2 { font-size: 21px; }
-            .md-h2::before { height: 26px; }
+            .presentation-slide { padding: 40px 30px; }
+            .presentation-title { font-size: 40px; }
+            .presentation-slide.cover .presentation-title { font-size: 50px; }
+            .presentation-body { font-size: 18px; padding: 18px 20px; }
+            .md-h1 { font-size: 28px; }
+            .md-h2 { font-size: 22px; }
             .md-h3 { font-size: 19px; }
-            .md-bullet, .md-numbered, .md-text, .md-quote { font-size: 16px; }
-            .presentation-slide::before { font-size: 50px; letter-spacing: 4px; }
-            .presentation-controls { padding: 8px 16px; gap: 10px; }
-            .presentation-controls button { width: 38px; height: 38px; font-size: 15px; }
-            .presentation-controls .page-indicator { font-size: 13px; min-width: 55px; }
-            .presentation-brand .brand-sub { display: none; }
-            .deco-letter { width: 36px; height: 36px; font-size: 20px; }
+            .md-bullet, .md-numbered, .md-text, .md-quote { font-size: 17px; }
+            .presentation-slide::before { font-size: 70px; }
+            .presentation-brand { top: 16px; right: 16px; padding: 8px 16px; }
+            .presentation-brand .brand-name { font-size: 15px; }
+            .presentation-close { top: 16px; left: 16px; }
+            .presentation-cover-icon { font-size: 60px; }
+            .pdf-title-box { font-size: 24px; padding: 14px 20px; }
+            .pdf-letter-box { width: 52px; height: 52px; font-size: 30px; }
+            .pdf-table { font-size: 15px; }
+            .pdf-table th { font-size: 16px; padding: 10px 8px; }
+            .pdf-table td { font-size: 14px; padding: 8px 6px; }
+            .pdf-quran-example { font-size: 20px; }
+            .pdf-tree-item { font-size: 17px; }
         }
 
-        .lesson-card .btn-present {
-            background: linear-gradient(135deg, #2c5364, #203a43);
-            border-color: #2c5364;
-            color: #f5e6a8;
-            font-weight: 700;
-            box-shadow: 0 6px 16px rgba(44, 83, 100, 0.3);
-        }
-
-        .lesson-card .btn-present:hover {
-            background: linear-gradient(135deg, #203a43, #0f2027);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 24px rgba(44, 83, 100, 0.4);
-        }
-
-        /* ========== BUILTIN RESTORE BANNER ========== */
         .builtin-banner {
             display: flex;
             align-items: center;
@@ -1746,21 +1742,82 @@
         }
 
         .builtin-banner i { color: #d4af37; font-size: 20px; }
-
-        .builtin-banner .btn {
-            padding: 6px 16px;
-            font-size: 13px;
-            margin-right: auto;
-        }
+        .builtin-banner .btn { padding: 6px 16px; font-size: 13px; margin-right: auto; }
 
         body.dark-mode .builtin-banner {
             background: rgba(180, 139, 75, 0.12);
             color: #f5e6a8;
         }
 
-        /* ============================================================
-           WHITEBOARD (السبورة)
-           ============================================================ */
+        .decorated-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            padding: 10px 24px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(180, 139, 75, 0.08));
+            border: 2px solid rgba(212, 175, 55, 0.4);
+            border-radius: 50px;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .decorated-logo::before,
+        .decorated-logo::after {
+            content: '❁';
+            color: #d4af37;
+            font-size: 20px;
+        }
+
+        .decorated-logo .deco-logo-text {
+            font-family: 'Marhey', sans-serif;
+            font-size: 30px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #d4af37, #b8915a, #f5e6a8, #d4af37);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+            animation: gradientShift 4s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .decorated-logo .deco-logo-sub {
+            font-size: 11px;
+            color: #8a6a1a;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-weight: 700;
+            display: block;
+            margin-top: -4px;
+        }
+
+        body.dark-mode .decorated-logo .deco-logo-sub { color: #d4af37; }
+
+        .lesson-header-deco {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .lesson-header-deco .deco-line {
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+            max-width: 200px;
+        }
+
+        .lesson-header-deco .deco-icon {
+            font-size: 28px;
+            color: #d4af37;
+        }
+
+        /* WHITEBOARD */
         .whiteboard-container {
             display: flex;
             flex-direction: column;
@@ -1779,7 +1836,6 @@
             backdrop-filter: blur(12px);
             border-radius: 28px;
             border: 1px solid rgba(180, 139, 75, 0.25);
-            box-shadow: 0 8px 22px rgba(0, 20, 0, 0.05);
         }
 
         .wb-tool-group {
@@ -1805,7 +1861,6 @@
             font-size: 17px;
             color: #3d5a3d;
             transition: all 0.2s ease;
-            position: relative;
         }
 
         .wb-tool-btn:hover {
@@ -1817,7 +1872,6 @@
             background: linear-gradient(135deg, #d4b17c, #b48b4b);
             color: #fff;
             box-shadow: 0 6px 14px rgba(180, 139, 75, 0.35);
-            transform: scale(1.05);
         }
 
         .wb-color-btn {
@@ -1855,7 +1909,6 @@
 
         .wb-size-btn.active {
             background: linear-gradient(135deg, #d4b17c, #b48b4b);
-            box-shadow: 0 6px 14px rgba(180, 139, 75, 0.35);
         }
 
         .wb-size-dot {
@@ -1869,8 +1922,7 @@
             border-radius: 32px;
             overflow: hidden;
             background: #ffffff;
-            box-shadow: 0 20px 50px rgba(0, 20, 0, 0.1), inset 0 0 0 1px rgba(180, 139, 75, 0.15);
-            transition: background 0.3s ease;
+            box-shadow: 0 20px 50px rgba(0, 20, 0, 0.1);
         }
 
         .wb-canvas-wrapper.bg-grid {
@@ -1889,14 +1941,6 @@
 
         .wb-canvas-wrapper.bg-dark {
             background: #1a2a1a;
-        }
-
-        .wb-canvas-wrapper.bg-dark.bg-grid {
-            background-color: #1a2a1a;
-            background-image:
-                linear-gradient(rgba(212, 175, 55, 0.15) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(212, 175, 55, 0.15) 1px, transparent 1px);
-            background-size: 28px 28px;
         }
 
         #whiteboardCanvas {
@@ -1921,41 +1965,6 @@
 
         .wb-status i { color: #b48b4b; }
 
-        /* Whiteboard Fullscreen */
-        .wb-canvas-wrapper:fullscreen {
-            border-radius: 0 !important;
-            width: 100vw !important;
-            height: 100vh !important;
-            background: #fff;
-        }
-
-        .wb-canvas-wrapper:fullscreen.bg-grid {
-            background-color: #fff;
-            background-image:
-                linear-gradient(rgba(180, 139, 75, 0.12) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(180, 139, 75, 0.12) 1px, transparent 1px);
-            background-size: 32px 32px;
-        }
-
-        .wb-canvas-wrapper:fullscreen.bg-lines {
-            background-color: #fff;
-            background-image: linear-gradient(rgba(100, 150, 255, 0.15) 1px, transparent 1px);
-            background-size: 100% 42px;
-        }
-
-        .wb-canvas-wrapper:fullscreen.bg-dark {
-            background: #1a2a1a;
-        }
-
-        .wb-canvas-wrapper:fullscreen.bg-dark.bg-grid {
-            background-color: #1a2a1a;
-            background-image:
-                linear-gradient(rgba(212, 175, 55, 0.15) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(212, 175, 55, 0.15) 1px, transparent 1px);
-            background-size: 32px 32px;
-        }
-
-        /* زر الخروج من ملء الشاشة */
         .wb-exit-fs-btn {
             position: fixed;
             top: 20px;
@@ -1973,23 +1982,18 @@
             align-items: center;
             justify-content: center;
             font-size: 22px;
-            transition: all 0.25s ease;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
         }
 
         .wb-exit-fs-btn:hover {
             background: #c55;
             color: #fff;
             transform: rotate(90deg) scale(1.1);
-            border-color: #c55;
         }
 
-        .wb-canvas-wrapper:fullscreen ~ .wb-exit-fs-btn,
-        .wb-canvas-wrapper:fullscreen .wb-exit-fs-btn {
+        .wb-canvas-wrapper:fullscreen ~ .wb-exit-fs-btn {
             display: flex;
         }
 
-        /* شريط أدوات مصغر داخل ملء الشاشة */
         .wb-fullscreen-toolbar {
             position: fixed;
             bottom: 24px;
@@ -2003,12 +2007,10 @@
             backdrop-filter: blur(16px);
             border: 1px solid rgba(212, 175, 55, 0.4);
             border-radius: 50px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
             align-items: center;
         }
 
-        .wb-canvas-wrapper:fullscreen ~ .wb-fullscreen-toolbar,
-        .wb-canvas-wrapper:fullscreen .wb-fullscreen-toolbar {
+        .wb-canvas-wrapper:fullscreen ~ .wb-fullscreen-toolbar {
             display: flex;
         }
 
@@ -2016,10 +2018,6 @@
             color: #f5e6a8;
             width: 44px;
             height: 44px;
-        }
-
-        .wb-fullscreen-toolbar .wb-tool-btn:hover {
-            background: rgba(212, 175, 55, 0.25);
         }
 
         .wb-fullscreen-toolbar .wb-tool-btn.active {
@@ -2038,87 +2036,6 @@
             background: rgba(212, 175, 55, 0.3);
         }
 
-        /* ========== DECORATED LESSON LOGO ========== */
-        .decorated-logo {
-            display: inline-flex;
-            align-items: center;
-            gap: 14px;
-            padding: 10px 24px;
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(180, 139, 75, 0.08));
-            border: 2px solid rgba(212, 175, 55, 0.4);
-            border-radius: 50px;
-            position: relative;
-            margin-bottom: 20px;
-        }
-
-        .decorated-logo::before,
-        .decorated-logo::after {
-            content: '❁';
-            color: #d4af37;
-            font-size: 20px;
-            animation: sparkle 2s ease-in-out infinite;
-        }
-
-        .decorated-logo::after { animation-delay: 1s; }
-
-        .decorated-logo .deco-logo-text {
-            font-family: 'Marhey', sans-serif;
-            font-size: 32px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #d4af37, #b8915a, #f5e6a8, #d4af37);
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: 2px;
-            animation: gradientShift 4s ease infinite;
-            text-shadow: 0 2px 10px rgba(212, 175, 55, 0.2);
-        }
-
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-
-        .decorated-logo .deco-logo-sub {
-            font-size: 12px;
-            color: #8a6a1a;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            font-weight: 700;
-            display: block;
-            margin-top: -4px;
-        }
-
-        body.dark-mode .decorated-logo {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(180, 139, 75, 0.1));
-            border-color: rgba(212, 175, 55, 0.5);
-        }
-
-        body.dark-mode .decorated-logo .deco-logo-sub { color: #d4af37; }
-
-        /* ========== LESSON HEADER DECORATION ========== */
-        .lesson-header-deco {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 16px;
-            margin-bottom: 24px;
-        }
-
-        .lesson-header-deco .deco-line {
-            flex: 1;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #d4af37, transparent);
-            max-width: 200px;
-        }
-
-        .lesson-header-deco .deco-icon {
-            font-size: 28px;
-            color: #d4af37;
-            animation: sparkle 2s ease-in-out infinite;
-        }
-
-        /* Whiteboard responsive */
         @media (max-width: 700px) {
             .whiteboard-container { height: calc(100vh - 260px); }
             .wb-toolbar { padding: 10px 14px; gap: 8px; }
@@ -2176,7 +2093,7 @@
         </div>
         <div class="glass">
             <h3 style="display:flex;gap:10px;"><i class="fas fa-star" style="color:#b48b4b;"></i> مرحباً في أ. عبير هلال</h3>
-            <p style="color:#2d4a2d; font-size:17px; margin-top:8px;">نظام إدارة المحفظة القرآنية بلمسة عصرية.</p>
+            <p style="color:#2d4a2d; font-size:17px; margin-top:8px;">نظام إدارة المحفظة القرآنية  .</p>
             <div style="display:flex;gap:12px;margin-top:16px;flex-wrap:wrap;">
                 <button class="btn btn-primary" onclick="exportJSON()"><i class="fas fa-download"></i> نسخ احتياطي (JSON)</button>
                 <button class="btn btn-gold" onclick="document.getElementById('importJSONInput').click()"><i class="fas fa-upload"></i> استعادة (JSON)</button>
@@ -2201,7 +2118,7 @@
                             <th>#</th>
                             <th>الاسم</th>
                             <th>المستوى</th>
-                            <th>الحلقة</th>
+                            <th>تفاصيل الطالب</th>
                             <th>عدد الحصص</th>
                             <th>متوسط التقييم</th>
                             <th>الإجراءات</th>
@@ -2223,6 +2140,10 @@
                     <button class="btn" onclick="navigateTo('students')" style="margin-right:10px;"><i class="fas fa-arrow-right"></i> العودة</button>
                 </div>
             </div>
+
+            <!-- بطاقة تفاصيل الطالب -->
+            <div id="studentDetailsCard"></div>
+
             <div id="studentInfoCard" class="student-info-card"></div>
             <div class="chart-container">
                 <canvas id="studentChart"></canvas>
@@ -2277,7 +2198,7 @@
     <!-- ===== PAGE: WHITEBOARD ===== -->
     <div id="page-whiteboard" class="page">
         <div class="glass">
-            <div class="section-title"><i class="fas fa-chalkboard"></i> السبورة التفاعلية - أ. عبير هلال</div>
+            <div class="section-title"><i class="fas fa-chalkboard"></i> السبورة  - أ. عبير هلال</div>
             <div class="whiteboard-container">
                 <div class="wb-toolbar">
                     <div class="wb-tool-group">
@@ -2285,7 +2206,7 @@
                         <button class="wb-tool-btn" id="wbEraserBtn" onclick="wbSetTool('eraser')" title="ممحاة"><i class="fas fa-eraser"></i></button>
                     </div>
 
-                    <div class="wb-tool-group" id="wbColorsGroup">
+                    <div class="wb-tool-group">
                         <div class="wb-color-btn active" style="background:#1a2a1a;" data-color="#1a2a1a" onclick="wbSetColor(this)"></div>
                         <div class="wb-color-btn" style="background:#c53d3d;" data-color="#c53d3d" onclick="wbSetColor(this)"></div>
                         <div class="wb-color-btn" style="background:#3d5fbf;" data-color="#3d5fbf" onclick="wbSetColor(this)"></div>
@@ -2331,25 +2252,23 @@
                     <canvas id="whiteboardCanvas"></canvas>
                 </div>
 
-                <!-- Fullscreen Controls -->
-                <button class="wb-exit-fs-btn" id="wbExitFsBtn" onclick="wbToggleFullscreen()" title="خروج من ملء الشاشة">
+                <button class="wb-exit-fs-btn" onclick="wbToggleFullscreen()" title="خروج">
                     <i class="fas fa-times"></i>
                 </button>
 
-                <div class="wb-fullscreen-toolbar" id="wbFullscreenToolbar">
-                    <button class="wb-tool-btn" onclick="wbSetTool('pen')" id="wbFsPenBtn" title="قلم"><i class="fas fa-pen"></i></button>
-                    <button class="wb-tool-btn" onclick="wbSetTool('eraser')" id="wbFsEraserBtn" title="ممحاة"><i class="fas fa-eraser"></i></button>
+                <div class="wb-fullscreen-toolbar">
+                    <button class="wb-tool-btn" onclick="wbSetTool('pen')" id="wbFsPenBtn"><i class="fas fa-pen"></i></button>
+                    <button class="wb-tool-btn" onclick="wbSetTool('eraser')" id="wbFsEraserBtn"><i class="fas fa-eraser"></i></button>
                     <div class="wb-divider"></div>
                     <div class="wb-color-btn" style="background:#1a2a1a;" data-color="#1a2a1a" onclick="wbSetColor(this)"></div>
                     <div class="wb-color-btn" style="background:#c53d3d;" data-color="#c53d3d" onclick="wbSetColor(this)"></div>
                     <div class="wb-color-btn" style="background:#3d5fbf;" data-color="#3d5fbf" onclick="wbSetColor(this)"></div>
                     <div class="wb-color-btn" style="background:#3d8a3d;" data-color="#3d8a3d" onclick="wbSetColor(this)"></div>
                     <div class="wb-color-btn" style="background:#b48b4b;" data-color="#b48b4b" onclick="wbSetColor(this)"></div>
-                    <div class="wb-color-btn" style="background:#ffffff;border-color:#ccc;" data-color="#ffffff" onclick="wbSetColor(this)"></div>
                     <div class="wb-divider"></div>
-                    <button class="wb-tool-btn" onclick="wbUndo()" title="تراجع"><i class="fas fa-undo"></i></button>
-                    <button class="wb-tool-btn" onclick="wbRedo()" title="إعادة"><i class="fas fa-redo"></i></button>
-                    <button class="wb-tool-btn" onclick="wbClear()" title="مسح الكل"><i class="fas fa-trash"></i></button>
+                    <button class="wb-tool-btn" onclick="wbUndo()"><i class="fas fa-undo"></i></button>
+                    <button class="wb-tool-btn" onclick="wbRedo()"><i class="fas fa-redo"></i></button>
+                    <button class="wb-tool-btn" onclick="wbClear()"><i class="fas fa-trash"></i></button>
                 </div>
             </div>
         </div>
@@ -2390,7 +2309,8 @@
             <input type="hidden" id="editStudentId" />
             <label>الاسم الكامل</label><input type="text" id="studentName" placeholder="أدخل اسم الطالب" />
             <label>المستوى</label><input type="text" id="studentLevel" placeholder="مثال: ثاني" />
-            <label>الحلقة</label><input type="text" id="studentGroup" placeholder="مثال: حلقة 1" />
+            <label>تفاصيل الطالب</label>
+            <textarea id="studentDetails" rows="4" placeholder="أي تفاصيل عن الطالب:&#10;- ولي الأمر&#10;- رقم الهاتف&#10;- ملاحظات&#10;- المستوى التفصيلي&#10;- أي معلومات أخرى"></textarea>
             <label>تاريخ بداية الدراسة</label><input type="date" id="studentStartDate" />
             <div class="modal-actions">
                 <button class="btn btn-primary" onclick="saveStudent()"><i class="fas fa-save"></i> حفظ</button>
@@ -2411,17 +2331,55 @@
             <datalist id="categoryList"></datalist>
             <label>وصف موجز</label>
             <textarea id="lessonDescription" rows="2" placeholder="شرح مختصر للدرس..."></textarea>
-            <label>المحتوى (يدعم تنسيق Markdown: # عنوان, ## فرعي, - نقطة, ◆ ✓ ⚠ 📖 إلخ)</label>
-            <textarea id="lessonContent" rows="12" placeholder="# عنوان الدرس
+            <label>المحتوى (يدعم Markdown + قوالب PDF-style)</label>
+
+            <div class="template-hints">
+                <div class="tpl-label"><i class="fas fa-magic"></i> قوالب سريعة (اضغط للإضافة):</div>
+                <button type="button" class="tpl-btn" onclick="insertTemplate(':::title: عنوان الدرس')">📘 عنوان</button>
+                <button type="button" class="tpl-btn" onclick="insertTemplate(':::card: التعريف | النص هنا')">🃏 بطاقة</button>
+                <button type="button" class="tpl-btn" onclick="insertTemplate(':::box-red: نص أحمر')">🔴 صندوق أحمر</button>
+                <button type="button" class="tpl-btn" onclick="insertTemplate(':::box-green: نص أخضر')">🟢 صندوق أخضر</button>
+                <button type="button" class="tpl-btn" onclick="insertTemplate(':::box-yellow: نص أصفر')">🟡 صندوق أصفر</button>
+                <button type="button" class="tpl-btn" onclick="insertTemplate(':::box-blue: نص أزرق')">🔵 صندوق أزرق</button>
+                <button type="button" class="tpl-btn" onclick="insertTemplate(':::letter: ب')">🔤 حرف</button>
+                <button type="button" class="tpl-btn" onclick="insertTemplate(':::tree\n- الإظهار: ء هـ ع ح غ خ\n- الإقلاب: ب\n- الإدغام: ي ر م ل و ن\n- الإخفاء: باقي الحروف\n:::')">🌳 شجرة أحكام</button>
+                <button type="button" class="tpl-btn" onclick="insertTemplate(':::table\n| الصفة | التعريف | الحروف |\n|-------|---------|--------|\n| الهمس | جريان النفس | فحثه شخص سكت |\n| الجهر | انحباس النفس | الباقي |\n:::')">📊 جدول</button>
+                <button type="button" class="tpl-btn" onclick="insertTemplate(':::quran: ﴿نص الآية﴾')">📖 آية</button>
+                <button type="button" class="tpl-btn" onclick="insertTemplate(':::arrow')">⬇ سهم</button>
+            </div>
+
+            <textarea id="lessonContent" rows="14" placeholder="# عنوان الدرس
 
 ## عنوان فرعي
+
+:::title: عنوان مميز
+
+:::card: التعريف | النص هنا
+
+:::letter: ب
+
+:::box-red: تنبيه مهم
+
+:::tree
+- الإظهار: ء هـ ع ح غ خ
+- الإقلاب: ب
+- الإدغام: ي ر م ل و ن
+- الإخفاء: باقي الحروف
+:::
+
+:::table
+| الصفة | الحروف |
+|-------|--------|
+| الهمس | فحثه شخص سكت |
+| الجهر | الباقي |
+:::
+
+:::quran: ﴿إِنَّا أَعْطَيْنَاكَ الْكَوْثَرَ﴾
 
 ◆ نقطة عادية
 ✓ نقطة صحيحة
 ⚠ تنبيه
 📖 آية قرآنية
-💡 فكرة
-📌 ملاحظة
 
 > اقتباس أو قاعدة
 
@@ -2478,9 +2436,7 @@
 
 </div>
 
-<!-- ============================================================
-     PRESENTATION OVERLAY
-     ============================================================ -->
+<!-- PRESENTATION OVERLAY -->
 <div class="presentation-overlay" id="presentationOverlay">
     <button class="presentation-close" onclick="closePresentation()" title="إغلاق العرض (Esc)">
         <i class="fas fa-times"></i>
@@ -2522,7 +2478,7 @@
 
     const LESSON_KEY = 'quran_lessons';
     const NEXT_LESSON_ID = 'quran_nextLessonId';
-    const BUILTIN_INSTALLED = 'quran_builtin_installed_v1';
+    const BUILTIN_INSTALLED = 'quran_builtin_installed_v3';
 
     const DRAFT_KEYS = {
         student: 'quran_draft_student',
@@ -2539,85 +2495,74 @@
             title: 'الغنة (الميم والنون المشددتين)',
             category: 'أحكام التجويد',
             description: 'تعريف الغنة وحكم النون والميم المشددتين مع الأمثلة',
-            content: `# الغنة (الميم والنون المشددتين)
+            content: `:::title: الغنة (الميم والنون المشددتين)
 
 ## أولاً: تعريف الغنة
 
-◆ الغنة لغةً: صوت استرخاء يخرج من الخيشوم (أعلى الجوف الأنفي)، لا عمل للسان فيه.
-◆ الغنة اصطلاحاً: صوت لذيذ مركّب في جسم النون والميم، ويكون أكمَل ما يكون في المشدد.
+:::card: التعريف لغةً | صوت استرخاء يخرج من الخيشوم (أعلى الجوف الأنفي)، لا عمل للسان فيه
+
+:::card: التعريف اصطلاحاً | صوت لذيذ مركّب في جسم النون والميم، ويكون أكمَل ما يكون في المشدد
 
 ## ثانياً: تعريف الميم والنون المشددتين
 
-### النون المشددة (نّ)
+### النون المشددة
+
 ◆ تتكون أصلًا من حرفين:
 - نون ساكنة أُدغمت في نون متحركة
 - فصارتا حرفًا واحدًا مشددًا
 
-### الميم المشددة (مّ)
+:::letter-green: نّ
+
+### الميم المشددة
+
 ◆ تتكون أصلًا من حرفين:
 - ميم ساكنة أُدغمت في ميم متحركة
 - فصارتا حرفًا واحدًا مشددًا
 
+:::letter-red: مّ
+
 ## ثالثاً: حكم النون والميم المشددتين
 
-✓ الوجوب: يجب إظهار الغنة عند النطق بكل منهما
-✓ يسمى كل منهما: "حرف غنة مشدد"
-✓ مقدار الغنة: حركتان
-- والحركة هي قدر قبض الإصبع أو بسطه، أي زمن يسير بالتقدير الصوتي
-✓ الاستمرار: تسري هذه الغنة وصلاً ووقفاً
-- فإذا وقف القارئ على كلمة مختومة بنون أو ميم مشددة وجب إطالة الغنة فيها أيضاً
+:::box-green: ✓ الوجوب: يجب إظهار الغنة عند النطق بكل منهما
 
-## رابعاً: أمثلة توضيحية من القرآن الكريم
+:::box-blue: ✓ مقدار الغنة: حركتان
+
+:::box-yellow: ✓ الاستمرار: تسري هذه الغنة وصلاً ووقفاً
+
+## رابعاً: أمثلة توضيحية
 
 ### أمثلة النون المشددة
+
 📖 إِنَّ ← في حرف
 📖 النَّاسِ ← في اسم
 📖 جَنَّةٌ ← متوسطة ومتطرفة
-📖 إِنَّمَا ← توضيح الفرق في المشدد
 
 ### أمثلة الميم المشددة
-📖 مُحَمَّدٌ ← في اسم / وسط الكلمة
+
+📖 مُحَمَّدٌ ← في اسم
 📖 عَمَّ ← في حرف + اسم
 📖 ثُمَّ ← في حرف
 
-## خامساً: من منظومة تحفة الأطفال والجزرية
+## خامساً: من منظومة تحفة الأطفال
 
-📖 قال الإمام الجمزوري رحمه الله في تحفة الأطفال:
 > وَغُنَّ نُونًا ثُمَّ مِيمًا سُمِّيَا ... وَغُنَّةً بَدَا لَدَى الْكُلِّ جُهِيَا
-
-📖 وقال الإمام ابن الجزري رحمه الله في المقدمة الجزرية:
-> وَأَظْهِرِ الْغُنَّةَ مِنْ نُونٍ وَمِنْ ... مِيمٍ إِذَا مَا شُدِّدَا وَكَمْن
 
 ## سادساً: مراتب الغنة الخمس
 
-1. المرتبة الأولى (أكمل ما تكون):
-- في النون والميم المشددتين
-📖 إِنَّ، ثُمَّ
-- وكذلك في الإدغام الكامل بغنة
-📖 مِنْ رَبِّهِمْ
-
-2. المرتبة الثانية:
-- في الإدغام الناقص بغنة مع الواو والياء
-📖 مِنْ وَالٍ، مِنْ يَطْغَى
-
-3. المرتبة الثالثة (كاملة):
-- في الإخفاء الحقيقي والإخفاء الشفوي والإقلاب
-📖 مِنْ صَلْصَالٍ، أَنْتُمْ بِهِ
-
-4. المرتبة الرابعة (ناقصة):
-- في المظهرة عند حروف الإظهار الحلقي أو الشفوي في النون والميم الساكنتين
-📖 مِنْ هَادٍ
-
-5. المرتبة الخامسة (أنقص ما تكون):
-- في النون والميم المتحركتين بالفتح أو الضم أو الكسر
-📖 نَا، مُ
+:::table
+| المرتبة | الموضع | المثال |
+|---------|--------|--------|
+| 1 - أكمل | النون والميم المشددتين | إِنَّ، ثُمَّ |
+| 2 | الإدغام الناقص بغنة | مِنْ وَالٍ |
+| 3 - كاملة | الإخفاء والإقلاب | مِنْ صَلْصَالٍ |
+| 4 - ناقصة | الإظهار الحلقي | مِنْ هَادٍ |
+| 5 - أنقص | النون والميم المتحركتين | نَا، مُ |
+:::
 
 ## ⚠ تنبيهات مهمة
 
-⚠ عند الوقف على النون أو الميم المشددتين يجب تطويل الغنة تماماً كما في الوصل.
-⚠ الغنة تتبع ما بعدها:
-- إن كان بعدها حرف استعلاء: فخمت
-- إن كان بعدها حرف استفال: رققت`,
+⚠ عند الوقف على النون أو الميم المشددتين يجب تطويل الغنة
+⚠ الغنة تتبع ما بعدها تفخيماً وترقيقاً`,
             isBuiltin: true,
             createdAt: '2024-01-01'
         },
@@ -2626,96 +2571,59 @@
             title: 'أحكام النون الساكنة والتنوين',
             category: 'أحكام التجويد',
             description: 'الأحكام الأربعة: الإظهار, الإدغام, الإقلاب, الإخفاء',
-            content: `# أحكام النون الساكنة والتنوين
+            content: `:::title: أحكام النون الساكنة والتنوين
 
-## أولاً: التعريفات والفروق الجوهرية
+## التعريفات
 
-◆ النون الساكنة (نْ): حرف هجائي أصلي
-- ثابتة في اللفظ والخط
-- ثابتة في الوصل والوقف
-- تكون في الأسماء والأفعال والحروف
+:::card: النون الساكنة | حرف هجائي أصلي ثابت في اللفظ والخط، في الوصل والوقف
 
-◆ التنوين (ـًـٌـٍ): نون ساكنة زائدة
-- تلحق آخر الأسماء لفظاً لا خطاً
-- ثابتة في الوصل لا في الوقف
+:::card: التنوين | نون ساكنة زائدة تلحق آخر الأسماء لفظاً لا خطاً
 
-## ثانياً: أحكام النون الساكنة والتنوين
+## الأحكام الأربعة
 
-### 1. الإظهار (الإظهار الحلقي)
+:::tree
+- الإظهار: ء هـ ع ح غ خ
+- الإقلاب: ب
+- الإدغام: ي ر م ل و ن
+- الإخفاء: باقي الحروف
+:::
 
-◆ لغةً: البيان والوضوح
-◆ اصطلاحاً: إخراج النون الساكنة أو التنوين من مخرجها من غير غنة كاملة
+### 1. الإظهار (الحلقي)
 
-✓ حروفه (ستة أحرف تخرج من الحلق):
-- الهمزة، الهاء، العين، الحاء، الغين، الخاء
-- (ء، هـ، ع، ح، غ، خ)
+:::box-blue: ◆ لغةً: البيان والوضوح
 
-📖 أمثلة:
-- مع النون في كلمة: ﴿مَنْ أَطَاعَ﴾، ﴿يَنْهَوْنَ﴾
-- مع التنوين (لا يكون إلا في كلمتين): ﴿عَلِيمٌ حَكِيمٌ﴾
+:::card: حروفه | الهمزة، الهاء، العين، الحاء، الغين، الخاء
+
+📖 أمثلة: ﴿مَنْ أَطَاعَ﴾، ﴿يَنْهَوْنَ﴾، ﴿عَلِيمٌ حَكِيمٌ﴾
 
 ### 2. الإدغام
 
-◆ لغةً: إدخال الشيء في الشيء
-◆ اصطلاحاً: التقاء حرف ساكن بمتحرك بحيث يصيران حرفاً واحداً مشدداً
+:::box-green: ◆ لغةً: إدخال الشيء في الشيء
 
-✓ حروفه (ستة مجتمعة في كلمة: يَرْمُلُونَ):
-- الياء، الراء، الميم، اللام، الواو، النون
-- (ي، ر، م، ل، و، ن)
+:::card: حروفه | الياء، الراء، الميم، اللام، الواو، النون
 
-◆ أقسامه:
-✓ إدغام بغنة: حروفه (ي، ن، م، و)
-📖 مثاله: ﴿مَنْ يَعْمَلْ﴾
-✓ إدغام بغير غنة: حروفه (ل، ر)
-📖 مثاله: ﴿مِنْ رَبِّهِمْ﴾
+:::table
+| النوع | الحروف | المثال |
+|-------|--------|--------|
+| بغنة | ي، ن، م، و | ﴿مَنْ يَعْمَلْ﴾ |
+| بغير غنة | ل، ر | ﴿مِنْ رَبِّهِمْ﴾ |
+:::
 
-📌 ملاحظة: لا يكون الإدغام مع التنوين إلا في كلمتين
+### 3. الإقلاب
 
-### 3. الإقلاب (القلب)
+:::box-yellow: ◆ قلب النون الساكنة أو التنوين ميماً مخفاة بغنة عند الباء
 
-◆ لغةً: تحويل الشيء عن وجهه
-◆ اصطلاحاً: قلب النون الساكنة أو التنوين ميماً مخفاة بغنة عند الباء
+:::letter-yellow: ب
 
-✓ حرفه: حرف الباء (ب) وحيداً
+### 4. الإخفاء
 
-📖 أمثلة:
-- مع النون: ﴿مِنْ بَعْدِ﴾ تُنطق (مِمْبَعْدِ)
-- مع التنوين: ﴿سَمِيعٌ بَصِيرٌ﴾ تُنطق (سَمِيعُمبَصِيرٌ)
+:::box-red: ◆ النطق بالحرف بصفة بين الإظهار والإدغام مع بقاء الغنة
 
-### 4. الإخفاء (الإخفاء الحقيقي)
-
-◆ لغةً: الستر
-◆ اصطلاحاً: النطق بالحرف بصفة بين الإظهار والإدغام، عارٍ عن التشديد مع بقاء الغنة
-
-✓ حروفه: 15 حرفاً الباقية بعد إخراج حروف الإظهار والإدغام والإقلاب
-- مجموعة في أوائل كلمات بيت الجمزوري في تحفة الأطفال:
-> صِفْ ذَا ثَنَا كَمْ جَادَ شَخْصٌ قَدْ سَمَا ... دُمْ طَيِّباً زِدْ فِي تُقَى ضَعْ ظَالِمَا
-
-📖 أمثلة:
-- مع النون في كلمة أو كلمتين: ﴿يَنْصُرُكُمْ﴾، ﴿مِنْ طِينٍ﴾
-- مع التنوين (في كلمتين فقط): ﴿رَجُلٌ صَالِحٌ﴾
-
-## ثالثاً: جدول ملخص للأحكام الأربعة
-
-1. الإظهار: حروفه (ء، هـ، ع، ح، غ، خ) — من الحلق — بلا غنة
-2. الإدغام: حروفه (ي، ر، م، ل، و، ن) — بغنة أو بغير غنة
-3. الإقلاب: حرفه (ب) — قلب النون ميماً مخفاة بغنة
-4. الإخفاء: حروفه (15 حرفاً) — بين الإظهار والإدغام مع الغنة
-
-## ⚠ تنبيهات مهمة
-
-⚠ الإظهار يكون مع النون في كلمة أو كلمتين، ومع التنوين في كلمتين فقط
-⚠ الإدغام لا يكون مع التنوين إلا في كلمتين
-⚠ الإقلاب حرفه واحد فقط وهو الباء
-⚠ الإخفاء حروفه 15 حرفاً، وهي الباقية بعد حروف الأحكام الثلاثة الأخرى
+:::card: حروفه (15 حرفاً) | صِفْ ذَا ثَنَا كَمْ جَادَ شَخْصٌ قَدْ سَمَا
 
 ## 📖 من منظومة تحفة الأطفال
 
-> لِلنُّونِ إِنْ تَسْكُنْ وَلِلتَّنْوِينِ ... أَرْبَعُ أَحْكَامٍ فَخُذْ تَبْيِينِي
-> فَالْأَوَّلُ الْإِظْهَارُ قَبْلَ أَحْرُفِ ... لِلْحَلْقِ سِتٍّ رُتِّبَتْ فَلْتَعْرِفِ
-> وَالثَّانِ إِدْغَامٌ بِسِتٍّ أُدْغِمَا ... فِي يَرْمُلُونَ عِنْدَهُمْ قَدْ عُلِمَا
-> وَالثَّالِثُ الْإِقْلَابُ عِنْدَ الْبَاءِ ... مِيمًا بِغُنَّةٍ مَعَ الْإِخْفَاءِ
-> وَالرَّابِعُ الْإِخْفَاءُ عِنْدَ الْفَاضِلِ ... مِنَ الْحُرُوفِ وَاجِبٌ لِلْفَاضِلِ`,
+> لِلنُّونِ إِنْ تَسْكُنْ وَلِلتَّنْوِينِ ... أَرْبَعُ أَحْكَامٍ فَخُذْ تَبْيِينِي`,
             isBuiltin: true,
             createdAt: '2024-01-01'
         },
@@ -2724,85 +2632,41 @@
             title: 'أحكام الميم الساكنة',
             category: 'أحكام التجويد',
             description: 'الأحكام الثلاثة: الإخفاء الشفوي, الإدغام الشفوي, الإظهار الشفوي',
-            content: `# أحكام الميم الساكنة
+            content: `:::title: أحكام الميم الساكنة
 
-## أولاً: تعريف الميم الساكنة
+## التعريف
 
-◆ الميم الساكنة: هي الميم الخالية من الحركة
-- أي ليس عليها فتحة، أو ضمة، أو كسرة
-- وتكون ثابتة في الوصل والوقف
+:::card: الميم الساكنة | الميم الخالية من الحركة، ثابتة في الوصل والوقف
 
-◆ مواضعها:
-- تقع في الأسماء والأفعال والحروف
-- وتكون متوسطة (في وسط الكلمة) أو متطرفة (في آخر الكلمة)
+## الأحكام الثلاثة
 
-## ثانياً: أحكام الميم الساكنة الثلاثة
+:::tree
+- الإظهار الشفوي: باقي الحروف
+- الإخفاء الشفوي: ب
+- الإدغام الشفوي: م
+:::
 
 ### 1. الإخفاء الشفوي
 
-◆ تعريفه: نطق الميم الساكنة بحالة بين الإظهار والإدغام
-- عارٍ عن التشديد
-- مع بقاء الغنة
-- (الغنة هي صوت محبب يخرج من الخيشوم)
+:::letter-blue: ب
 
-✓ حرفه: حرف واحد فقط وهو الباء (ب)
+📖 ﴿تَرْمِيهِمْ بِحِجَارَةٍ﴾، ﴿وَهُمْ بِالْآخِرَةِ﴾
 
-◆ سبب التسمية: سُمي "شفوياً" لأن الميم والباء يخرجان من الشفتين
+### 2. الإدغام الشفوي
 
-📖 أمثلة:
-- ﴿تَرْمِيهِمْ بِحِجَارَةٍ﴾ [الفيل: 4]
-- ﴿وَهُمْ بِالْآخِرَةِ﴾ [البقرة: 4]
-- ﴿اعْتَصَمَ بِاللَّهِ﴾ [آل عمران: 101]
+:::letter-green: م
 
-### 2. الإدغام الشفوي (إدغام المثلين الصغير)
-
-◆ تعريفه: إدخال الميم الساكنة في الميم المتحركة التي بعدها
-- بحيث تصيران ميماً واحدة مشددة
-- مع الغنة الكاملة
-
-✓ حرفه: حرف واحد فقط وهو الميم (م)
-
-📖 أمثلة:
-- ﴿كَمْ مِنْ فِئَةٍ﴾ [البقرة: 249]
-- ﴿لَكُمْ مَا كَسَبْتُمْ﴾ [البقرة: 134]
-- ﴿أَمْ مَنْ﴾ (إذا جاءت ميم ساكنة بعدها ميم)
+📖 ﴿كَمْ مِنْ فِئَةٍ﴾، ﴿لَكُمْ مَا كَسَبْتُمْ﴾
 
 ### 3. الإظهار الشفوي
 
-◆ تعريفه: نطق الميم الساكنة واضحة من مخرجها
-- من غير غنة كاملة ظاهرة في الحرف
-- عند ملاقاتها لحروف الإظهار
+:::card: حروفه | 26 حرفاً (الباقية بعد الميم والباء)
 
-✓ حروفه: باقي حروف الهجاء ما عدا (الميم والباء)
-- وهي 26 حرفاً
-
-📌 ملاحظة هامة:
-- أشد ما يكون الإظهار الشفوي إذا أتى بعد الميم الساكنة حرف الواو (و) أو الفاء (ف)
-- للحذر من إخفاء الميم لقرب مخرج الفاء واتحاد الواو مع الميم في الشفة
-
-📖 أمثلة:
-- مع الفاء: ﴿أَمْ فَرِحُوا﴾، ﴿تَمْشُونَ﴾
-- مع الواو: ﴿أَمْ وَلِيٌّ﴾، ﴿عَلَيْهِمْ وَلَا﴾ [الفاتحة: 7]
-- مع بقية الحروف: ﴿أَمْ لَمْ تُنْذِرْهُمْ﴾ [البقرة: 6]، ﴿أَنْعَمْتَ عَلَيْهِمْ﴾ [الفاتحة: 7]
-
-## ثالثاً: جدول ملخص للأحكام الثلاثة
-
-1. الإخفاء الشفوي: حرفه (ب) — بين الإظهار والإدغام مع الغنة بلا تشديد
-2. الإدغام الشفوي: حرفه (م) — إدغام الميم في الميم مع الغنة الكاملة
-3. الإظهار الشفوي: حروفه (26 حرفاً) — إظهار الميم واضحة بلا غنة كاملة
-
-## ⚠ تنبيهات مهمة
-
-⚠ الإخفاء الشفوي حرفه واحد فقط وهو الباء
-⚠ الإدغام الشفوي حرفه واحد فقط وهو الميم
-⚠ الإظهار الشفوي حروفه 26 حرفاً (الباقية بعد الميم والباء)
-⚠ أشد ما يكون الإظهار الشفوي مع الواو والفاء خوفاً من إخفاء الميم
-⚠ احذر إخفاء الميم عند الواو والفاء لقربهما من الميم
+📖 ﴿أَمْ فَرِحُوا﴾، ﴿أَمْ وَلِيٌّ﴾، ﴿أَمْ لَمْ تُنذِرْهُمْ﴾
 
 ## 📖 من منظومة تحفة الأطفال
 
-> وَالمِيمُ إِنْ تَسْكُنْ تَجِي قَبْلَ الْهِجَا ... لاَ أَلِفٍ لَيِّنَةٍ لِذِي الْحِجَا
-> وَاحْذَرْ لَدَى وَاوٍ وَفَا أَنْ تَخْتَفِي ... لِقُرْبِهَا وَالاتِّحَادِ فَاعْرِفِ`,
+> وَالمِيمُ إِنْ تَسْكُنْ تَجِي قَبْلَ الْهِجَا ... لاَ أَلِفٍ لَيِّنَةٍ لِذِي الْحِجَا`,
             isBuiltin: true,
             createdAt: '2024-01-01'
         },
@@ -2811,121 +2675,38 @@
             title: 'أحكام اللام الساكنة',
             category: 'أحكام التجويد',
             description: 'لام التعريف (القمرية والشمسية) ولام الفعل ولام الأمر ولام لفظ الجلالة',
-            content: `# أحكام اللام الساكنة
+            content: `:::title: أحكام اللام الساكنة
 
-## أولاً: تعريف اللام الساكنة
+## أقسام اللام الساكنة
 
-◆ اللام الساكنة: هي اللام الخالية من الحركة
-- ثابتة في الوصل والوقف
-- لها أنواع متعددة، لكل نوع حكمه الخاص
+### 1. لام التعريف
 
-## ثانياً: أقسام اللام الساكنة
+:::card: الإظهار القمري | أ، ب، غ، ح، ج، ك، و، خ، ف، ع، ق، ي، م، هـ
 
-### 1. لام التعريف (لام أل)
+📖 الْقَمَر، الْبَيْت، الْخَوْف، الْعِلْم
 
-◆ تعريفها: لام زائدة عن بنية الكلمة
-- تدخل على الأسماء النكرة لتعريفها
-- تسبقها همزة وصل مفتوحة عند البدء
+:::card: الإدغام الشمسي | ت، ث، ص، ر، ض، ذ، ن، د، س، ظ، ز، ش، ل
 
-◆ لها حكمان بحسب الحرف الذي يأتي بعدها:
-
-#### الإظهار القمري (اللام القمرية)
-✓ حكمها: الإظهار إذا وقع بعدها أحد الحروف الأربعة عشر
-✓ مجموعة في جملة: (اِبْغِ حَجَّكَ وَخَفْ عَقِيمَهُ)
-- أ، ب، غ، ح، ج، ك، و، خ، ف، ع، ق، ي، م، هـ
-📖 أمثلة: الْقَمَر، الْبَيْت، الْخَوْف، الْعِلْم
-
-#### الإدغام الشمسي (اللام الشمسية)
-✓ حكمها: الإدغام إذا وقع بعدها أحد الحروف الأربعة عشر الباقية
-✓ مجموعة في أوائل كلمات هذا البيت:
-> طِبْ ثُمَّ صِلْ رَحِماً تَفُزْ ضِفْ ذَا نِعَمْ ... دَعْ سُوءَ ظَنٍّ زُرْ شَرِيفاً لِلْكَرَمْ
-- ت، ث، ص، ر، ض، ذ، ن، د، س، ظ، ز، ش، ل
-✓ تُقلب اللام إلى جنس الحرف الذي بعدها وتُدغم فيه ليصير حرفاً مشدداً
-📖 أمثلة: الشَّمْس، الثَّوَاب، الرَّحْمَن، النَّعِيم
+📖 الشَّمْس، الثَّوَاب، الرَّحْمَن، النَّعِيم
 
 ### 2. لام الفعل
 
-◆ تعريفها: اللام الساكنة الواقعة في بنية الفعل
-- سواء كان الفعل ماضياً، أو مضارعاً، أو أمرًا
-- وتأتي وسطاً أو متطرفة
-
-✓ لها حكمان:
-
-#### الإدغام
-✓ تدغم لام الفعل في حالتين فقط:
-- إذا جاء بعدها حرف الراء (ر)
-- أو حرف اللام (ل)
-📖 أمثلة:
-- ﴿قُل لَّكُم﴾ تنطق: "قُلَّكُم"
-- ﴿وَقُل رَّبِّ﴾ تنطق: "وَقُرَّبِّ"
-
-#### الإظهار
-✓ تظهر لام الفعل وجوباً مع بقية حروف الهجاء (عدا اللام والراء)
-- وخاصة إذا جاءت وسط الكلمة
-📖 أمثلة: أَلْسِنَتِكُمْ، يَلْتَقِطْهُ، قُلْ نَعَمْ
+:::box-green: ✓ الإدغام مع (ر) أو (ل)
+📖 ﴿قُل لَّكُم﴾، ﴿وَقُل رَّبِّ﴾
 
 ### 3. لام الحرف
 
-◆ تعريفها: اللام الساكنة الموجودة في حرفين فقط في القرآن الكريم
-- وهما: (هَلْ) و (بَلْ)
-
-✓ لها حكمان:
-
-#### الإدغام
-✓ تدغم إذا وقع بعدها حرف اللام (ل) أو الراء (ر)
-📖 أمثلة:
-- ﴿بَل لَّا يَخَافُونَ﴾
-- ﴿بَل رَّفَعَهُ اللَّهُ﴾
-📌 ملاحظة: يستثنى موضع ﴿كَلَّا بَلْ رَانَ﴾ في سورة المطففين
-- بسبب السكت الواجب عند حفص
-- والسكت يمنع الإدغام
-
-#### الإظهار
-✓ تظهر وجوباً إذا وقع بعدها أي حرف غير اللام والراء
-📖 أمثلة: ﴿هَلْ عَسَيْتُمْ﴾، ﴿بَلْ طَبَعَ﴾
+:::card: في (هَلْ) و (بَلْ) | إدغام مع (ل، ر) - إظهار مع غيرهما
 
 ### 4. لام الاسم
 
-◆ تعريفها: اللام الساكنة الواقعة في بنية الاسم
-- تكون دائماً أصلية من الكلمة (ليست زائدة كلام التعريف)
-- وتأتي دائماً متوسطة (في وسط الكلمة)
-
-✓ حكمها: الإظهار وجوباً دائماً وفي كل الأحوال
-
-📖 أمثلة: أَلْوَانِكُمْ، سَلْسَبِيلًا، الْمُلْك، سُلْطَان
+:::box-blue: ✓ الإظهار دائماً
+📖 أَلْوَانِكُمْ، سَلْسَبِيلًا
 
 ### 5. لام الأمر
 
-◆ تعريفها: لام ساكنة زائدة عن بنية الكلمة
-- تدخل على الفعل المضارع فتحوله إلى صيغة الأمر
-- بشرط أن تكون مسبوقة بأحد حروف العطف الثلاثة: (الواو، الفاء، ثم)
-
-✓ حكمها: الإظهار وجوباً دائماً
-
-📖 أمثلة: ﴿وَلْيَكْتُبْ﴾، ﴿فَلْيَمْدُدْ﴾، ﴿ثُمَّ لْيَقْضُوا﴾
-
-📌 ملاحظة: إذا لم تسبق بـ (الواو أو الفاء أو ثم) وبُدئ بها الكلام، فإنها تُكسر
-📖 مثل: ﴿لِيُنْفِقْ ذُو سَعَةٍ﴾
-
-## ثالثاً: ملخص الأحكام
-
-1. تُدغم اللامات (في الفعل والحرف) فقط إذا جاء بعدها (ل - ر)
-2. تُدغم لام التعريف (أل) إذا جاء بعدها حروف اللام الشمسية
-3. تُظهر لام الاسم ولام الأمر دائماً
-4. لام التعريف تُظهر مع الحروف القمرية وتُدغم مع الحروف الشمسية
-
-## ⚠ تنبيهات مهمة
-
-⚠ لام التعريف لها حكمان: الإظهار (قمرية) والإدغام (شمسية)
-⚠ لام الفعل ولام الحرف تدغمان فقط مع اللام والراء
-⚠ لام الاسم تُظهر دائماً
-⚠ لام الأمر تُظهر دائماً
-⚠ يستثنى موضع ﴿كَلَّا بَلْ رَانَ﴾ من الإدغام بسبب السكت الواجب
-
-## 📖 من منظومة تحفة الأطفال
-
-> وَاللاَّمُ إِنْ تَسْكُنْ تَجِي قَبْلَ الْهِجَا ... لاَ أَلِفٍ لَيِّنَةٍ لِذِي الْحِجَا
-> وَاحْذَرْ لَدَى وَاوٍ وَفَا أَنْ تَخْتَفِي ... لِقُرْبِهَا وَالاتِّحَادِ فَاعْرِفِ`,
+:::box-green: ✓ الإظهار دائماً
+📖 ﴿وَلْيَكْتُبْ﴾، ﴿فَلْيَمْدُدْ﴾`,
             isBuiltin: true,
             createdAt: '2024-01-01'
         },
@@ -2934,126 +2715,32 @@
             title: 'أحكام الاستعاذة والبسملة',
             category: 'أحكام التجويد',
             description: 'حكم الاستعاذة والبسملة وأوجه الوصل',
-            content: `# أحكام الاستعاذة والبسملة
+            content: `:::title: أحكام الاستعاذة والبسملة
 
 ## أولاً: الاستعاذة
 
-### 1. تعريف الاستعاذة لغةً واصطلاحاً
+:::card: التعريف | لفظ يحصل به الالتجاء إلى الله والاعتصام به من الشيطان الرجيم
 
-◆ لغةً: الالتجاء والاعتصام والتحصن بالله تعالى
-◆ اصطلاحاً: قول القارئ: "أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ" أراد بها الشروع في قراءة القرآن الكريم
+:::box-blue: ◆ صيغتها: (أعوذ بالله من الشيطان الرجيم)
 
-### 2. صيغتها
+📖 ﴿فَإِذَا قَرَأْتَ الْقُرْآنَ فَاسْتَعِذْ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ﴾
 
-✓ الصيغة المختارة والمشهورة والمتفق عليها:
-- (أعوذ بالله من الشيطان الرجيم)
-
-📖 دليلها: قوله تعالى: ﴿فَإِذَا قَرَأْتَ الْقُرْآنَ فَاسْتَعِذْ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ﴾ [النحل: 98]
-
-### 3. حكمها
-
-✓ ذهب جمهور العلماء إلى أنها مستحبة (سنّة وليست فرضاً)
-✓ ولا تترك بحال من الأحوال عند القراءة
-
-### 4. أحوال الإجهار والإخفاء فيها
-
-✓ يُجهر بها (يُرفع الصوت بها) في:
-- المحافل
-- مجالس التعليم
-- عند القراءة افتتاحاً إذا كان القارئ يقرأ جهراً وسط جماعة يستمعون له
-
-✓ يُخفى بها (يُسرّ بها) في:
-- الصلاة (سواء كانت جهرية أو سرية)
-- إذا كان يقرأ سراً
-- إذا كان مع أناس يقرؤون تباعاً ولم يكن هو المبتدئ بالقراءة
+:::box-green: ✓ حكمها: مندوبة (وقيل واجبة)
 
 ## ثانياً: البسملة
 
-### 1. تعريفها
+:::box-yellow: ◆ هي قول: (بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ)
 
-◆ هي قول: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ"
-
-### 2. حكمها
-
-✓ مستحبة في أوائل السور كلها ما عدا سورة التوبة (براءة)
-
-📌 حكم خاص بسورة التوبة:
-- لا تبدأ سورة التوبة بالبسملة أبداً
-- لأنها نزلت بالسيف وفضح المنافقين
-- ولم تذكر فيها البسملة
-
-## ثالثاً: أوجه الاستعاذة والبسملة عند الابتداء بسورة جديدة
-
-◆ إذا أراد القارئ البدء بقراءة سورة جديدة (غير سورة التوبة)
-- فوصل الاستعاذة بالبسملة بأول السورة له أربعة أوجه جائزة:
-
-1. قطع الجميع:
-- الوقف على الاستعاذة
-- ثم الوقف على البسملة
-- ثم الابتداء بأول السورة
-- (نفس مستقل لكل واحد منها)
-
-2. وصل الجميع:
-- وصل الاستعاذة بالبسملة بأول السورة
-- بنَفَس واحد من غير قطع
-
-3. قطع الأول ووصل الثاني والثالث:
-- الوقف على الاستعاذة
-- ثم وصل البسملة بأول السورة بنَفَس واحد
-
-4. وصل الأول برفع الثاني والبدء بالثالث:
-- وصل الاستعاذة بالبسملة والوقف عليها
-- ثم الابتداء بالسورة
-- (غير متبع بكثرة)
-
-📌 المعتمد الأسهل: الأوجه الثلاثة الأولى الشهيرة
-- قطع الجميع
-- وصل الجميع
-- قطع الأول ووصل الثاني بالثالث
-
-## رابعاً: الأوجه بين السورتين (عند الانتقال من سورة إلى أخرى)
-
-◆ بين أي سورتين في القرآن الكريم (عدا الأنفال مع براءة)
-- يجوز للقارئ ثلاثة أوجه جائزة:
-
-1. قطع الجميع:
-- الوقف على نهاية السورة الأولى
-- ثم الوقوف على البسملة
-- ثم البدء بالسورة الجديدة
-
-2. وصل الجميع:
-- وصل نهاية السورة الأولى بالبسملة بأول السورة الجديدة
-- بنَفَس واحد
-
-3. قطع الأول ووصل الثاني والثالث:
-- الوقف على نهاية السورة الأولى
-- ثم وصل البسملة ببداية السورة الجديدة
-
-⚠ الوجه الممتنع:
-- وصل آخر السورة الأولى بالبسملة ثم الوقف عليها والابتداء بالسورة الجديدة
-- لأن البسملة جُعلت لأوائل السور لا أواخرها
-
-## خامساً: جدول ملخص لأوجه الوصل
-
-### عند الابتداء بسورة جديدة (4 أوجه):
-1. قطع الجميع
-2. وصل الجميع
-3. قطع الأول ووصل الثاني والثالث
-4. وصل الأول برفع الثاني والبدء بالثالث (غير متبع بكثرة)
-
-### بين السورتين (3 أوجه):
-1. قطع الجميع
-2. وصل الجميع
-3. قطع الأول ووصل الثاني والثالث
-⚠ الوجه الممتنع: وصل آخر السورة بالبسملة ثم الوقف عليها
-
-## ⚠ تنبيهات مهمة
-
-⚠ الاستعاذة مستحبة وليست فرضاً
-⚠ البسملة مستحبة في أوائل السور ما عدا سورة التوبة
 ⚠ لا تبدأ سورة التوبة بالبسملة أبداً
-⚠ البسملة جُعلت لأوائل السور لا أواخرها
-⚠ الوجه الممتنع بين السورتين: وصل آخر السورة بالبسملة ثم الوقف عليها`,
+
+## أوجه الاستعاذة والبسملة
+
+:::tree
+- قطع الجميع: وقف على كل
+- وصل الجميع: بنفس واحد
+- قطع الأول ووصل الثاني والثالث
+- وصل الأول برفع الثاني والبدء بالثالث
+:::`,
             isBuiltin: true,
             createdAt: '2024-01-01'
         },
@@ -3062,105 +2749,45 @@
             title: 'التفخيم والترقيق',
             category: 'أحكام التجويد',
             description: 'تعريف التفخيم والترقيق, الحروف التي تفخم دائماً, والتي تقبل الوجهين',
-            content: `# التفخيم والترقيق
+            content: `:::title: التفخيم والترقيق
 
-## أولاً: تعريف التفخيم والترقيق
+## التعريفات
 
-◆ التفخيم: هو سِمَنٌ يطرأ على صوت الحرف عند النطق به
-- فيمتلئ الفم بصدى هذا الصوت
-- (يصبح صوت الحرف قوياً وضخماً)
+:::card: التفخيم | ضخامة تدخل على الصوت حتى يمتلئ الفم بصداه
 
-◆ الترقيق: هو نحولٌ يطرأ على صوت الحرف عند النطق به
-- فلا يمتلئ الفم بصدى الصوت
-- (يصبح صوت الحرف نحيفاً ورقيقاً)
+:::card: الترقيق | نحول يدخل على الصوت فلا يمتلئ الفم بصداه
 
-## ثانياً: أقسام الحروف من حيث التفخيم والترقيق
+## أقسام الحروف
 
-◆ تنقسم الحروف الهجائية إلى ثلاثة أقسام رئيسية:
+:::tree
+- مفخمة دائماً: خ ص ض غ ط ق ظ
+- ترقق وتفخم: الألف - لام الجلالة - الراء
+- مرققة دائماً: باقي الحروف
+:::
 
-### 1. حروف مفخمة دائماً
+### حروف الاستعلاء
 
-✓ وهي سبعة حروف مجموعة في جملة: (خُصَّ ضَغْطٍ قِظْ)
-✓ وتسمى "حروف الاستعلاء"
-✓ وهي: (الخاء، الصاد، الضاد، الغين، الطاء، القاف، الظاء)
+:::letter-blue: خ
+:::letter-blue: ص
+:::letter-blue: ض
+:::letter-blue: غ
+:::letter-blue: ط
+:::letter-blue: ق
+:::letter-blue: ظ
 
-◆ تنطق هذه الحروف مفخمة في جميع حالاتها (مفتوحة، مضمومة، مكسورة، أو ساكنة)
-- لكن قوة التفخيم تتأثر بالحركة
-
-#### مراتب تفخيم حروف الاستعلاء (من الأعلى إلى الأقل):
-1. المفتوح وبعده ألف
-📖 مثل: طَائِفَة، خَالِدِين
-2. المفتوح وليس بعده ألف
-📖 مثل: طَبَعَ، قَتَلَ
-3. المضموم
-📖 مثل: غُلِبَت، صُرِفَت
-4. الساكن
-📖 مثل: يَقْطَعُونَ، مَطْلَع
-5. المكسور (وهو أقل مراتب التفخيم)
-📖 مثل: صِرَاط، خِيَانَة
-- ويسمى تفخيماً نسبياً
-
-### 2. حروف ترقق تارة وتفخم تارة أخرى
-
-✓ وهي ثلاثة حروف تعتمد في حكمها على ما يحيط بها من حركات أو حروف:
-
-#### الألف اللينة (المدية)
-◆ لا توصف بتفخيم ولا ترقيق بذاتها
-◆ بل تتبع الحرف الذي قبلها:
-✓ تفخم إذا كان قبلها حرف مفخم
-📖 مثل: قَال، الصَّابِرِين
-✓ ترقق إذا كان قبلها حرف مرقق
-📖 مثل: كَان، جَاء
-
-#### لام لفظ الجلالة (الله / اللهم)
-✓ تفخم إذا سُبقت بفتح أو ضم
-📖 مثل: قَالَ اللهُ، عَبْدُ اللهِ
-✓ ترقق إذا سُبقت بكسر
-📖 مثل: بِسْمِ اللهِ، قُلِ اللَّهُمَّ
-
-#### حرف الراء (ر) وله أحكام مفصلة
-✓ تفخم الراء:
-- إذا كانت مفتوحة أو مضمومة
-📖 رَحْمَة، رُوح
-- أو ساكنة وقبلها فتح أو ضم
-📖 قَرْيَة، قُرْآن
-- أو ساكنة وقبلها كسر عارض
-- أو بعدها حرف استعلاء غير مكسور
-
-✓ ترقق الراء:
-- إذا كانت مكسورة
-📖 رِزْقاً
-- أو ساكنة وقبلها كسر أصلي وليس بعدها حرف استعلاء
-📖 فِرْعَوْن
-- أو ساكنة وقبلها ياء ساكنة عند الوقف
-📖 قَدِير، خَيْر
-
-### 3. حروف مرققة دائماً
-
-✓ وهي بقية الحروف الهجائية وتسمى "حروف الاستفال"
-✓ تشمل: (الهمزة، الباء، التاء، الثاء، الجيم، الحاء، الدال، الذال، الزاي، السين، الشين، العين، الفاء، الكاف، اللام -غير لفظ الجلالة-، الميم، النون، الهاء، الواو، الياء)
-
-⚠ يجب الانتباه لعدم تفخيم هذه الحروف إذا جاورت حرفاً مفخماً
-📖 مثل كلمة "مَخْمَصَة": يجب ترقيق الميم الأولى والثانية وتفخيم الخاء والصاد
-
-## ثالثاً: جدول ملخص لأقسام الحروف
-
-1. مفخمة دائماً: (خ، ص، ض، غ، ط، ق، ظ) — 7 حروف
-2. ترقق وتفخم: (الألف، لام لفظ الجلالة، الراء) — 3 حروف
-3. مرققة دائماً: باقي الحروف — 18 حرفاً
-
-## ⚠ تنبيهات مهمة
-
-⚠ حروف الاستعلاء مفخمة دائماً لكن بدرجات متفاوتة
-⚠ الألف تتبع ما قبلها تفخيماً وترقيقاً
-⚠ لام لفظ الجلالة تفخم بعد الفتح والضم وترقق بعد الكسر
-⚠ الراء لها حالات تفصيلية في التفخيم والترقيق
-⚠ احذر تفخيم الحروف المرققة إذا جاورت حرفاً مفخماً
+:::table
+| المرتبة | المثال |
+|---------|--------|
+| المفتوح وبعده ألف | طَائِفَة |
+| المفتوح | طَبَعَ |
+| المضموم | غُلِبَت |
+| الساكن | يَقْطَعُونَ |
+| المكسور | صِرَاط |
+:::
 
 ## 📖 من منظومة تحفة الأطفال
 
-> وَحَذَارِ تَفْخِيمَ لَفْظِ الأَلِفِ ... وَهْيَ عَنْ تَفْخِيمِهَا مُنْحَرِفَةْ
-> وَالرَّاءُ لاَ تَخْفَى إذَا مَا كُسِرَتْ ... كَذَاكَ بَعْدَ الْكَسْرِ حَيْثُ سَكَنَتْ`,
+> وَحَذَارِ تَفْخِيمَ لَفْظِ الأَلِفِ ... وَهْيَ عَنْ تَفْخِيمِهَا مُنْحَرِفَةْ`,
             isBuiltin: true,
             createdAt: '2024-01-01'
         },
@@ -3169,104 +2796,37 @@
             title: 'القلقلة',
             category: 'أحكام التجويد',
             description: 'تعريف القلقلة, حروفها, ومراتبها',
-            content: `# القلقلة
+            content: `:::title: القلقلة
 
-## أولاً: تعريف القلقلة
+## التعريف
 
-◆ لغةً: الاضطراب والتحريك
-- أي اضطراب اللسان وتحريكه عند النطق بأحد حروف القلقلة
-- مما يُصدر صوتًا قويًا للحرف
+:::card: اصطلاحاً | اضطراب الصوت عند النطق بالحرف الساكن حتى يُسمع له نبرة قوية
 
-◆ اصطلاحاً: اضطراب الصوت عند النطق بالحرف الساكن
-- حتى يُسمع له نبرة قوية
+## حروف القلقلة
 
-## ثانياً: حروف القلقلة
+:::box-blue: ✓ خمسة حروف مجموعة في: "قُطْبُ جَدٍّ"
 
-✓ خمسة حروف مجموعة في جملة: "قُطْبُ جَدٍّ"
-- القاف، الطاء، الجيم، الدال، الباء
-- (ق، ط، ج، د، ب)
+:::letter-blue: ق
+:::letter-green: ط
+:::letter-yellow: ج
+:::letter-red: د
+:::letter-purple: ب
 
-◆ مستويات حروف القلقلة:
-- أعلاها: حرف الطاء
-- أوسطها: حرف الجيم
-- أدناها: الدال، الباء، القاف
+## أنواع القلقلة
 
-◆ سبب القلقلة:
-- هذه الحروف اشتركت في كونها شديدة
-- أي أن الصوت ينحبس فيها تمامًا عند النطق
-- ومع السكون يحتاج القارئ إلى إظهارها بإحداث القلقلة
+:::tree
+- الكبرى: مشدد في آخر الكلمة
+- الوسطى: ساكن في آخر الكلمة
+- الصغرى: ساكن في وسط الكلمة
+:::
 
-## ثالثاً: الحكمة من القلقلة
-
-◆ الهدف منها: تقوية الصوت عند النطق حتى يخرج الحرف واضحًا
-
-◆ السبب:
-- حروف القلقلة يجتمع بها صفتي الجهر والشدة
-- الجهر بطبعه يمنع التنفس
-- والشدة تعوق سريان الصوت
-- مما يعني أنه بدون القلقلة يصبح نطق الحرف عسيرًا
-
-◆ الفائدة:
-- إتقان القلقلة يساعد القارئ على تحسين التلاوة
-- وضبط مخارج الحروف
-- وإعطاء القرآن حقه من الأداء الصحيح
-
-## رابعاً: شروط القلقلة
-
-⚠ لا تكون القلقلة إلا في الحرف الساكن
-- إذا كان الحرف متحركاً: لا قلقلة
-- إذا كان ساكناً: وجبت القلقلة
-
-## خامساً: أنواع القلقلة ومراتبها
-
-### 1. القلقلة الكبرى
-◆ يكون حرف القلقلة مشددًا وفي آخر الكلمة
-📖 مثل: ﴿الْحَقُّ﴾
-
-### 2. القلقلة الوسطى
-◆ يكون الحرف المقلقل في آخر الكلمة دون تشديد
-📖 مثل: ﴿رَاقٍ﴾
-
-### 3. القلقلة الصغرى
-◆ يأتي الحرف المقلقل ساكنًا في وسط الكلمة
-📖 مثل: ﴿عَدْنٍ﴾
-
-## سادساً: أمثلة تطبيقية من القرآن الكريم
-
-📖 حرف الدال:
-- ﴿وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ﴾ (الإخلاص)
-- القلقلة في كلمة "أحد" عند الوقف
-
-📖 حرف القاف:
-- ﴿اقْرَأْ كِتَابَكَ كَفَىٰ بِنَفْسِكَ الْيَوْمَ عَلَيْكَ حَسِيبًا﴾ (الإسراء: 14)
-
-📖 حرف الطاء:
-- ﴿اقْتُلُوا يُوسُفَ أَوِ اطْرَحُوهُ أَرْضًا يَخْلُ لَكُمْ وَجْهُ أَبِيكُمْ وَتَكُونُوا مِن بَعْدِهِ قَوْمًا صَالِحِينَ﴾ (يوسف: 9)
-
-📖 حرف الجيم:
-- ﴿وَالْفَجْرِ﴾ (الفجر: 1)
-
-📖 حرف الباء:
-- ﴿وَلَنَبْلُوَنَّكُم بِشَيْءٍ مِّنَ الْخَوْفِ وَالْجُوعِ وَنَقْصٍ مِّنَ الْأَمْوَالِ وَالْأَنفُسِ وَالثَّمَرَاتِ ۗ وَبَشِّرِ الصَّابِرِينَ﴾ (البقرة: 155)
-
-## سابعاً: كيفية الأداء
-
-◆ عند النطق بالحرف المقلقل:
-- يُضغط على مخرجه ثم يُطلق فجأة
-- يظهر صوت مرتفع (نبرة) يدل على القلقلة
-
-## ثامناً: جدول ملخص لمراتب القلقلة
-
-1. القلقلة الكبرى: مشدد في آخر الكلمة — ﴿الْحَقُّ﴾
-2. القلقلة الوسطى: ساكن في آخر الكلمة — ﴿رَاقٍ﴾
-3. القلقلة الصغرى: ساكن في وسط الكلمة — ﴿عَدْنٍ﴾
-
-## ⚠ تنبيهات مهمة
-
-⚠ القلقلة أقوى في الوقف منها في الوصل
-⚠ القلقلة لا تكون إلا في الحرف الساكن
-⚠ حروف القلقلة خمسة: (ق، ط، ج، د، ب)
-⚠ أعلى مراتب حروف القلقلة: الطاء، وأوسطها: الجيم، وأدناها: الدال والباء والقاف
+:::table
+| النوع | المثال |
+|-------|--------|
+| الكبرى | ﴿الْحَقُّ﴾ |
+| الوسطى | ﴿رَاقٍ﴾ |
+| الصغرى | ﴿عَدْنٍ﴾ |
+:::
 
 ## 📖 من منظومة تحفة الأطفال
 
@@ -3278,123 +2838,46 @@
             id: 'builtin_8',
             title: 'المد وأقسامه',
             category: 'أحكام التجويد',
-            description: 'تعريف المد, حروفه, وأقسامه (الأصلي والفرعي)',
-            content: `# المد وأقسامه
+            description: 'تعريف المد, حروفه, وأقسامه',
+            content: `:::title: المد وأقسامه
 
-## أولاً: تعريف المد
+## التعريف
 
-◆ لغةً: الزيادة والإطالة
-◆ اصطلاحاً: إطالة الصوت بحرف من حروف المد واللين
+:::card: اصطلاحاً | إطالة الصوت بحرف من حروف المد واللين
 
-## ثانياً: حروف المد وشروطها
+## حروف المد
 
-✓ حروف المد ثلاثة ويجمعها قوله تعالى: ﴿نُوحِيهَا﴾
+:::letter-blue: ا
+:::letter-green: و
+:::letter-yellow: ي
 
-1. الألف الساكنة المفتوح ما قبلها
-📖 مثل: قَال
+:::table
+| الحرف | الشرط | المثال |
+|-------|-------|--------|
+| الألف | مفتوح ما قبلها | قَال |
+| الواو | مضموم ما قبلها | يَقُولُ |
+| الياء | مكسور ما قبلها | قِيلَ |
+:::
 
-2. الواو الساكنة المضموم ما قبلها
-📖 مثل: يَقُولُ
+## أقسام المد
 
-3. الياء الساكنة المكسور ما قبلها
-📖 مثل: قِيلَ
+:::tree
+- المد الأصلي: حركتان
+- المد الفرعي: يتوقف على سبب
+:::
 
-## ثالثاً: أقسام المد الإجمالية
+### المد الفرعي
 
-◆ ينقسم المد إلى قسمين رئيسيين:
-
-### 1. المد الأصلي (الطبيعي)
-◆ تعريفه: ما لا تقوم ذات الحرف إلا به
-- ولا يتوقف على سبب (همز أو سكون)
-- ومقداره: حركتان
-📖 مثل: قَال، يَقُول، قِيل
-
-### 2. المد الفرعي
-◆ تعريفه: ما يتوقف على سبب (همز أو سكون)
-- وتزيد حركاته عن المد الطبيعي
-- من 2 إلى 6 حركات
-
-## رابعاً: أقسام المد الفرعي بالتفصيل
-
-### 1. المد بسبب الهمزة
-
-#### المد المتصل
-◆ تعريفه: أن يأتي حرف المد وبعده همزة في كلمة واحدة
-📖 مثل: سَمَاء، جِيءَ
-✓ حكمه: الوجوب (يمد 4 أو 5 حركات)
-
-#### المد المنفصل
-◆ تعريفه: أن يأتي حرف المد في آخر الكلمة والهمزة في أول الكلمة التي بعدها
-📖 مثل: ﴿إِنَّا أَعْطَيْنَاكَ﴾
-✓ حكمه: الجواز (يمد 2 أو 4 أو 5 حركات)
-
-#### مد البدل
-◆ تعريفه: أن تتقدم الهمزة على حرف المد في كلمة
-- وليس بعده همزة أو سكون
-📖 مثل: آمَنُوا، إِيمَانًا
-✓ حكمه: الجواز (يمد حركتين عند حفص)
-
-### 2. المد بسبب السكون
-
-#### المد العارض للسكون
-◆ تعريفه: أن يأتي بعد حرف المد سكون عارض بسبب الوقف في آخر الكلمة
-📖 مثل: الْعَالَمِين، الرَّحِيم
-✓ حكمه: الجواز (يمد 2 أو 4 أو 6 حركات)
-
-#### مد اللين
-◆ تعريفه: أن تأتي واو أو ياء ساكنة مفتوح ما قبلهما
-- وبعدهما سكون عارض للوقف
-📖 مثل: خَوْف، بَيْت
-✓ حكمه: الجواز (يمد 2 أو 4 أو 6 حركات)
-
-#### المد اللازم
-◆ تعريفه: أن يأتي بعد حرف المد سكون أصلي لازم
-- وثابت وصلاً ووقفاً
-✓ حكمه: اللزوم (يمد 6 حركات دائماً)
-
-## خامساً: أقسام المد اللازم
-
-◆ ينقسم المد اللازم إلى أربعة أقسام رئيسية:
-
-1. كلمي مثقل:
-- حرف مد بعده حرف مشدد في كلمة
-📖 مثل: الْحَاقَّة
-
-2. كلمي مخفف:
-- حرف مد بعده حرف ساكن غير مُدغم في كلمة
-📖 مثل: آلْآنَ (في موضعها بيونس)
-
-3. حرفي مثقل:
-- حرف مد في فواتح السور هجاؤه ينتهي بحرف مُدغم
-📖 مثل: الم (أصلها ألف لام ميم، تُدغم الميم في الميم)
-
-4. حرفي مخفف:
-- حرف مد في فواتح السور هجاؤه ينتهي بحرف غير مُدغم
-📖 مثل: ق، ن
-
-## سادساً: جدول ملخص لأنواع المدود ومقاديرها
-
-1. المد الأصلي (الطبيعي): حركتان — لا يتوقف على سبب
-2. المد المتصل: 4 أو 5 حركات — همزة في نفس الكلمة
-3. المد المنفصل: 2 أو 4 أو 5 حركات — همزة في كلمة أخرى
-4. مد البدل: حركتان — همزة قبل حرف المد
-5. المد العارض للسكون: 2 أو 4 أو 6 حركات — سكون عارض للوقف
-6. مد اللين: 2 أو 4 أو 6 حركات — واو أو ياء ساكنة مفتوح ما قبلها
-7. المد اللازم: 6 حركات — سكون أصلي لازم
-
-## ⚠ تنبيهات مهمة
-
-⚠ المد المتصل واللازم أطول المدود
-⚠ المد اللازم يمد 6 حركات دائماً
-⚠ المد العارض للسكون ومد اللين يجوز فيهما 2 أو 4 أو 6 حركات
-⚠ مد البدل يمد حركتين فقط عند حفص
-⚠ المد الأصلي لا يتوقف على سبب
-
-## 📖 من منظومة تحفة الأطفال
-
-> وَالمَدُّ لاَزِمٌ وَوَاجِبٌ أَتَى ... وَجَائِزٌ وَهُوَ ثَلاَثِيٌّ أَتَى
-> فَاللاَّزِمُ الْكَلمِيُّ مُثَقَّلاً ... إِنْ جَاءَ بَعْدَ حَرْفِ مَدٍّ مُدْغَمَا
-> أَوْ مُخَفَّفٌ فِي الْحُرُوفِ ... كَذَاكَ الْحَرْفِيُّ نَحْوُ (الم)`,
+:::table
+| النوع | المقدار |
+|-------|---------|
+| المتصل | 4-5 حركات |
+| المنفصل | 2-4-5 حركات |
+| العارض للسكون | 2-4-6 حركات |
+| اللازم | 6 حركات |
+| اللين | 2-4-6 حركات |
+| البدل | حركتان |
+:::`,
             isBuiltin: true,
             createdAt: '2024-01-01'
         },
@@ -3402,145 +2885,47 @@
             id: 'builtin_9',
             title: 'أحكام الوقف والابتداء',
             category: 'أحكام التجويد',
-            description: 'أقسام الوقف وعلاماته في المصحف وأحكام الابتداء',
-            content: `# أحكام الوقف والابتداء
+            description: 'أقسام الوقف وعلاماته',
+            content: `:::title: أحكام الوقف والابتداء
 
-## أولاً: تعريف الوقف والقطع والسكت والابتداء
+## التعريفات
 
-◆ الوقف لغةً: الحبس والكفّ
+:::card: الوقف | قطع الصوت على الكلمة زمناً يتنفس فيه القارئ بنية استئناف القراءة
 
-◆ الوقف اصطلاحاً: قطع الصوت على الكلمة القرآنية
-- زمناً يتنفس فيه القارئ عادةً
-- بنية استئناف القراءة (لا بنية الإعراض عنها)
+:::card: السكت | قطع الصوت دون تنفس
 
-◆ القطع: قطع القراءة بالكلية والانتقال لشأن آخر أو إنهاء التلاوة
+## أقسام الوقف
 
-◆ السكت: قطع الصوت على كلمة قرآنية
-- دون زمن يتنفس فيه القارئ
-- وبدون أن يبيح الابتداء بما بعده
+:::tree
+- الاختياري: بمحض إرادة القارئ
+- الاضطراري: بسبب ضيق نفس
+- الاختباري: لاختبار القارئ
+- الانتظاري: لجمع وجوه القراءات
+:::
 
-◆ الابتداء: الشروع في القراءة بعد وقف أو قطع
+## أقسام الوقف الاختياري
 
-## ثانياً: أقسام الوقف (بشكل عام)
+:::box-green: الوقف التام | كلام تام معناه، لم يتعلق بما بعده
 
-◆ ينقسم الوقف في التجويد إلى أربعة أقسام رئيسية:
+:::box-blue: الوقف الكافي | كلام تام معناه، تعلق بما بعده معنىً
 
-1. الوقف الاختياري:
-- أن يقصد القارئ الوقف بمحض إرادته دون عذر طارئ
+:::box-yellow: الوقف الحسن | يحسن الوقف، لا يحسن الابتداء
 
-2. الوقف الاضطراري:
-- ما يعرض للقارئ بسبب ضيق نفس، أو سعال، أو عطاس، أو نسيان
+:::box-red: الوقف القبيح | لا يجوز الوقف عليه عمداً
 
-3. الوقف الاختباري:
-- ما يكون لاختبار القارئ في بيان حكم رسم الكلمات أو نحوها
-- (كوقف من يختبر في كلمة كيف تُكتب أو تُلفظ)
+## علامات الوقف
 
-4. الوقف الانتظاري:
-- ما يقف فيه القارئ لجمع وجوه القراءات أو الروايات للآية الواحدة
-
-## ثالثاً: تفصيل أقسام الوقف الاختياري وأحكامه
-
-◆ أهم أنواع الوقف هو الوقف الاختياري
-- وينقسم إلى أربعة أقسام أساسية:
-
-### 1. الوقف التام
-
-◆ تعريفه: الوقف على كلام تام معناه في ذاته
-- ولم يتعلّق بما بعده لا لفظاً ولا معنىً
-
-✓ حكمه: يحسن الوقف عليه والابتداء بما بعده
-
-📖 مثاله:
-- الوقف على رأس الآية الأولى من سورة البقرة: ﴿ذَلِكَ الْكِتَابُ لا رَيْبَ فِيهِ﴾
-- ثم الابتداء بـ ﴿هُدًى لِلْمُتَّقِينَ﴾
-
-### 2. الوقف الكافي
-
-◆ تعريفه: الوقف على كلام تام في معناه
-- وتعلق بما بعده معنًى لا لفظاً
-- (أي ارتباط من ناحية الجملة والموضوع وليس في الإعراب)
-
-✓ حكمه: يحسن الوقف عليه والابتداء بما بعده
-
-📖 مثاله:
-- الوقف على قوله تعالى: ﴿وَسَوَاءٌ عَلَيْهِمْ أَأَنْذَرْتَهُمْ أَمْ لَمْ تُنْذِرْهُمْ لا يُؤْمِنُونَ﴾ [البقرة: 6]
-- ثم الابتداء بـ ﴿خَتَمَ اللَّهُ عَلَى قُلُوبِهِمْ﴾
-
-### 3. الوقف الحسن
-
-◆ تعريفه: الوقف على كلام أفاد معنًى يحسن السكوت عليه
-- لكنه متعلق بما بعده لفظاً ومعنىً
-- (كالارتباط بين الصفة والموصوف أو الفعل والظرف)
-
-✓ حكمه:
-- يحسن الوقف عليه
-- ولكن لا يحسن الابتداء بما بعده
-- بل يجب الابتداء بما قبله لئلا يفسد المعنى
-- إلا إذا كان رأس آية فيجوز الابتداء بها سنةً
-
-📖 مثاله:
-- الوقف على لفظ الجلالة في قوله: ﴿الْحَمْدُ لِلَّهِ﴾
-- فهو وقف حسن، لكن الابتداء بـ ﴿رَبِّ الْعَالَمِينَ﴾ أولى أو وصلها
-
-### 4. الوقف القبيح
-
-◆ تعريفه: الوقف على كلام لم يتم معناه
-- لتعلقه الشديد بما بعده لفظاً ومعنىً
-- بحيث يختل المعنى أو يفيد معنًى فاسداً أو غير مراد
-
-⚠ حكمه:
-- لا يجوز الوقف عليه عمداً
-- وإن وقَف اضطراراً وجب عليه أن يعود ويبدأ بما يصحح المعنى
-
-📖 مثاله:
-- الوقف على قوله تعالى: ﴿مَا مِنْ إِلَهٍ﴾ وسكوت القارئ
-- فهذا كفر بالمعنى والعياذ بالله
-- حتى يكمل: ﴿إِلَّا اللَّهُ﴾
-
-## رابعاً: أحكام الابتداء
-
-◆ الابتداء هو الشروع في القراءة
-- وينقسم إلى قسمين:
-
-### 1. الابتداء الجائز (الحسن)
-✓ وهو الابتداء بكلام تام مستقل في معناه
-- لا يفيد معنًى باطلاً
-- كالبداية بآية تامة أو جملة مستقلة
-
-### 2. الابتداء الممنوع (القبيح)
-⚠ وهو الابتداء بما يغير المعنى المراد
-- أو يربط الكلام بغير ما يقصده الله سبحانه وتعالى
-- كالابتداء بكلمة ﴿عَصَى﴾ دون ما قبلها في سياق قصة
-- أو نحو ذلك مما يفسد المعنى
-
-## خامساً: علامات الوقف في المصحف
-
-◆ م: وقف لازم
-◆ لا: وقف ممنوع
-◆ ج: وقف جائز
-◆ قلى: الوقف أولى
-◆ صلى: الوصل أولى
-◆ ∴ ∴: وقف المعانقة
-◆ س: سكتة لطيفة بدون تنفس
-◆ ق: وقف قبيح
-
-## سادساً: جدول ملخص لأنواع الوقف الاختياري
-
-1. الوقف التام: تام لفظاً ومعنىً — يحسن الوقف والابتداء
-2. الوقف الكافي: تام معنىً لا لفظاً — يحسن الوقف والابتداء
-3. الوقف الحسن: تام معنىً متعلق لفظاً — يحسن الوقف، لا يحسن الابتداء
-4. الوقف القبيح: غير تام — لا يجوز الوقف عليه عمداً
-
-## ⚠ تنبيهات مهمة
-
-⚠ الوقف الاختياري هو أهم أنواع الوقف
-⚠ الوقف القبيح لا يجوز عمداً، وإن وقع اضطراراً وجب العود
-⚠ الوقف الحسن يحسن الوقف عليه ولا يحسن الابتداء بما بعده
-⚠ الابتداء القبيح يغير المعنى المراد
-⚠ السكت يكون بدون تنفس بعكس الوقف
-⚠ القطع يكون بالكلية والانتقال لشأن آخر
-
-> قال النووي في المجموع: ينبغي للقارئ أن يبتدئ من أول الكلام المرتبط ويقف على آخرها`,
+:::table
+| العلامة | المعنى |
+|---------|--------|
+| م | وقف لازم |
+| لا | وقف ممنوع |
+| ج | وقف جائز |
+| قلى | الوقف أولى |
+| صلى | الوصل أولى |
+| س | سكتة لطيفة |
+:::
+`,
             isBuiltin: true,
             createdAt: '2024-01-01'
         },
@@ -3548,118 +2933,60 @@
             id: 'builtin_10',
             title: 'مخارج الحروف',
             category: 'أحكام التجويد',
-            description: 'المخارج السبعة عشرة للحروف العربية مع التفصيل',
-            content: `# مخارج الحروف
+            description: 'المخارج السبعة عشرة للحروف',
+            content: `:::title: مخارج الحروف
 
-## أولاً: تعريف المخرج
+## التعريف
 
-◆ لغةً: محل خروج الحرف
-◆ اصطلاحاً: المكان الذي ينقطع عنده صوت النطق بالحرف فيميزه عن غيره
+:::card: المخرج | المكان الذي ينقطع عنده صوت النطق بالحرف فيميزه عن غيره
 
-## ثانياً: المخارج العامة الخمسة وتفصيلها
+## المخارج العامة الخمسة
 
-◆ المخارج العامة خمسة:
-- الجوف
-- الحلق
-- اللسان
-- الشفتان
-- الخيشوم
+:::tree
+- الجوف: حروف المد
+- الحلق: 6 أحرف
+- اللسان: 18 حرفاً
+- الشفتان: 4 أحرف
+- الخيشوم: الغنة
+:::
 
-### 1. الجوف (مخرج عام واحد - مخرج مقدر)
+## الحلق
 
-◆ تعريفه: الخلاء الواقع داخل الحلق والفم
+:::table
+| المخرج | الحروف |
+|--------|--------|
+| أقصى الحلق | ء، هـ |
+| وسط الحلق | ع، ح |
+| أدنى الحلق | غ، خ |
+:::
 
-✓ الحروف الخارجة منه: حروف المد الثلاثة (الألف، الواو، الياء)
+## اللسان
 
-- الألف: ولا يكون ما قبلها إلا مفتوحاً
-📖 مثل: قَال
-- الواو المدية: ولا يكون ما قبلها إلا مضموماً
-📖 مثل: يَقُولُ
-- الياء المدية: ولا يكون ما قبلها إلا مكسوراً
-📖 مثل: قِيلَ
+:::table
+| المخرج | الحروف |
+|--------|--------|
+| أقصى اللسان | ق، ك |
+| وسط اللسان | ج، ش، ي |
+| حافة اللسان | ض، ل |
+| طرف اللسان | ن، ر، ت، د، ط، ص، ز، س، ظ، ذ، ث |
+:::
 
-### 2. الحلق (3 مخارج خاصة - 6 أحرف)
+## الشفتان
 
-✓ أقصى الحلق (من جهة الصدر):
-- يخرج منه: الهمزة والهاء (ء، هـ)
+:::table
+| المخرج | الحروف |
+|--------|--------|
+| باطن الشفة السفلى | ف |
+| ما بين الشفتين | و، ب، م |
+:::
 
-✓ وسط الحلق:
-- يخرج منه: العين والحاء (ع، ح)
+## عدد المخارج
 
-✓ أدنى الحلق (من جهة الفم):
-- يخرج منه: الغين والخاء (غ، خ)
-
-### 3. اللسان (10 مخارج خاصة - 18 حرفاً)
-
-◆ هو أعظم المخارج وأوسعها، وينقسم إلى:
-
-✓ أقصى اللسان:
-- من فوق مما يلي الحلق مع ما يحاذيه من الحنك الأعلى: القاف (ق)
-- تحت مخرج القاف قليلاً: الكاف (ك)
-
-✓ وسط اللسان:
-- مع ما يحاذيه من الحنك الأعلى: الجيم، الشين، الياء غير المدية (ج، ش، ي)
-
-✓ حافة اللسان:
-- من إحدى حافتي اللسان مع ما يحاذيه من الأضراس العليا: الضاد (ض)
-- من حافتي اللسان مع ما يحاذيه من لثة الأسنان العليا (من أدناها إلى منتهى طرفه): اللام (ل)
-
-✓ طرف اللسان:
-- تحت مخرج اللام قليلاً: النون (ن)
-- ظهره أدخل في ظهر اللسان: الراء (ر)
-- مع أصول الثنايا العليا: التاء، الدال، الطاء (ت، د، ط)
-- مع ما بين الثنايا العليا والسفلى (قريباً من السفلى): الصاد، الزاي، السين (ص، ز، س)
-- مع أطراف الثنايا العليا: الظاء، الذال، الثاء (ظ، ذ، ث)
-
-### 4. الشفتان (مخرجان خاصان - 4 أحرف)
-
-✓ باطن الشفة السفلى مع أطراف الثنايا العليا:
-- يخرج منه: الفاء (ف)
-
-✓ ما بين الشفتين معاً (بانضمامهما):
-- يخرج منه: الواو غير المدية، الباء، الميم (و، ب، م)
-
-### 5. الخيشوم (مخرج عام واحد - صوت الغنة)
-
-◆ تعريفه: التجويف الأنفي فوق التجويف الفمي
-◆ الخارج منه: صوت الغنة المركب في جسم النون والميم
-📖 مثل: إِنَّ، أَمَّ
-
-## ثالثاً: جدول ملخص للمخارج وحروفها
-
-1. الجوف: حروف المد الثلاثة (ا، و، ي)
-2. الحلق: ء، هـ، ع، ح، غ، خ
-3. اللسان: ق، ك، ج، ش، ي، ض، ل، ن، ر، ت، د، ط، ص، ز، س، ظ، ذ، ث
-4. الشفتان: ف، و، ب، م
-5. الخيشوم: الغنة (النون والميم المشددتين والمخفاة)
-
-## رابعاً: مجموع المخارج
-
-◆ 17 مخرجاً تفصيلياً:
-- الجوف: 1
-- الحلق: 3
-- اللسان: 10
-- الشفتان: 2
-- الخيشوم: 1
-
-## ⚠ تنبيهات مهمة
-
-⚠ الجوف مخرج مقدر (لا يُرى)
-⚠ الخيشوم مخرج عام لصوت الغنة
-⚠ اللسان أعظم المخارج وأوسعها
-⚠ حروف المد الثلاثة تخرج من الجوف
-⚠ عدد المخارج التفصيلية 17 مخرجاً
+:::box-yellow: ◆ 17 مخرجاً تفصيلياً
 
 ## 📖 من منظومة الجزرية
 
-> مخارج الحروف سبعة عشر ... على الذي يختاره من اختبر
-> فَأَلِفُ الْجَوْفِ وَأُخْتَاها وَهْيَ ... حُرُوفُ مَدٍّ لِلْهَوَاءِ تَنْتَهِي
-> ثُمَّ لِأَقْصَى الْحَلْقِ هَمْزٌ هَاءُ ... وَمِنْ وَسَطِهِ فَعَيْنٌ حَاءُ
-> أَدْنَاهُ غَيْنٌ خَاؤُهَا ... وَالْقَافُ أَقْصَى اللِّسَانِ فَمَا يَلِيهِ
-> وَالْكَافُ أَدْنَى ... وَالْجِيمُ وَالشِّينُ وَيَا وَالضَّادُ مِنْ حَافَتِهِ
-> وَاللاَّمُ وَالنُّونُ وَالرَّا ... وَالطَّاءُ وَالدَّالُ وَالتَّا مِنْ طَرَفِهِ
-> وَالصَّادُ وَالزَّايُ وَالسِّينُ ... وَالظَّاءُ وَالذَّالُ وَالثَّا
-> وَالْفَا وَالْبَا وَالْمِيمُ ... وَالْوَاوُ وَالْخَيْشُومُ فِيهِ غُنَّهْ`,
+> مخارج الحروف سبعة عشر ... على الذي يختاره من اختبر`,
             isBuiltin: true,
             createdAt: '2024-01-01'
         },
@@ -3667,148 +2994,48 @@
             id: 'builtin_11',
             title: 'صفات الحروف',
             category: 'أحكام التجويد',
-            description: 'الصفات اللازمة للحروف: الجهر, الهمس, الشدة, الرخاوة, وغيرها',
-            content: `# صفات الحروف
+            description: 'الصفات اللازمة للحروف',
+            content: `:::title: صفات الحروف
 
-## أولاً: تعريف الصفة
+## التعريف
 
-◆ الصفة: هي الكيفية التي تُعطى للحرف عند النطق به
-- بحيث تميزه عن غيره
+:::card: الصفة | الكيفية التي تُعطى للحرف عند النطق به بحيث تميزه عن غيره
 
-## ثانياً: فوائد معرفة صفات الحروف
+## الصفات المتضادة
 
-✓ تمييز الحروف المشتركة في نفس المخرج بعضها عن بعض
-- فمثلاً: الثاء والذال والظاء تخرج كلها من طرف اللسان وأطراف الثنايا العليا
-- ولا يُميز بينها إلا بإعطاء كل حرف حقه من الصفات
+:::table
+| الصفة | التعريف | الحروف |
+|-------|---------|--------|
+| الهمس | جريان النفس | فحثه شخص سكت |
+| الجهر | انحباس النفس | الباقي |
+| الشدة | انحباس الصوت | أجد قط بكت |
+| التوسط | اعتدال الصوت | لن عمر |
+| الرخاوة | جريان الصوت | الباقي |
+| الاستعلاء | ارتفاع اللسان | خص ضغط قظ |
+| الاستفال | انحطاط اللسان | الباقي |
+| الإطباق | إلصاق اللسان | ص، ض، ط، ظ |
+| الانفتاح | افتراق اللسان | الباقي |
+| الإذلاق | سرعة النطق | فر من لب |
+:::
 
-✓ تحسين النطق بالحروف
-- وذلك بإعطاء كل حرف حقه ومستحقه مخرجاً وصفة
+## الصفات التي لا ضد لها
 
-✓ معرفة الحروف القوية والضعيفة من حيث الصفات
-- وما يترتب على ذلك من معرفة ما يجوز إدغامه وما لا يجوز
-- وما يدغم إدغاماً كاملاً وما يدغم إدغاماً ناقصاً
-
-## ثالثاً: الصفات اللازمة والصفات العارضة
-
-◆ تنقسم الصفات إلى قسمين:
-
-### 1. الصفات اللازمة
-- هي الصفات التي من ذات الحرف لا تنفك عنه مطلقاً
-- كالاستعلاء والهمس وسائر الصفات التي نتعرض إليها
-
-### 2. الصفات العارضة
-- هي صفات مكملة للحرف تعرض له في أحوال معينة
-- ولا تؤثر في ذاته إذا انفكت عنه
-- كالتفخيم والترقيق والإدغام والمد والإخفاء وغير ذلك
-
-## رابعاً: عدد الصفات اللازمة
-
-◆ اختلف العلماء في عددها
-- وأشهر الأقوال أنها سبعة عشر صفة لازمة
-
-## خامساً: أقسام الصفات اللازمة
-
-◆ تنقسم الصفات اللازمة إلى قسمين:
-
-### 1. الصفات المتضادة
-
-◆ وهي خمس مجموعات في كل مجموعة صفتان متضادتان
-- فإذا وجدت صفة منهما في حرف امتنع عليه ضدها
-- ولا بد للحرف من أن يتصف بإحداهما
-
-✓ المجموعات الخمس:
-
-1. الهمس وضده الجهر
-2. الشدة وضدها الرخاوة وبينهما التوسط أو البينية
-3. الاستعلاء وضده الاستفال
-4. الإطباق وضده الانفتاح
-5. الإصمات وضده الإذلاق
-
-### 2. الصفات التي لا ضد لها
-
-◆ وهي سبع صفات:
-
-1. القلقلة
-2. الصفير
-3. الانحراف
-4. التفشي
-5. اللين
-6. الاستطالة
-7. التكرير
-
-📌 وأضاف بعض العلماء صفتين أخريين لا ضد لهما:
-- الخفاء
-- الغنة
-
-## سادساً: كيفية استخراج صفات حرف ما
-
-◆ ولاستخراج صفات حرف ما، نقوم أولاً باستعراض مجموعات الصفات المتعارضة
-- فنثبت للحرف أحد الصفتين
-- وبناء على هذا ينبغي أن يتصف كل حرف بخمس صفات من ذوات الأضداد
-
-◆ ثم بعد ذلك نقوم بعرضه على بقية الصفات التي لا ضد لها
-- فإن كان متصفاً بأحدها أثبتنا له هذه الصفة
-- وأضفناها إلى الخمس المتقدمة
-
-📌 هذا ولا يتصف الحرف بأقل من خمس صفات (المتضادة)
-- ولا أكثر من سبع (الخمس المتضادة مع صفتين أخريين)
-
-## سابعاً: الصفات القوية والضعيفة والمتوسطة
-
-### 1. الصفات القوية
-✓ الجهر، الشدة، الاستعلاء، الإطباق، القلقلة، الصفير، الانحراف، التفشي
-
-### 2. الصفات الضعيفة
-✓ الهمس، الرخاوة، الاستفال، الانفتاح، اللين، الخفاء
-
-### 3. الصفات المتوسطة
-✓ التوسط (بين الشدة والرخاوة)، الإصمات، الذلاقة
-
-📌 والبعض يقسم الصفات إلى قوي وضعيف
-- بجعل التوسط والذلاقة من الصفات الضعيفة
-- والإصمات من الصفات القوية
-
-## ثامناً: جدول ملخص للصفات المتضادة
-
-1. الهمس: جريان النفس عند النطق بالحرف — حروفه: فحثه شخص سكت
-2. الجهر: انحباس النفس عند النطق بالحرف — حروفه: الباقي بعد الهمس
-3. الشدة: انحباس الصوت — حروفه: أجد قط بكت
-4. التوسط: بين الشدة والرخاوة — حروفه: لن عمر
-5. الرخاوة: جريان الصوت — حروفه: الباقي بعد الشدة والتوسط
-6. الاستعلاء: ارتفاع اللسان — حروفه: خص ضغط قظ
-7. الاستفال: انخفاض اللسان — حروفه: الباقي بعد الاستعلاء
-8. الإطباق: انطباق اللسان على الحنك — حروفه: ص ض ط ظ
-9. الانفتاح: انفتاح اللسان عن الحنك — حروفه: الباقي بعد الإطباق
-10. الإذلاق: خفة الحرف — حروفه: فر من لب
-11. الإصمات: ثقل الحرف — حروفه: الباقي بعد الإذلاق
-
-## تاسعاً: جدول ملخص للصفات التي لا ضد لها
-
-1. الصفير: صفير يخرج مع الحرف — حروفه: ص، س، ز
-2. القلقلة: اضطراب الصوت — حروفه: ق، ط، ب، ج، د
-3. اللين: سهولة النطق — حروفه: و، ي الساكنتان المفتوح ما قبلهما
-4. الانحراف: انحراف الصوت — حرفه: ل، ر
-5. التكرير: ارتعاد طرف اللسان — حرفه: ر
-6. التفشي: انتشار الصوت — حرفه: ش
-7. الاستطالة: امتداد الصوت — حرفه: ض
-
-## ⚠ تنبيهات مهمة
-
-⚠ الصفات اللازمة لا تنفك عن الحرف أبداً
-⚠ الصفات العارضة تعرض للحرف في أحوال معينة
-⚠ الصفات المتضادة خمس مجموعات لا بد للحرف من واحدة من كل مجموعة
-⚠ الصفات التي لا ضد لها سبع صفات
-⚠ لا يتصف الحرف بأقل من خمس صفات ولا أكثر من سبع
+:::table
+| الصفة | الحروف |
+|-------|--------|
+| الاستطالة | ض |
+| التكرير | ر |
+| الانحراف | ل، ر |
+| الغنة | ن، م |
+| القلقلة | قُطْبُ جَدٍّ |
+| اللين | ا، و، ي |
+| الصفير | ص، س، ز |
+| التفشي | ش |
+:::
 
 ## 📖 من منظومة الجزرية
 
-> صِفَاتُهَا جَهْرٌ وَرَخْوٌ مُسْتَفِلْ ... مُنْفَتِحٌ مُصْمِتَةٌ وَالضِّدُّ قُلْ
-> وَهَمْسُهَا فَحَثَّهُ شَخْصٌ سَكَتْ ... وَشَدُّهَا أَجِدْ وَقَطْبُ جَدْ
-> وَبَيْنَ رَخْوٍ وَالشَّدِيدِ لِنْ عُمَرْ ... وَسَبْعُهَا اسْتَعْلِ خُصَّ ضَغْطٍ قِظْ
-> وَصَادُ ضَادٌ طَاءُ ظَاءٌ مُطْبَقَهْ ... وَفِرَّ مِنْ لُبِّ الْحُرُوفِ الأَلْيَقَهْ
-> صَفِيرُهَا صَادٌ وَزَايٌ سِينُ ... وَقَلْقَلٌ قُطْبُ جَدٍّ وَاللِّينُ
-> وَاوٌ وَيَا وَالانْحِرَافُ لاَمُ ... وَرَا وَتَكْرِيرٌ وَتَفَشٍّ شِينُ
-> وَالضَّادُ بِاسْتِطَالَةٍ وَالْغُنَّهْ ... وَالْخَفَا لِمَا لَمْ يُسَمَّ فِي الْهِجَا`,
+> صِفَاتُهَا جَهْرٌ وَرَخْوٌ مُسْتَفِلْ ... مُنْفَتِحٌ مُصْمِتَةٌ وَالضِّدُّ قُلْ`,
             isBuiltin: true,
             createdAt: '2024-01-01'
         },
@@ -3816,132 +3043,230 @@
             id: 'builtin_12',
             title: 'أحكام المتماثلان والمتجانسان والمتقاربان',
             category: 'أحكام التجويد',
-            description: 'أحكام التقاء الحروف: المتماثلان, المتجانسان, المتقاربان, والمتباعدان',
-            content: `# أحكام المتماثلان والمتجانسان والمتقاربان
+            description: 'أحكام التقاء الحروف',
+            content: `:::title: المتماثلان والمتجانسان والمتقاربان
 
-## أولاً: تعريفات أساسية (علاقات الحروف)
+## التعريفات
 
-◆ عند تجاور حرفين في القرآن الكريم، تنقسم علاقتهما إلى أربعة أقسام:
+:::tree
+- المتماثلان: اتفقا مخرجاً وصفة
+- المتجانسان: اتفقا مخرجاً واختلفا صفة
+- المتقاربان: تقاربا مخرجاً أو صفة
+- المتباعدان: تباعدا - الإظهار دائماً
+:::
 
-### 1. المتماثلان (المثلان)
-- هما الحرفان اللذان اتفقا مخرجاً وصفة
-- أي من جنس واحد
-📖 مثل: الباء مع الباء، الميم مع الميم
+## أقسام كل نوع
 
-### 2. المتجانسان
-- هما الحرفان اللذان اتفقا مخرجاً واختلفا صفةً
-📖 مثل: الدال والتاء، أو الطاء والتاء، أو الذال والثاء
+:::table
+| القسم | الشرط |
+|-------|-------|
+| الصغير | الأول ساكن والثاني متحرك |
+| الكبير | الحرفان متحركان |
+| المطلق | الأول متحرك والثاني ساكن |
+:::
 
-### 3. المتقاربان
-- هما الحرفان اللذان تقاربا في المخرج أو الصفة ولم يتحدا
-📖 مثل: اللام والراء، أو القاف والكاف
+## أحكام المتماثلين
 
-### 4. المتباعدان
-- هما الحرفان اللذان تباعدا مخرجاً وصفةً
-✓ حكمهما: الإظهار دائماً
+:::card: المثلان الصغير | وجوب الإدغام
+📖 ﴿فَمَا رَبِحَت تِّجَارَتُهُمْ﴾، ﴿إِذ مَّشَى﴾
 
-## ثانياً: أقسام كل نوع (الصغير، الكبير، المطلق)
+## أحكام المتجانسين
 
-◆ ينقسم كل نوع من الأنواع الثلاثة الأولى (المتماثلان، المتجانسان، المتقاربان) إلى ثلاثة أقسام بحسب حركة الحرفين (السكون والتحريك):
-
-1. الصغير: أن يكون الحرف الأول ساكناً والثاني متحركاً
-2. الكبير: أن يكون الحرفان معاً متحركين
-3. المطلق: أن يكون الحرف الأول متحركاً والثاني ساكناً
-
-## ثالثاً: أحكام الأنواع الثلاثة
-
-### 1. أحكام المتماثلين (المثلين)
-
-#### المثلان الصغير (ساكن فمتحرك)
-✓ حكمه: وجوب الإدغام عند جميع القراء
-📖 مثل: ﴿فَمَا رَبِحَت تِّجَارَتُهُمْ﴾، ﴿إِذ مَّشَى﴾
-
-⚠ يُستثنى من ذلك مسألتان تجب فيهما الإظهار:
-- إذا كان الحرف الأول حرف مد
-📖 مثل: ﴿وَقَد تَّهَدَّى﴾، ﴿فِي يَوْمٍ﴾، ﴿قَالُوا وَهُمْ﴾
-- هاء السكت في حالة الوصل
-📖 نحو: ﴿مَالِيَهْ * هَلَكَ عَنِّي سُلْطَانِيَهْ﴾ عند حفص
-
-#### المثلان الكبير والمطلق
-✓ حكمهما: الإظهار لعامة القراء
-📖 مثل: ﴿مَنَاسِكَكُمْ﴾، ﴿زَلَلْتُمْ﴾
-
-### 2. أحكام المتجانسين (الصغير)
-
-◆ هو أن يسكّن الحرف الأول ويتحرّك الثاني
-- في حرفين متفقين مخرجاً مختلفين صفةً
-
-✓ حكمه: الإدغام في مواضع مخصوصة والإظهار في الباقي
-
-📖 من أشهر أمثلة الإدغام الواجب عند حفص:
-
-- الطاء مع التاء:
-﴿فَطَاسَتْ طَائِفَةٌ﴾، ﴿أَحَطْتُ﴾
-- (إدغام ناقص لإبقاء إطباق الطاء)
-
-- التاء مع الطاء:
-﴿بِطَّتْ طَائِفَةٌ﴾، ﴿آمَنَت طَّائِفَةٌ﴾
-- (إدغام كامل)
-
-- التاء مع الدال:
-﴿أُجِيبَتْ دَعْوَتُكُمَا﴾
-
-- الدال مع التاء:
-﴿قَد تَّبَيَّنَ﴾
-
-- الباء مع الميم:
-﴿ارْكَب مَّعَنَا﴾
-- (إدغام للباء في الميم برواية حفص)
-
-### 3. أحكام المتقاربين (الصغير)
-
-◆ هو تقارب الحرفين في المخرج أو الصفة
-- الأول ساكن والثاني متحرك
-
-✓ حكمه الغالب: الإظهار
-✓ ويجب الإدغام في حالات معينة منها:
-
-- إدغام اللام الساكنة في الراء:
-📖 ﴿وَقُل رَّبِّ﴾، ﴿بَل رَّفَعَهُ﴾
-
-- إدغام القاف في الكاف:
-📖 ﴿أَلَمْ نَخْلُقكُّم﴾ في سورة المرسلات
-- (إدغام كامل أو ناقص)
-
-## رابعاً: جدول ملخص للأنواع الأربعة
-
-1. المتماثلان: اتفقا مخرجاً وصفة — حكمه: الإدغام في الصغير، الإظهار في الكبير والمطلق
-2. المتجانسان: اتفقا مخرجاً واختلفا صفةً — حكمه: الإدغام في مواضع مخصوصة
-3. المتقاربان: تقاربا مخرجاً أو صفةً — حكمه: الإظهار غالباً، والإدغام في حالات معينة
-4. المتباعدان: تباعدا مخرجاً وصفةً — حكمه: الإظهار دائماً
-
-## خامساً: جدول الأمثلة التطبيقية
-
-1. ب + ب | متماثلان صغير | إدغام | ﴿اضْرِب بِّعَصَاكَ﴾
-2. د + د | متماثلان صغير | إدغام | ﴿وَقَد دَّخَلُوا﴾
-3. د + ت | متجانسان صغير | إدغام | ﴿قَد تَّبَيَّنَ﴾
-4. ت + د | متجانسان صغير | إدغام | ﴿أُجِيبَتْ دَعْوَتُكُمَا﴾
-5. ط + ت | متجانسان صغير | إدغام ناقص | ﴿أَحَطْتُ﴾
-6. ت + ط | متجانسان صغير | إدغام كامل | ﴿آمَنَت طَّائِفَةٌ﴾
-7. ب + م | متجانسان صغير | إدغام | ﴿ارْكَب مَّعَنَا﴾
-8. ل + ر | متقاربان صغير | إدغام | ﴿وَقُل رَّبِّ﴾
-9. ق + ك | متقاربان صغير | إدغام | ﴿أَلَمْ نَخْلُقكُّم﴾
-10. ت + ع | متباعدان | إظهار | ﴿تُلِيَتْ عَلَيْهِمْ﴾
-
-## ⚠ تنبيهات مهمة
-
-⚠ المتماثلان: اتفقا مخرجاً وصفة
-⚠ المتجانسان: اتفقا مخرجاً واختلفا صفة
-⚠ المتقاربان: تقاربا مخرجاً أو صفة
-⚠ المتباعدان: تباعدا مخرجاً وصفة، وحكمهما الإظهار دائماً
-⚠ الإدغام في المتماثلين والمتجانسين والمتقاربان له شروط تفصيلية
-⚠ يُستثنى من إدغام المتماثلين: حرف المد وهاء السكت
+:::table
+| المثال | الحكم |
+|--------|-------|
+| ﴿أَحَطْتُ﴾ | إدغام ناقص |
+| ﴿آمَنَت طَّائِفَةٌ﴾ | إدغام كامل |
+| ﴿قَد تَّبَيَّنَ﴾ | إدغام |
+| ﴿ارْكَب مَّعَنَا﴾ | إدغام |
+:::
 
 ## 📖 من منظومة الجزرية
 
-> إِنْ فِي الصِّفَاتِ وَالْمَخَارِجِ اتَّفَقْ ... حَرْفَانِ فَالْمِثْلاَنِ فِيهِمَا أَحَقْ
-> وَإِنْ يَكُونَا مَخْرَجًا تَقَارَبَا ... وَفِي الصِّفَاتِ اخْتَلَفَا فَالْمُتْجَانِبَا
-> وَإِنْ يَكُونَا مَخْرَجًا تَبَاعَدَا ... وَفِي الصِّفَاتِ حُكْمُهُمَا الْإِظْهَارُ بَدَا`,
+> إِنْ فِي الصِّفَاتِ وَالْمَخَارِجِ اتَّفَقْ ... حَرْفَانِ فَالْمِثْلاَنِ فِيهِمَا أَحَقْ`,
+            isBuiltin: true,
+            createdAt: '2024-01-01'
+        },
+        {
+            id: 'builtin_13',
+            title: 'علم التجويد (مقدمة)',
+            category: 'مقدمة علم التجويد',
+            description: 'تعريف علم التجويد وحكم العمل به',
+            content: `:::title: علم التجويد
+
+## التعريف
+
+:::card: علم التجويد | علم يُعرف به كيفية النطق بالكلمات القرآنية
+
+:::box-green: ✓ فرض عين على كل مسلم ومسلمة من المكلفين عند تلاوة القرآن
+
+## فضل تعلم القرآن
+
+:::quran: ﴿الَّذِينَ آتَيْنَاهُمُ الْكِتَابَ يَتْلُونَهُ حَقَّ تِلَاوَتِهِ أُولَٰئِكَ يُؤْمِنُونَ بِهِ﴾
+
+📖 قال رسول الله ﷺ:
+> خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ`,
+            isBuiltin: true,
+            createdAt: '2024-01-01'
+        },
+        {
+            id: 'builtin_14',
+            title: 'أحكام الراء',
+            category: 'أحكام التجويد',
+            description: 'حالات تفخيم وترقيق الراء',
+            content: `:::title: أحكام الراء
+
+## حالات التفخيم
+
+:::box-red: 1. مفتوحة أو مضمومة
+📖 ﴿رَبَّنَا﴾، ﴿رُزِقْنَا﴾
+
+:::box-red: 2. ساكنة بعد فتح أو ضم
+📖 ﴿فَارْتَقِبْ﴾، ﴿الْأُمُورُ﴾
+
+:::box-red: 3. ساكنة بعد كسر أصلي وبعدها استعلاء
+📖 ﴿مِرْصَادًا﴾، ﴿فِرْقَةٍ﴾
+
+:::box-red: 4. ساكنة بعد كسر عارض
+📖 ﴿ارْجِعُوا﴾
+
+## حالات الترقيق
+
+:::box-green: 1. مكسورة
+📖 ﴿رِزْقًا﴾
+
+:::box-green: 2. ساكنة بعد ياء ساكنة
+📖 ﴿خَيْرٌ﴾، ﴿قَدِيرٌ﴾
+
+:::box-green: 3. ساكنة بعد كسر أصلي
+📖 ﴿أَنْذِرْهُمْ﴾، ﴿فِرْعَوْنَ﴾
+
+:::box-green: 4. بعدها ألف
+📖 ﴿مَجْرِيهَا﴾
+
+## جدول ملخص
+
+:::table
+| الحالة | الحكم |
+|--------|-------|
+| مفتوحة / مضمومة | تفخيم |
+| مكسورة | ترقيق |
+| ساكنة بعد فتح / ضم | تفخيم |
+| ساكنة بعد كسر أصلي | ترقيق |
+| ساكنة بعد ياء ساكنة | ترقيق |
+:::`,
+            isBuiltin: true,
+            createdAt: '2024-01-01'
+        },
+        {
+            id: 'builtin_15',
+            title: 'أحكام اللام في لفظ الجلالة',
+            category: 'أحكام التجويد',
+            description: 'تفخيم وترقيق لام لفظ الجلالة',
+            content: `:::title: أحكام اللام في لفظ الجلالة
+
+## حالات التفخيم
+
+:::box-red: 1. بعد فتحة
+📖 ﴿قَالَ اللَّهُ﴾، ﴿عَبْدُ اللَّهِ﴾
+
+:::box-red: 2. بعد ضمة
+📖 ﴿وَيَعْلَمُ اللَّهُ﴾، ﴿رَسُولُ اللَّهِ﴾
+
+## حالات الترقيق
+
+:::box-green: 1. بعد كسرة
+📖 ﴿بِسْمِ اللَّهِ﴾، ﴿قُلِ اللَّهُمَّ﴾
+
+## جدول ملخص
+
+:::table
+| الحالة | الحكم | المثال |
+|--------|-------|--------|
+| بعد فتح | تفخيم | قَالَ اللَّهُ |
+| بعد ضم | تفخيم | رَسُولُ اللَّهِ |
+| بعد كسر | ترقيق | بِسْمِ اللَّهِ |
+:::`,
+            isBuiltin: true,
+            createdAt: '2024-01-01'
+        },
+        {
+            id: 'builtin_16',
+            title: 'السكت',
+            category: 'أحكام التجويد',
+            description: 'تعريف السكت ومواضعه',
+            content: `:::title: السكت
+
+## التعريف
+
+:::card: السكت | قطع الصوت عن الكلمة زمناً يسيراً من غير تنفس
+
+:::box-blue: ✓ مقداره: حركتان
+
+## أحكامه
+
+:::box-green: ✓ واجب في أربعة مواضع
+
+:::box-yellow: ✓ جائز في موضعين
+
+## مواضع السكت الواجب
+
+:::table
+| # | الموضع | السورة |
+|---|--------|--------|
+| 1 | ﴿عِوَجًا * قَيِّمًا﴾ | الكهف: 1 |
+| 2 | ﴿مِنْ مَرْقَدِنَا * هَذَا﴾ | يس: 52 |
+| 3 | ﴿مِنْ رَاقٍ﴾ | القيامة: 27 |
+| 4 | ﴿كَلَّا * بَلْ رَانَ﴾ | المطففين: 14 |
+:::
+
+## مواضع السكت الجائز
+
+:::table
+| # | الموضع |
+|---|--------|
+| 1 | بين سورتي الأنفال وبراءة |
+| 2 | ﴿مَا أَغْنَى عَنِّي مَالِيَهْ * هَلَكَ﴾ |
+:::`,
+            isBuiltin: true,
+            createdAt: '2024-01-01'
+        },
+        {
+            id: 'builtin_17',
+            title: 'التقاء الساكنين',
+            category: 'أحكام التجويد',
+            description: 'التقاء الساكنين في كلمة وفي كلمتين',
+            content: `:::title: التقاء الساكنين
+
+## التعريف
+
+:::card: التقاء الساكنين | اجتماع حرفين ساكنين في النطق
+
+## في كلمة واحدة
+
+:::box-green: ✓ يصح الجمع في حالتين:
+
+:::card: 1. الأول حرف مد أو لين | ﴿الضَّالِّينَ﴾، ﴿عَيْنْ﴾، ﴿سِينْ﴾
+
+:::card: 2. سكون الثاني عارض للوقف | ﴿وَالْعَصْرْ﴾
+
+## في كلمتين
+
+:::card: الطريقة الأولى - إسقاط الأول | إن كان حرف مد
+📖 ﴿وَالْمُقِيمِي الصَّلَاةِ﴾ ← "وَالْمُقِيمِ الصَّلَاة"
+📖 ﴿اتَّقُوا اللَّهَ﴾ ← "اتَّقُ الله"
+
+### الطريقة الثانية: تحريك الأول
+
+:::box-blue: 1. الكسر (الأصل والأكثر)
+📖 ﴿لَمْ يَكُنِ اللَّهُ﴾، ﴿قُلِ الْحَمْدُ لِلَّهِ﴾
+
+:::box-green: 2. الضم - ميم الجماعة وواو الجماعة
+📖 ﴿وَأَنْتُمُ الْأَعْلَوْنَ﴾، ﴿وَلَا تَنسَوُا الْفَضْلَ﴾
+
+:::box-yellow: 3. الفتح - الم + لفظ الجلالة، ومِنْ + أل
+📖 ﴿الم * اللَّهُ لَا إِلَهَ إِلَّا هُوَ﴾
+📖 ﴿مِنَ الْمُؤْمِنِينَ﴾`,
             isBuiltin: true,
             createdAt: '2024-01-01'
         }
@@ -4158,12 +3483,14 @@
         tbody.innerHTML = filtered.map((s, idx) => {
             const ss = getSessionsForStudent(s.id);
             const avg = getAverageRating(ss);
+            const detailsText = s.details || s.group || '-';
+            const detailsShort = detailsText.length > 40 ? detailsText.substring(0, 40) + '...' : detailsText;
             return `
             <tr>
                 <td>${idx + 1}</td>
                 <td><a class="student-name-link" onclick="navigateTo('student-detail', ${s.id})"><i class="fas fa-user-circle"></i> ${s.name}</a></td>
                 <td>${s.level || '-'}</td>
-                <td>${s.group || '-'}</td>
+                <td style="max-width:220px; font-size:13px; color:#5a6a5a;" title="${escapeHtml(detailsText)}">${escapeHtml(detailsShort)}</td>
                 <td>${ss.length}</td>
                 <td>${avg > 0 ? getStars(avg) : '-'}</td>
                 <td class="actions-cell">
@@ -4192,12 +3519,32 @@
         const sessions = getSessionsForStudent(studentId);
         const avg = getAverageRating(sessions);
         const last = sessions.length ? sessions[0] : null;
+        const details = student.details || student.group || '';
+
         document.getElementById('studentInfoCard').innerHTML = `
             <div class="info-item"><i class="fas fa-chalkboard"></i> عدد الحصص: <span class="value">${sessions.length}</span></div>
             <div class="info-item"><i class="fas fa-star"></i> متوسط التقييم: <span class="value">${avg > 0 ? avg : '-'}</span></div>
             <div class="info-item"><i class="fas fa-clock"></i> آخر حصة: <span class="value">${last ? formatDate(last.date) : 'لا توجد'}</span></div>
             <div class="info-item"><i class="fas fa-book"></i> آخر حفظ: <span class="value">${last ? (last.memorization || '-') : '-'}</span></div>
             <div class="info-item"><i class="fas fa-undo"></i> آخر مراجعة: <span class="value">${last ? (last.review || '-') : '-'}</span></div>
+            <div class="info-item"><i class="fas fa-layer-group"></i> المستوى: <span class="value">${student.level || '-'}</span></div>
+            <div class="info-item"><i class="fas fa-calendar-alt"></i> بداية الدراسة: <span class="value">${student.startDate ? formatDate(student.startDate) : '-'}</span></div>
+        `;
+
+        // بطاقة تفاصيل الطالب
+        document.getElementById('studentDetailsCard').innerHTML = `
+            <div class="student-details-card">
+                <div class="details-header">
+                    <i class="fas fa-id-card"></i>
+                    <span>تفاصيل الطالب</span>
+                    <button class="btn btn-sm btn-primary" onclick="editStudentDetails(${student.id})" style="margin-right:auto;">
+                        <i class="fas fa-edit"></i> تعديل التفاصيل
+                    </button>
+                </div>
+                <div class="details-content">
+                    ${details ? escapeHtml(details).replace(/\n/g, '<br>') : '<span style="color:#999;font-style:italic;">لا توجد تفاصيل مسجلة لهذا الطالب بعد. اضغط "تعديل التفاصيل" لإضافة معلومات مثل: ولي الأمر، رقم الهاتف، ملاحظات، أو أي تفاصيل أخرى.</span>'}
+                </div>
+            </div>
         `;
 
         renderStudentChart(studentId);
@@ -4225,6 +3572,11 @@
                 </div>
             </div>
         `).join('');
+    }
+
+    function editStudentDetails(studentId) {
+        const s = getStudent(studentId);
+        if (s) openStudentModal(s);
     }
 
     function renderStudentChart(studentId) {
@@ -4448,6 +3800,19 @@
         document.getElementById('lessonModal').classList.add('show');
     }
 
+    function insertTemplate(text) {
+        const ta = document.getElementById('lessonContent');
+        const start = ta.selectionStart;
+        const end = ta.selectionEnd;
+        const before = ta.value.substring(0, start);
+        const after = ta.value.substring(end);
+        const sep = (before && !before.endsWith('\n\n')) ? '\n\n' : '';
+        ta.value = before + sep + text + '\n\n' + after;
+        ta.focus();
+        ta.selectionStart = ta.selectionEnd = (before + sep + text).length;
+        showToast('تم إضافة القالب', 'success');
+    }
+
     function saveLesson() {
         const id = document.getElementById('editLessonId').value;
         const title = document.getElementById('lessonTitle').value.trim();
@@ -4529,10 +3894,11 @@
     }
 
     // ============================================================
-    // MARKDOWN PARSER (WITH DECORATED LETTERS)
+    // MARKDOWN PARSER (PDF-STYLE)
     // ============================================================
     function escapeHtml(text) {
-        return text
+        if (!text) return '';
+        return String(text)
             .replace(/&/g, '&amp;')
             .replace(/</g, '&lt;')
             .replace(/>/g, '&gt;')
@@ -4555,49 +3921,197 @@
         if (!text) return '';
         const lines = text.split('\n');
         const out = [];
+        let inTable = false;
+        let tableRows = [];
+        let inTree = false;
+        let treeItems = [];
 
-        lines.forEach(rawLine => {
+        const flushTable = () => {
+            if (tableRows.length === 0) { inTable = false; return; }
+            let html = '<div class="pdf-table-wrap"><table class="pdf-table">';
+            tableRows.forEach((row, i) => {
+                const cells = row.split('|').map(c => c.trim()).filter(c => c !== '');
+                if (cells.length === 0) return;
+                const tag = i === 0 ? 'th' : 'td';
+                html += '<tr>';
+                cells.forEach(cell => {
+                    html += `<${tag}>${applyInlineMarkdown(cell)}</${tag}>`;
+                });
+                html += '</tr>';
+            });
+            html += '</table></div>';
+            out.push(html);
+            tableRows = [];
+            inTable = false;
+        };
+
+        const flushTree = () => {
+            if (treeItems.length === 0) { inTree = false; return; }
+            const colors = ['blue', 'red', 'yellow', 'green', 'purple'];
+            let html = '<div class="pdf-tree">';
+            treeItems.forEach((item, i) => {
+                const parts = item.replace(/^[-*]\s*/, '').split(':');
+                const title = parts[0]?.trim() || '';
+                const content = parts.slice(1).join(':').trim() || '';
+                const color = colors[i % colors.length];
+                html += `<div class="pdf-tree-item ${color}">
+                    <span class="tree-title">${applyInlineMarkdown(title)}</span>
+                    ${content ? `<span class="tree-content">${applyInlineMarkdown(content)}</span>` : ''}
+                </div>`;
+            });
+            html += '</div>';
+            out.push(html);
+            treeItems = [];
+            inTree = false;
+        };
+
+        for (let idx = 0; idx < lines.length; idx++) {
+            const rawLine = lines[idx];
             const line = rawLine.replace(/\r$/, '');
-            if (!line.trim()) {
-                out.push('<div style="height:10px;"></div>');
-                return;
+            const trimmed = line.trim();
+
+            if (/^:::title:\s*/.test(trimmed)) {
+                if (inTable) flushTable();
+                if (inTree) flushTree();
+                const title = trimmed.replace(/^:::title:\s*/, '');
+                out.push(`<div class="pdf-title-box">${applyInlineMarkdown(title)}</div>`);
+                continue;
             }
 
-            if (/^#\s+/.test(line)) {
-                out.push(`<div class="md-h1">${applyInlineMarkdown(line.replace(/^#\s+/, ''))}</div>`);
-                return;
+            if (/^:::letter(-red|-green|-yellow|-purple)?:\s*/.test(trimmed)) {
+                if (inTable) flushTable();
+                if (inTree) flushTree();
+                const match = trimmed.match(/^:::letter(-red|-green|-yellow|-purple)?:\s*(.+)$/);
+                if (match) {
+                    const colorClass = match[1] ? match[1].replace('-', '') : '';
+                    const letter = match[2].trim();
+                    out.push(`<div style="text-align:center;margin:12px 0;"><span class="pdf-letter-box ${colorClass}">${escapeHtml(letter)}</span></div>`);
+                }
+                continue;
             }
 
-            if (/^##\s+/.test(line)) {
-                out.push(`<div class="md-h2">${applyInlineMarkdown(line.replace(/^##\s+/, ''))}</div>`);
-                return;
+            if (/^:::box-(red|green|yellow|blue):\s*/.test(trimmed)) {
+                if (inTable) flushTable();
+                if (inTree) flushTree();
+                const match = trimmed.match(/^:::box-(red|green|yellow|blue):\s*(.+)$/);
+                if (match) {
+                    out.push(`<div class="pdf-box pdf-box-${match[1]}">${applyInlineMarkdown(match[2])}</div>`);
+                }
+                continue;
             }
 
-            if (/^###\s+/.test(line)) {
-                out.push(`<div class="md-h3">${applyInlineMarkdown(line.replace(/^###\s+/, ''))}</div>`);
-                return;
+            if (/^:::card:\s*/.test(trimmed)) {
+                if (inTable) flushTable();
+                if (inTree) flushTree();
+                const match = trimmed.match(/^:::card:\s*(.+?)(?:\s*\|\s*(.+))?$/);
+                if (match) {
+                    const label = match[1].trim();
+                    const content = match[2] ? match[2].trim() : '';
+                    out.push(`<div class="pdf-card">
+                        <div class="card-label">${applyInlineMarkdown(label)}</div>
+                        ${content ? `<div class="card-content">${applyInlineMarkdown(content)}</div>` : ''}
+                    </div>`);
+                }
+                continue;
             }
 
-            if (/^>\s?/.test(line)) {
-                out.push(`<div class="md-quote">${applyInlineMarkdown(line.replace(/^>\s?/, ''))}</div>`);
-                return;
+            if (/^:::quran:\s*/.test(trimmed)) {
+                if (inTable) flushTable();
+                if (inTree) flushTree();
+                const textQ = trimmed.replace(/^:::quran:\s*/, '');
+                out.push(`<div class="pdf-quran-example">${applyInlineMarkdown(textQ)}</div>`);
+                continue;
             }
 
-            if (/^---+\s*$/.test(line)) {
+            if (/^:::arrow\s*$/.test(trimmed)) {
+                if (inTable) flushTable();
+                if (inTree) flushTree();
+                out.push('<div class="pdf-arrow">⬇</div>');
+                continue;
+            }
+
+            if (/^:::tree\s*$/.test(trimmed)) {
+                if (inTable) flushTable();
+                inTree = true;
+                treeItems = [];
+                continue;
+            }
+
+            if (/^:::\s*$/.test(trimmed)) {
+                if (inTable) { flushTable(); continue; }
+                if (inTree) { flushTree(); continue; }
+                continue;
+            }
+
+            if (/^:::table\s*$/.test(trimmed)) {
+                if (inTree) flushTree();
+                inTable = true;
+                tableRows = [];
+                continue;
+            }
+
+            if (inTable) {
+                if (trimmed.startsWith('|')) {
+                    tableRows.push(trimmed);
+                } else if (trimmed === '') {
+                    // skip
+                } else {
+                    flushTable();
+                }
+                continue;
+            }
+
+            if (inTree) {
+                if (trimmed.startsWith('-') || trimmed.startsWith('*')) {
+                    treeItems.push(trimmed);
+                } else if (trimmed === '') {
+                    // skip
+                } else {
+                    flushTree();
+                }
+                continue;
+            }
+
+            if (!trimmed) {
+                out.push('<div style="height:8px;"></div>');
+                continue;
+            }
+
+            if (/^#\s+/.test(trimmed)) {
+                out.push(`<div class="md-h1">${applyInlineMarkdown(trimmed.replace(/^#\s+/, ''))}</div>`);
+                continue;
+            }
+
+            if (/^##\s+/.test(trimmed)) {
+                out.push(`<div class="md-h2">${applyInlineMarkdown(trimmed.replace(/^##\s+/, ''))}</div>`);
+                continue;
+            }
+
+            if (/^###\s+/.test(trimmed)) {
+                out.push(`<div class="md-h3">${applyInlineMarkdown(trimmed.replace(/^###\s+/, ''))}</div>`);
+                continue;
+            }
+
+            if (/^>\s?/.test(trimmed)) {
+                out.push(`<div class="md-quote">${applyInlineMarkdown(trimmed.replace(/^>\s?/, ''))}</div>`);
+                continue;
+            }
+
+            if (/^---+\s*$/.test(trimmed)) {
                 out.push('<hr class="md-hr">');
-                return;
+                continue;
             }
 
-            const numMatch = line.match(/^(\d+)\.\s+(.*)$/);
+            const numMatch = trimmed.match(/^(\d+)\.\s+(.*)$/);
             if (numMatch) {
                 out.push(`<div class="md-numbered"><span class="num-badge">${numMatch[1]}</span><span>${applyInlineMarkdown(numMatch[2])}</span></div>`);
-                return;
+                continue;
             }
 
-            const bulletMatch = line.match(/^[-*]\s+(.*)$/);
+            const bulletMatch = trimmed.match(/^[-*]\s+(.*)$/);
             if (bulletMatch) {
                 out.push(`<div class="md-bullet"><span class="bullet-icon">◆</span><span>${applyInlineMarkdown(bulletMatch[1])}</span></div>`);
-                return;
+                continue;
             }
 
             const symbolMap = {
@@ -4614,17 +4128,23 @@
                 '✨': { cls: 'idea', icon: '✨' }
             };
 
+            let matched = false;
             for (const sym in symbolMap) {
-                if (line.startsWith(sym)) {
-                    const rest = line.slice(sym.length).replace(/^\s+/, '');
+                if (trimmed.startsWith(sym)) {
+                    const rest = trimmed.slice(sym.length).replace(/^\s+/, '');
                     const info = symbolMap[sym];
                     out.push(`<div class="md-bullet ${info.cls}"><span class="bullet-icon">${info.icon}</span><span>${applyInlineMarkdown(rest)}</span></div>`);
-                    return;
+                    matched = true;
+                    break;
                 }
             }
+            if (matched) continue;
 
-            out.push(`<div class="md-text">${applyInlineMarkdown(line)}</div>`);
-        });
+            out.push(`<div class="md-text">${applyInlineMarkdown(trimmed)}</div>`);
+        }
+
+        if (inTable) flushTable();
+        if (inTree) flushTree();
 
         return out.join('');
     }
@@ -4650,7 +4170,6 @@
         if (content) {
             const lines = content.split('\n');
             let currentSlide = [];
-            let slideTitle = '';
             let themeIndex = 0;
 
             const pushSlide = () => {
@@ -4658,47 +4177,36 @@
                 slides.push({
                     type: 'content',
                     theme: (themeIndex % 4) + 1,
-                    title: slideTitle || `الجزء ${themeIndex + 1}`,
                     body: currentSlide.join('\n').trim()
                 });
                 themeIndex++;
                 currentSlide = [];
-                slideTitle = '';
             };
 
             lines.forEach((line) => {
                 const trimmed = line.trim();
 
                 if (/^#{1,2}\s+/.test(trimmed)) {
-                    if (currentSlide.length > 0) {
-                        pushSlide();
-                    }
-                    slideTitle = trimmed.replace(/^#{1,2}\s+/, '');
-                    currentSlide.push(trimmed);
+                    if (currentSlide.length > 0) pushSlide();
+                    currentSlide.push(line);
                     return;
                 }
 
-                if (/^###\s+/.test(trimmed)) {
-                    if (currentSlide.length > 0) {
-                        pushSlide();
-                    }
-                    slideTitle = trimmed.replace(/^###\s+/, '');
-                    currentSlide.push(trimmed);
+                if (/^:::title:/.test(trimmed)) {
+                    if (currentSlide.length > 0) pushSlide();
+                    currentSlide.push(line);
                     return;
                 }
 
-                if (!trimmed) {
-                    if (currentSlide.length >= 6) {
-                        pushSlide();
-                    } else {
-                        currentSlide.push('');
-                    }
+                if (/^:::(tree|table)\s*$/.test(trimmed)) {
+                    if (currentSlide.length > 0) pushSlide();
+                    currentSlide.push(line);
                     return;
                 }
 
                 currentSlide.push(line);
 
-                if (currentSlide.length >= 8) {
+                if (currentSlide.length >= 10) {
                     pushSlide();
                 }
             });
@@ -4708,7 +4216,6 @@
             slides.push({
                 type: 'content',
                 theme: 1,
-                title: 'مقدمة',
                 body: lesson.description
             });
         }
@@ -4839,7 +4346,6 @@
     let wbPaths = [];
     let wbRedoStack = [];
     let wbCurrentPath = null;
-    let wbBgClass = 'bg-grid';
     let wbInitialized = false;
 
     function initWhiteboard() {
@@ -4875,13 +4381,6 @@
 
         const rect = wrapper.getBoundingClientRect();
         const dpr = window.devicePixelRatio || 1;
-
-        let prevImage = null;
-        if (wbCanvas.width > 0 && wbCanvas.height > 0) {
-            try {
-                prevImage = wbCtx.getImageData(0, 0, wbCanvas.width, wbCanvas.height);
-            } catch(e) {}
-        }
 
         wbCanvas.width = rect.width * dpr;
         wbCanvas.height = rect.height * dpr;
@@ -4964,9 +4463,6 @@
         if (pts.length === 1) {
             wbCtx.arc(pts[0].x, pts[0].y, path.size / 2, 0, Math.PI * 2);
             wbCtx.fillStyle = path.color === 'eraser' ? 'rgba(0,0,0,1)' : path.color;
-            if (path.color === 'eraser') {
-                wbCtx.globalCompositeOperation = 'destination-out';
-            }
             wbCtx.fill();
         } else {
             wbCtx.moveTo(pts[0].x, pts[0].y);
@@ -5032,7 +4528,6 @@
         const wrapper = document.getElementById('wbCanvasWrapper');
         wrapper.className = 'wb-canvas-wrapper';
         if (type !== 'plain') wrapper.classList.add('bg-' + type);
-        wbBgClass = type === 'plain' ? '' : 'bg-' + type;
     }
 
     function wbSaveImage() {
@@ -5062,7 +4557,7 @@
         const wrapper = document.getElementById('wbCanvasWrapper');
         if (!document.fullscreenElement) {
             wrapper.requestFullscreen().catch(() => {
-                showToast('ملء الشاشة غير مدعوم في المتصفح ده', 'error');
+                showToast('ملء الشاشة غير مدعوم', 'error');
             });
             setTimeout(() => wbResize(), 300);
         } else {
@@ -5090,11 +4585,11 @@
             id: document.getElementById('editStudentId').value,
             name: document.getElementById('studentName').value,
             level: document.getElementById('studentLevel').value,
-            group: document.getElementById('studentGroup').value,
+            details: document.getElementById('studentDetails').value,
             startDate: document.getElementById('studentStartDate').value,
             savedAt: Date.now()
         };
-        if (draft.name || draft.level || draft.group || draft.startDate) {
+        if (draft.name || draft.level || draft.details || draft.startDate) {
             localStorage.setItem(DRAFT_KEYS.student, JSON.stringify(draft));
         }
     }
@@ -5181,9 +4676,9 @@
 
         document.getElementById('editStudentId').value = data ? data.id : (draft ? draft.id : '');
         document.getElementById('studentName').value = data ? data.name : (draft ? draft.name : '');
-        document.getElementById('studentLevel').value = data ? data.level : (draft ? draft.level : '');
-        document.getElementById('studentGroup').value = data ? data.group : (draft ? draft.group : '');
-        document.getElementById('studentStartDate').value = data ? data.startDate : (draft ? draft.startDate : '');
+        document.getElementById('studentLevel').value = data ? (data.level || '') : (draft ? draft.level : '');
+        document.getElementById('studentDetails').value = data ? (data.details || data.group || '') : (draft ? (draft.details || draft.group || '') : '');
+        document.getElementById('studentStartDate').value = data ? (data.startDate || '') : (draft ? draft.startDate : '');
         document.getElementById('studentModalTitle').innerText = data ? 'تعديل طالب' : 'إضافة طالب';
 
         if (draft) setTimeout(() => showToast('تم استرجاع ما كتبته سابقاً', 'warning'), 200);
@@ -5194,7 +4689,7 @@
         const id = document.getElementById('editStudentId').value;
         const name = document.getElementById('studentName').value.trim();
         const level = document.getElementById('studentLevel').value.trim();
-        const group = document.getElementById('studentGroup').value.trim();
+        const details = document.getElementById('studentDetails').value.trim();
         const startDate = document.getElementById('studentStartDate').value;
 
         if (!name) { showToast('يرجى إدخال اسم الطالب', 'error'); return; }
@@ -5203,14 +4698,15 @@
         if (id) {
             const idx = students.findIndex(s => s.id === parseInt(id));
             if (idx > -1) {
-                students[idx] = { ...students[idx], name, level, group, startDate };
+                students[idx] = { ...students[idx], name, level, details, startDate };
+                delete students[idx].group;
                 setStudents(students);
                 showToast('تم تحديث بيانات الطالب بنجاح', 'success');
             }
         } else {
             students.push({
                 id: getNextId(STORAGE_KEYS.nextStudentId),
-                name, level, group, startDate
+                name, level, details, startDate
             });
             setStudents(students);
             showToast('تم إضافة الطالب بنجاح', 'success');
