@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>أ. عبير هلال - نظام إدارة المحفظة</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Marhey:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="styles.css" />
+</head><body>
+<div class="app-container" id="app">
+
+<div class="toast-container" id="toastContainer"></div>
+
+<header class="header">
+<div class="logo-text"><span class="title">أ.</span> عبير <span>هلال</span></div>
+<div class="nav-links">
+<a class="active" data-page="dashboard"><i class="fas fa-home"></i> الرئيسية</a>
+<a data-page="students"><i class="fas fa-users"></i> الطلاب</a>
+<a data-page="lessons"><i class="fas fa-book-quran"></i> الدروس</a>
+<a data-page="mushaf"><i class="fas fa-quran"></i> المصحف</a>
+<a data-page="whiteboard"><i class="fas fa-chalkboard"></i> السبورة</a>
+<a data-page="all-sessions"><i class="fas fa-list-ul"></i> السجل الكامل</a>
+<button class="dark-toggle" onclick="toggleDarkMode()" title="تبديل الوضع الليلي"><i class="fas fa-moon"></i></button>
+</div>
+</header>
+
+<div class="datetime-bar" id="datetimeBar">
+<span><i class="fas fa-calendar-alt"></i> <span id="currentDate"></span></span>
+<span><i class="fas fa-clock"></i> <span id="currentTime"></span></span>
+<span><i class="fas fa-calendar-day"></i> <span id="currentDay"></span></span>
+<span style="margin-right:auto;"><i class="fas fa-user-graduate"></i> الطلاب: <span id="studentCount">0</span></span>
+<span><i class="fas fa-chalkboard"></i> الحصص: <span id="sessionCount">0</span></span>
+<span><i class="fas fa-star"></i> متوسط التقييم: <span id="avgRating">0</span></span>
+</div>
+
+<!-- DASHBOARD -->
+<div id="page-dashboard" class="page active">
+<div class="glass" style="margin-bottom:28px;">
+<h2 style="display:flex;gap:12px;align-items:center;font-size:22px;"><i class="fas fa-chart-pie" style="color:var(--primary);"></i> لوحة التحكم</h2>
+<div class="stats-grid" style="margin-top:16px;">
+<div class="stat-card"><i class="fas fa-user-graduate"></i><div class="number" id="dashStudentCount">0</div><div class="label">الطلاب</div></div>
+<div class="stat-card"><i class="fas fa-chalkboard"></i><div class="number" id="dashSessionCount">0</div><div class="label">الحصص</div></div>
+<div class="stat-card"><i class="fas fa-book-quran"></i><div class="number" id="dashLessonsCount">0</div><div class="label">الدروس</div></div>
+<div class="stat-card"><i class="fas fa-clock"></i><div class="number" id="dashLastSession">-</div><div class="label">آخر حصة</div></div>
+<div class="stat-card"><i class="fas fa-calendar-day"></i><div class="number" id="dashTodaySessions">0</div><div class="label">حصص اليوم</div></div>
+<div class="stat-card"><i class="fas fa-trophy"></i><div class="number" id="dashBestStudent">-</div><div class="label">أفضل طالب</div></div>
+<div class="stat-card"><i class="fas fa-user-plus"></i><div class="number" id="dashLatestStudent">-</div><div class="label">آخر طالب مضاف</div></div>
+<div class="stat-card"><i class="fas fa-star"></i><div class="number" id="dashAvgRating">0</div><div class="label">متوسط التقييم</div></div>
+</div>
+</div>
+<div class="glass">
+<h3 style="display:flex;gap:10px;align-items:center;font-size:19px;"><i class="fas fa-star" style="color:var(--gold);"></i> مرحباً في أ. عبير هلال</h3>
+<p style="color:var(--text-secondary); font-size:16px; margin-top:8px;">نظام إدارة المحفظة القرآنية بلمسة عصرية.</p>
+<div style="display:flex;gap:12px;margin-top:16px;flex-wrap:wrap;">
+<button class="btn btn-primary" onclick="exportJSON()"><i class="fas fa-download"></i> نسخ احتياطي (JSON)</button>
+<button class="btn btn-gold" onclick="document.getElementById('importJSONInput').click()"><i class="fas fa-upload"></i> استعادة (JSON)</button>
+<input type="file" id="importJSONInput" accept=".json" style="display:none" onchange="importJSON(event)" />
+<button class="btn btn-success" onclick="exportToExcel()"><i class="fas fa-file-excel"></i> تصدير Excel</button>
+<button class="btn btn-danger" onclick="clearAllData()"><i class="fas fa-trash"></i> مسح كل البيانات</button>
+</div>
+</div>
+</div>
+
+<!-- STUDENTS -->
+<div id="page-students" class="page">
+<div class="glass">
+<div class="section-title"><i class="fas fa-user-plus"></i> إدارة الطلاب</div>
+<div class="search-box">
+<input type="text" id="searchStudent" placeholder="🔍 ابحث باسم الطالب..." />
+<button class="btn btn-primary" onclick="openStudentModal()"><i class="fas fa-plus"></i> إضافة طالب</button>
+</div>
+<div style="overflow-x:auto;">
+<table class="student-table" id="studentsTable">
+<thead>
+<tr>
+<th>#</th><th>الاسم</th><th>المستوى</th><th>تفاصيل الطالب</th>
+<th>عدد الحصص</th><th>متوسط التقييم</th><th>الإجراءات</th>
+</tr>
+</thead>
+<tbody id="studentsTableBody"></tbody>
+</table>
+</div>
+</div>
+</div>
+
+<!-- STUDENT DETAIL -->
+<div id="page-student-detail" class="page">
+<div class="glass">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;margin-bottom:18px;gap:12px;">
+<h2 id="studentDetailName" style="display:flex;gap:12px;align-items:center;font-size:22px;"><i class="fas fa-user" style="color:var(--primary);"></i> <span></span></h2>
+<div style="display:flex;gap:10px;flex-wrap:wrap;">
+<button class="btn btn-success" onclick="openSessionModal()"><i class="fas fa-plus"></i> إضافة حصة</button>
+<button class="btn" onclick="navigateTo('students')"><i class="fas fa-arrow-right"></i> العودة</button>
+</div>
+</div>
+<div id="studentDetailsCard"></div>
+<div id="studentInfoCard" class="student-info-card"></div>
+<div class="chart-container"><canvas id="studentChart"></canvas></div>
+<div id="sessionsContainer"></div>
+</div>
+</div>
+
+<!-- LESSONS -->
+<div id="page-lessons" class="page">
+<div class="glass">
+<div class="library-hero">
+<div class="library-hero-icon"><i class="fas fa-book-quran"></i></div>
+<div class="library-hero-copy">
+<span class="library-eyebrow">أكاديمية أ. عبير هلال</span>
+<h1>مكتبة الدروس والملفات</h1>
+<p>رحلتك في تعلّم القرآن والتجويد تبدأ من هنا.</p>
+</div>
+<div class="library-hero-decoration" aria-hidden="true">۞</div>
+</div>
+
+<div class="builtin-banner" id="builtinBanner" style="display:none;">
+<i class="fas fa-star"></i>
+<span>يوجد <strong id="missingBuiltinCount">0</strong> درس أساسي غير موجود في المكتبة.</span>
+<button class="btn btn-gold btn-sm" onclick="restoreBuiltinLessons()"><i class="fas fa-undo"></i> استرجاع الدروس الأساسية</button>
+</div>
+
+<div class="stats-grid" style="margin-bottom:24px;">
+<div class="stat-card"><i class="fas fa-book"></i><div class="number" id="lessonsCount">0</div><div class="label">إجمالي الدروس</div></div>
+<div class="stat-card"><i class="fas fa-layer-group"></i><div class="number" id="lessonsCategoriesCount">0</div><div class="label">التصنيفات</div></div>
+<div class="stat-card"><i class="fas fa-star"></i><div class="number" id="lessonsBuiltinCount">0</div><div class="label">دروس أساسية</div></div>
+<div class="stat-card"><i class="fas fa-file-pdf"></i><div class="number" id="lessonsFilesCount">0</div><div class="label">ملفات مرفوعة</div></div>
+</div>
+
+<div class="search-box">
+<input type="text" id="searchLesson" placeholder="🔍 ابحث في الدروس والملفات..." />
+<select id="filterLessonCategory" class="search-box-select"><option value="">كل التصنيفات</option></select>
+<button class="btn btn-primary" onclick="openLessonModal()"><i class="fas fa-plus"></i> إضافة درس</button>
+<button class="btn btn-gold" onclick="openFileUploadModal()"><i class="fas fa-file-upload"></i> إضافة ملف</button>
+</div>
+
+<div id="lessonsContainer" class="lessons-grid"></div>
+</div>
+</div>
+
+<!-- MUSHAF -->
+<div id="page-mushaf" class="page">
+<div class="glass">
+<div class="section-title"><i class="fas fa-quran"></i> المصحف المدني</div>
+<p class="mushaf-description">القرآن الكريم بالرسم العثماني وترقيم صفحات مصحف المدينة المنورة (604 صفحة).</p>
+<div class="mushaf-toolbar">
+<label class="mushaf-control">
+<span>السورة</span>
+<select id="mushafSurahSelect" aria-label="اختر السورة" disabled>
+<option value="">جارٍ تحميل السور...</option>
+</select>
+</label>
+<label class="mushaf-control mushaf-page-control">
+<span>رقم الصفحة</span>
+<input id="mushafPageInput" type="number" min="1" max="604" value="1" aria-label="رقم الصفحة" disabled />
+</label>
+<div class="mushaf-actions">
+<button id="mushafTafsirToggle" class="btn btn-gold" type="button" aria-pressed="false" onclick="toggleMushafTafsir()" disabled><i class="fas fa-eye"></i> إظهار التفسير</button>
+<button id="mushafPrevPage" class="btn" type="button" aria-label="الصفحة السابقة" onclick="changeMushafPage(-1)" disabled><i class="fas fa-chevron-right"></i> السابقة</button>
+<button id="mushafNextPage" class="btn" type="button" aria-label="الصفحة التالية" onclick="changeMushafPage(1)" disabled>التالية <i class="fas fa-chevron-left"></i></button>
+</div>
+</div>
+<div id="mushafStatus" class="mushaf-status" role="status" aria-live="polite">سيتم تحميل المصحف عند فتح هذه الصفحة.</div>
+<div id="mushafContent" class="mushaf-page" aria-label="نص صفحة المصحف"></div>
+<p class="mushaf-attribution">التفسير الميسر — مصدر النص والتفسير: <a href="https://alquran.cloud/" target="_blank" rel="noopener noreferrer">AlQuran Cloud</a>.</p>
+</div>
+</div>
+
+<!-- WHITEBOARD -->
+<div id="page-whiteboard" class="page">
+<div class="glass">
+<div class="section-title"><i class="fas fa-chalkboard"></i> السبورة التفاعلية</div>
+<div class="whiteboard-container">
+<div class="wb-toolbar">
+<div class="wb-tool-group">
+<button class="wb-tool-btn active" id="wbPenBtn" onclick="wbSetTool('pen')" title="قلم"><i class="fas fa-pen"></i></button>
+<button class="wb-tool-btn" id="wbEraserBtn" onclick="wbSetTool('eraser')" title="ممحاة"><i class="fas fa-eraser"></i></button>
+</div>
+<div class="wb-tool-group">
+<div class="wb-color-btn active" style="background:#2C3E35;" data-color="#2C3E35" onclick="wbSetColor(this)"></div>
+<div class="wb-color-btn" style="background:#D67D95;" data-color="#D67D95" onclick="wbSetColor(this)"></div>
+<div class="wb-color-btn" style="background:#6DB8D4;" data-color="#6DB8D4" onclick="wbSetColor(this)"></div>
+<div class="wb-color-btn" style="background:#5BA88C;" data-color="#5BA88C" onclick="wbSetColor(this)"></div>
+<div class="wb-color-btn" style="background:#E8B84B;" data-color="#E8B84B" onclick="wbSetColor(this)"></div>
+<div class="wb-color-btn" style="background:#9B7BC4;" data-color="#9B7BC4" onclick="wbSetColor(this)"></div>
+<div class="wb-color-btn" style="background:#E8984B;" data-color="#E8984B" onclick="wbSetColor(this)"></div>
+<div class="wb-color-btn" style="background:#FFFFFF;border-color:#ccc;" data-color="#FFFFFF" onclick="wbSetColor(this)"></div>
+</div>
+<div class="wb-tool-group">
+<button class="wb-size-btn" onclick="wbSetSize(3, this)" title="رفيع"><span class="wb-size-dot" style="width:6px;height:6px;display:inline-block;"></span></button>
+<button class="wb-size-btn active" onclick="wbSetSize(6, this)" title="متوسط"><span class="wb-size-dot" style="width:12px;height:12px;display:inline-block;"></span></button>
+<button class="wb-size-btn" onclick="wbSetSize(12, this)" title="سميك"><span class="wb-size-dot" style="width:20px;height:20px;display:inline-block;"></span></button>
+<button class="wb-size-btn" onclick="wbSetSize(24, this)" title="سميك جداً"><span class="wb-size-dot" style="width:28px;height:28px;display:inline-block;"></span></button>
+</div>
+<div class="wb-tool-group">
+<button class="wb-tool-btn" onclick="wbUndo()" title="تراجع"><i class="fas fa-undo"></i></button>
+<button class="wb-tool-btn" onclick="wbRedo()" title="إعادة"><i class="fas fa-redo"></i></button>
+<button class="wb-tool-btn" onclick="wbClear()" title="مسح الكل"><i class="fas fa-trash"></i></button>
+</div>
+<div class="wb-tool-group">
+<button class="wb-tool-btn" onclick="wbToggleBg('grid')" title="مربعات"><i class="fas fa-th"></i></button>
+<button class="wb-tool-btn" onclick="wbToggleBg('lines')" title="أسطر"><i class="fas fa-align-justify"></i></button>
+<button class="wb-tool-btn" onclick="wbToggleBg('dark')" title="خلفية داكنة"><i class="fas fa-moon"></i></button>
+<button class="wb-tool-btn" onclick="wbToggleBg('plain')" title="خلفية بيضاء"><i class="fas fa-square"></i></button>
+</div>
+<div class="wb-tool-group">
+<button class="wb-tool-btn" onclick="wbSaveImage()" title="حفظ كصورة"><i class="fas fa-image"></i></button>
+<button class="wb-tool-btn" onclick="wbToggleFullscreen()" title="ملء الشاشة"><i class="fas fa-expand"></i></button>
+</div>
+<div class="wb-status">
+<i class="fas fa-info-circle"></i>
+<span id="wbStatusText">قلم — متوسط</span>
+</div>
+</div>
+<div class="wb-canvas-wrapper bg-grid" id="wbCanvasWrapper">
+<canvas id="whiteboardCanvas"></canvas>
+</div>
+<button class="wb-exit-fs-btn" onclick="wbToggleFullscreen()" title="خروج">
+<i class="fas fa-times"></i>
+</button>
+<div class="wb-fullscreen-toolbar">
+<button class="wb-tool-btn" onclick="wbSetTool('pen')" id="wbFsPenBtn"><i class="fas fa-pen"></i></button>
+<button class="wb-tool-btn" onclick="wbSetTool('eraser')" id="wbFsEraserBtn"><i class="fas fa-eraser"></i></button>
+<div class="wb-divider"></div>
+<div class="wb-color-btn" style="background:#2C3E35;" data-color="#2C3E35" onclick="wbSetColor(this)"></div>
+<div class="wb-color-btn" style="background:#D67D95;" data-color="#D67D95" onclick="wbSetColor(this)"></div>
+<div class="wb-color-btn" style="background:#6DB8D4;" data-color="#6DB8D4" onclick="wbSetColor(this)"></div>
+<div class="wb-color-btn" style="background:#5BA88C;" data-color="#5BA88C" onclick="wbSetColor(this)"></div>
+<div class="wb-color-btn" style="background:#E8B84B;" data-color="#E8B84B" onclick="wbSetColor(this)"></div>
+<div class="wb-divider"></div>
+<button class="wb-tool-btn" onclick="wbUndo()"><i class="fas fa-undo"></i></button>
+<button class="wb-tool-btn" onclick="wbRedo()"><i class="fas fa-redo"></i></button>
+<button class="wb-tool-btn" onclick="wbClear()"><i class="fas fa-trash"></i></button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ALL SESSIONS -->
+<div id="page-all-sessions" class="page">
+<div class="glass">
+<div class="section-title"><i class="fas fa-scroll"></i> السجل الكامل للحصص</div>
+<div class="search-box">
+<input type="text" id="searchAllSessions" placeholder="🔍 بحث في الحصص..." />
+<input type="month" id="filterSessionMonth" class="filter-input" />
+<input type="date" id="filterSessionDate" class="filter-input" />
+<button class="btn" onclick="clearSessionFilters()"><i class="fas fa-times"></i> مسح الفلاتر</button>
+<button class="btn btn-gold" onclick="exportToExcel()"><i class="fas fa-file-excel"></i> تصدير Excel</button>
+</div>
+<div class="sessions-summary" id="sessionsSummary" style="display:none;"></div>
+<div id="allSessionsContainer"></div>
+</div>
+</div>
+
+<div class="footer"><i class="fas fa-code"></i> Designed and programmed by Mohamed Ali</div>
+
+<!-- MODAL: STUDENT -->
+<div class="modal-overlay" id="studentModal">
+<div class="modal-box">
+<h2><i class="fas fa-user-edit"></i> <span id="studentModalTitle">إضافة طالب</span></h2>
+<input type="hidden" id="editStudentId" />
+<label>الاسم الكامل</label><input type="text" id="studentName" placeholder="أدخل اسم الطالب" />
+<label>المستوى</label><input type="text" id="studentLevel" placeholder="مثال: ثاني" />
+<label>تفاصيل الطالب</label>
+<textarea id="studentDetails" rows="4" placeholder="أي تفاصيل عن الطالب:&#10;- ولي الأمر&#10;- رقم الهاتف&#10;- ملاحظات"></textarea>
+<label>تاريخ بداية الدراسة</label><input type="date" id="studentStartDate" />
+<div class="modal-actions">
+<button class="btn btn-primary" onclick="saveStudent()"><i class="fas fa-save"></i> حفظ</button>
+<button class="btn" onclick="closeModal('studentModal')">إغلاق</button>
+</div>
+</div>
+</div>
+
+<!-- MODAL: LESSON -->
+<div class="modal-overlay" id="lessonModal">
+<div class="modal-box">
+<h2><i class="fas fa-book-open"></i> <span id="lessonModalTitle">إضافة درس جديد</span></h2>
+<input type="hidden" id="editLessonId" />
+<label>عنوان الدرس</label><input type="text" id="lessonTitle" placeholder="مثال: أحكام النون الساكنة" />
+<label>التصنيف</label><input type="text" id="lessonCategory" list="categoryList" placeholder="مثال: أحكام التجويد" />
+<datalist id="categoryList"></datalist>
+<label>وصف موجز</label><textarea id="lessonDescription" rows="2" placeholder="شرح مختصر للدرس..."></textarea>
+<label>المحتوى (يدعم Markdown + قوالب)</label>
+<div class="template-hints">
+<div class="tpl-label"><i class="fas fa-magic"></i> قوالب سريعة:</div>
+<button type="button" class="tpl-btn" onclick="insertTemplate(':::title: عنوان الدرس')">📘 عنوان</button>
+<button type="button" class="tpl-btn" onclick="insertTemplate(':::card: التعريف | النص هنا')">🃏 بطاقة</button>
+<button type="button" class="tpl-btn" onclick="insertTemplate(':::box-red: نص أحمر')">🔴 صندوق أحمر</button>
+<button type="button" class="tpl-btn" onclick="insertTemplate(':::box-green: نص أخضر')">🟢 صندوق أخضر</button>
+<button type="button" class="tpl-btn" onclick="insertTemplate(':::box-yellow: نص أصفر')">🟡 صندوق أصفر</button>
+<button type="button" class="tpl-btn" onclick="insertTemplate(':::box-blue: نص أزرق')">🔵 صندوق أزرق</button>
+<button type="button" class="tpl-btn" onclick="insertTemplate(':::quran: ﴿نص الآية﴾')">📖 آية</button>
+<button type="button" class="tpl-btn" onclick="insertTemplate(':::table\n| الصفة | الحروف |\n|-------|--------|\n| الهمس | فحثه شخص سكت |\n:::')">📊 جدول</button>
+</div>
+<textarea id="lessonContent" rows="12" placeholder="# عنوان الدرس&#10;&#10;## عنوان فرعي&#10;&#10;:::title: عنوان مميز&#10;&#10;:::card: التعريف | النص هنا&#10;&#10;:::box-red: تنبيه مهم&#10;&#10;:::quran: ﴿إِنَّا أَعْطَيْنَاكَ الْكَوْثَرَ﴾&#10;&#10;- نقطة عادية&#10;1. نقطة مرقمة"></textarea>
+<div class="modal-actions">
+<button class="btn btn-success" onclick="saveLesson()"><i class="fas fa-save"></i> حفظ</button>
+<button class="btn" onclick="closeModal('lessonModal')">إغلاق</button>
+</div>
+</div>
+</div>
+
+<!-- MODAL: FILE UPLOAD -->
+<div class="modal-overlay" id="fileUploadModal">
+<div class="modal-box">
+<h2><i class="fas fa-file-upload"></i> إضافة ملف جديد</h2>
+<label>اسم الملف (كما سيظهر في المكتبة)</label>
+<input type="text" id="fileDisplayName" placeholder="مثال: ملخص أحكام المدود" />
+<label>التصنيف</label>
+<input type="text" id="fileCategory" list="categoryList" placeholder="مثال: أحكام التجويد" />
+<label>وصف موجز (اختياري)</label>
+<input type="text" id="fileDescription" placeholder="وصف مختصر..." />
+<label>الملف (PDF أو صورة فقط)</label>
+<div class="file-upload-area" id="fileUploadArea" onclick="document.getElementById('fileInput').click()">
+<i class="fas fa-cloud-upload-alt"></i>
+<p>اضغط لاختيار ملف أو اسحبه هنا</p>
+<small>يدعم: PDF، JPG، PNG، GIF، WEBP (بحد أقصى 20 ميجابايت)</small>
+</div>
+<input type="file" id="fileInput" accept=".pdf,application/pdf,image/*" style="display:none" onchange="handleFileSelected(event)" />
+<div id="filePreviewInfo"></div>
+<div class="modal-actions">
+<button class="btn btn-success" onclick="saveUploadedFile()"><i class="fas fa-save"></i> حفظ الملف</button>
+<button class="btn" onclick="closeModal('fileUploadModal')">إغلاق</button>
+</div>
+</div>
+</div>
+
+<!-- MODAL: SESSION -->
+<div class="modal-overlay" id="sessionModal">
+<div class="modal-box">
+<h2><i class="fas fa-book-open"></i> <span id="sessionModalTitle">إضافة حصة جديدة</span></h2>
+<input type="hidden" id="sessionStudentId" />
+<input type="hidden" id="editSessionId" />
+<label>التاريخ</label><input type="date" id="sessionDate" />
+<div id="previousMemorizationBox" class="previous-box" style="display:none;">
+<div class="label"><i class="fas fa-history"></i><span>آخر حفظ مسجل:</span></div>
+<div class="content" id="previousMemorizationContent">-</div>
+</div>
+<label style="margin-top:16px;">الحفظ الجديد</label>
+<input type="text" id="sessionMemorization" placeholder="مقدار الحفظ الجديد" />
+<div id="previousReviewBox" class="previous-box-review" style="display:none;">
+<div class="label"><i class="fas fa-history"></i><span>آخر مراجعة مسجلة:</span></div>
+<div class="content" id="previousReviewContent">-</div>
+</div>
+<label style="margin-top:16px;">المراجعة الجديدة</label>
+<input type="text" id="sessionReview" placeholder="مقدار المراجعة الجديدة" />
+<label>التقييم (من 5)</label>
+<input type="number" id="sessionRating" min="1" max="5" placeholder="1-5" />
+<label>ملاحظات</label>
+<textarea id="sessionNotes" rows="2" placeholder="أي ملاحظات"></textarea>
+<div class="modal-actions">
+<button class="btn btn-success" onclick="saveSession()"><i class="fas fa-save"></i> حفظ</button>
+<button class="btn" onclick="closeModal('sessionModal')">إغلاق</button>
+</div>
+</div>
+</div>
+
+</div>
+
+<!-- PRESENTATION OVERLAY -->
+<div class="presentation-overlay" id="presentationOverlay">
+<button class="presentation-close" onclick="closePresentation()" title="إغلاق العرض (Esc)">
+<i class="fas fa-times"></i>
+</button>
+<div class="presentation-brand">
+<div class="brand-logo"><i class="fas fa-book-quran"></i></div>
+<div class="brand-text">
+<span class="brand-name">أ. عبير هلال</span>
+<span class="brand-sub">Quran Academy</span>
+</div>
+</div>
+<div class="presentation-progress" id="presentationProgress"></div>
+<div id="presentationSlidesContainer"></div>
+<div class="presentation-controls">
+<button onclick="prevSlide()" title="السابق"><i class="fas fa-chevron-right"></i></button>
+<span class="page-indicator" id="pageIndicator">1 / 1</span>
+<button onclick="nextSlide()" title="التالي"><i class="fas fa-chevron-left"></i></button>
+<div class="divider-ctrl"></div>
+<button onclick="toggleFullscreen()" title="ملء الشاشة"><i class="fas fa-expand"></i></button>
+</div>
+</div>
+
+<!-- FILE VIEWER OVERLAY -->
+<div class="file-viewer-overlay" id="fileViewerOverlay">
+<div class="file-viewer-box">
+<div class="file-viewer-header">
+<h3><i class="fas fa-file"></i> <span id="fileViewerTitle">عرض الملف</span></h3>
+<div class="viewer-actions">
+<button onclick="downloadCurrentFile()"><i class="fas fa-download"></i> تحميل</button>
+<button onclick="closeFileViewer()"><i class="fas fa-times"></i> إغلاق</button>
+</div>
+</div>
+<div class="file-viewer-body" id="fileViewerBody"></div>
+</div>
+</div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script src="lessons.js"></script>
+<script src="whiteboard.js"></script>
+<script src="records.js"></script>
+<script src="mushaf.js"></script>
+<script src="init.js"></script>
+</body>
+</html>
